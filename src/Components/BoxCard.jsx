@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'; // Import Link for internal navigation
 
 import treasureBox from '../assets/Treasure-chest-Box.jpg';
 import surpriseBox from '../assets/ultimate-surprise-box.jpg';
@@ -66,7 +67,8 @@ const PriceTag = styled.div`
   font-family: 'Cinzel Decorative', serif;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)` // Use Link for routing
+  display: inline-block;
   background: #FFD700; /* Gold */
   color: #4B0082; /* Royal Purple */
   font-size: 1.1rem;
@@ -78,6 +80,7 @@ const Button = styled.button`
   font-family: 'Cinzel Decorative', serif;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
+  text-decoration: none;
 
   &:hover {
     background: linear-gradient(90deg, #FFD700, #40E0D0); /* Gold to Turquoise */
@@ -85,20 +88,15 @@ const Button = styled.button`
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(64, 224, 208, 0.8); /* Turquoise Glow */
   }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 `;
 
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now",price:"199 ₹" },
-    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now",price:"499 ₹" },
-    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now",price:"999 ₹"},
-    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now",price:"1499 ₹"},
-    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now",price:"2999 ₹"},
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "199 ₹" },
+    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "499 ₹" },
+    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "999 ₹" },
+    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1499 ₹" },
+    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "2999 ₹" },
   ];
 
   return (
@@ -113,15 +111,9 @@ const BoxesSection = () => {
             <PriceContainer>
               <PriceTag>{box.price}</PriceTag>
             </PriceContainer>
-            <Button>
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdDQHuY6yZtdUqDY_DTrTFHGgEZWgGYEuVyzo3qIICuiIn47A/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {box.name}
-              </a>
-            </Button>
+            {/* Button uses Link to navigate to /shipping */}
+            <Button ><Link to="/ContactForm">{box.name}</Link></Button>
+            
           </Box>
         ))}
       </Grid>

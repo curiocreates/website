@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // Styled components for Navbar
 const Nav = styled.nav`
   display: flex;
-  height:50px;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
@@ -21,6 +22,11 @@ const Nav = styled.nav`
 const Logo = styled.h1`
   font-size: 30px;
   color: #FFD700;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const NavLinks = styled.div`
@@ -31,6 +37,11 @@ const NavLinks = styled.div`
     text-decoration: none;
     color: #FFD700;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #40E0D0; /* Turquoise hover */
+    }
   }
 
   @media (max-width: 768px) {
@@ -42,7 +53,7 @@ const NavLinks = styled.div`
     background-color: #4B0082;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 
     a {
       font-size: 1rem;
@@ -62,6 +73,18 @@ const Hamburger = styled.div`
     height: 3px;
     background-color: #FFD700;
     border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Hamburger animation */
+  &.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &.open span:nth-child(2) {
+    opacity: 0;
+  }
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 
   @media (max-width: 768px) {
@@ -77,18 +100,24 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Nav>
-      <Logo>Curiocrates</Logo>
-      <Hamburger onClick={toggleMenu}>
+      <Logo>
+        <Link to="/" onClick={closeMenu}>Curiocrates</Link>
+      </Logo>
+      <Hamburger onClick={toggleMenu} className={menuOpen ? 'open' : ''}>
         <span></span>
         <span></span>
         <span></span>
       </Hamburger>
       <NavLinks isOpen={menuOpen}>
-        <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-        <a href="#boxes" onClick={() => setMenuOpen(false)}>Boxes</a>
-        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        <Link to="/" onClick={closeMenu}>Home</Link>
+        <Link to="/Boxes" onClick={closeMenu}>Boxes</Link>
+        <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
       </NavLinks>
     </Nav>
   );
