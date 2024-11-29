@@ -82,6 +82,7 @@ const Button = styled(Link)` // Use Link for routing
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
   text-decoration: none;
 
+
   &:hover {
     background: linear-gradient(90deg, #FFD700, #40E0D0); /* Gold to Turquoise */
     color: #FFFFFF; /* White Text on Hover */
@@ -92,7 +93,7 @@ const Button = styled(Link)` // Use Link for routing
 
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "199 ₹" },
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "299 ₹" },
     { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "499 ₹" },
     { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "999 ₹" },
     { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1499 ₹" },
@@ -112,7 +113,7 @@ const BoxesSection = () => {
               <PriceTag>{box.price}</PriceTag>
             </PriceContainer>
             {/* Button uses Link to navigate to /shipping */}
-            <Button ><Link to="/ContactForm">{box.name}</Link></Button>
+            <Button ><Link style={{ textDecoration: 'none' }} to="/ContactForm">{box.name}</Link></Button>
             
           </Box>
         ))}

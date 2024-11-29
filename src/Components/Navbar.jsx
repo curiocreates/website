@@ -118,6 +118,7 @@ const Navbar = () => {
         <Link to="/" onClick={closeMenu}>Home</Link>
         <Link to="/Boxes" onClick={closeMenu}>Boxes</Link>
         <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
+        <Link to="/about" onClick={closeMenu}>About Us</Link>
       </NavLinks>
     </Nav>
   );
