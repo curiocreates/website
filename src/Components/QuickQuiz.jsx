@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
+import { useEffect } from 'react';
 
 const QuizModal = styled.div`
   position: fixed;
@@ -164,6 +165,12 @@ const QuickQuiz = ({ closeQuiz }) => {
   const [answers, setAnswers] = useState({});
   const [additionalQuestion, setAdditionalQuestion] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+    useEffect(() => {
+      const timer = setTimeout(() => setStep(0), 20000); // Show quiz after 10 seconds
+      return () => clearTimeout(timer); // Cleanup timer
+    }, []);
+  
 
   const questions = [
     { question: 'What is your name?', type: 'text', key: 'name' },

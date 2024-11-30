@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa'; // Importing React Icons for Instagram and Gmail
+import { Link } from 'react-router-dom';
 
 // Styling for the footer container
 const FooterContainer = styled.footer`
@@ -53,6 +54,9 @@ const Footer = () => {
         <p>Call us: loading...</p>
         <p>Whatsapp: Loading...</p>
         <p>Annojiguda, Hyderabad, 500088</p>
+        <Link to="/terms" style={{ color: '#FFD700', textDecoration: 'none', marginTop: '1rem', display: 'inline-block' }}>
+          Terms and Conditions
+        </Link>
       </div>
     </FooterContainer>
   );

@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import ContactForm from './Components/ContactForm';
 import AboutUs from './Components/AboutUs'; // Import the About Us component
 import QuickQuiz from './Components/QuickQuiz'; // Import the QuickQuiz component
+import TermsAndConditions from './Components/TermsAndConditions'; // Import the Terms and Conditions component
 import { AppContainer } from './AppStyles';
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
           
           {/* About Us Page */}
           <Route path="/about" element={<AboutUs />} />
+          
+          {/* Terms and Conditions Page */}
+          <Route path="/terms" element={<TermsAndConditions />} />
         </Routes>
       </AppContainer>
     </Router>

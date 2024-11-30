@@ -120,6 +120,7 @@ const Navbar = () => {
         <Link to="/Boxes" onClick={closeMenu}>Boxes</Link>
         <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
         <Link to="/about" onClick={closeMenu}>About Us</Link>
+        <Link to="/terms" onClick={closeMenu}>Terms and Conditions</Link>
       </NavLinks>
     </Nav>
   );
