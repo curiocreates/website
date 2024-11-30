@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import { Link } from 'react-router-dom';
 
 import treasureBox from '../assets/Treasure-chest-Box.jpg';
 import surpriseBox from '../assets/ultimate-surprise-box.jpg';
@@ -27,6 +27,7 @@ const Box = styled.div`
   overflow: hidden;
   text-align: center;
   padding-bottom: 1rem;
+  position: relative;
   transition: transform 0.3s ease-in-out;
 
   &:hover {
@@ -52,22 +53,28 @@ const Description = styled.p`
 `;
 
 const PriceContainer = styled.div`
-  margin: 10px 0;
+  margin: 10px ;
+  margin-top:-20px;
 `;
 
-const PriceTag = styled.div`
+const OriginalPrice = styled.div`
   display: inline-block;
-  background: linear-gradient(135deg, #FFD700, #40E0D0); /* Gold to Turquoise Gradient */
-  color: #4B0082; /* Royal Purple */
+  text-decoration: line-through;
   font-size: 1.2rem;
+  color: #A9A9A9; /* Light gray for strikethrough */
+  
+`;
+
+const DiscountedPrice = styled.div`
+  display: inline-block;
+  color: yellow; /* Royal Purple */
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
-  border-radius: 30px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle Shadow */
   font-family: 'Cinzel Decorative', serif;
 `;
 
-const Button = styled(Link)` // Use Link for routing
+const Button = styled(Link)`
   display: inline-block;
   background: #FFD700; /* Gold */
   color: #4B0082; /* Royal Purple */
@@ -82,7 +89,6 @@ const Button = styled(Link)` // Use Link for routing
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
   text-decoration: none;
 
-
   &:hover {
     background: linear-gradient(90deg, #FFD700, #40E0D0); /* Gold to Turquoise */
     color: #FFFFFF; /* White Text on Hover */
@@ -91,13 +97,41 @@ const Button = styled(Link)` // Use Link for routing
   }
 `;
 
+const HoverButton = styled.div`
+  position: absolute;
+  top: 20px; /* Positioned at the top */
+  right: 20px; /* Positioned at the right */
+  background-color: rgba(255, 215, 0, 0.8); /* Gold with transparency */
+  color: #4B0082;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  display: none;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', serif;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
+
+  &:hover {
+    background-color: #FFD700;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(64, 224, 208, 0.8);
+  }
+`;
+
+const BoxContainer = styled(Box)`
+  &:hover ${HoverButton} {
+    display: block;
+  }
+`;
+
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "299 ₹" },
-    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "499 ₹" },
-    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "999 ₹" },
-    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1499 ₹" },
-    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "2999 ₹" },
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "know what's in it" },
+    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "know what's in it" },
+    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "know what's in it" },
+    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "know what's in it" },
+    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "know what's in it" },
   ];
 
   return (
@@ -105,17 +139,21 @@ const BoxesSection = () => {
       <h2 style={{ color: "#FFD700" }}>Our Boxes</h2>
       <Grid>
         {boxes.map((box, index) => (
-          <Box key={index}>
+          <BoxContainer key={index}>
             <Image src={box.img} alt={box.title} />
             <Title>{box.title}</Title>
             <Description>{box.desc}</Description>
             <PriceContainer>
-              <PriceTag>{box.price}</PriceTag>
+              <OriginalPrice>{box.price}</OriginalPrice>
+              <DiscountedPrice>{box.discountedPrice}</DiscountedPrice>
             </PriceContainer>
-            {/* Button uses Link to navigate to /shipping */}
-            <Button ><Link style={{ textDecoration: 'none' }} to="/ContactForm">{box.name}</Link></Button>
-            
-          </Box>
+            <HoverButton>
+              <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>
+                What's in the Box?
+              </Link>
+            </HoverButton>
+            <Button to="/ContactForm">{box.name}</Button><br />
+          </BoxContainer>
         ))}
       </Grid>
     </Section>

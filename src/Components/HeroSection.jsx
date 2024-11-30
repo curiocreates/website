@@ -66,6 +66,7 @@ const Hero = () => {
     <HeroContainer id="home">
       <Heading>Welcome to Curiocrates</Heading>
       <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading>
+      
       <Button href="#boxes">Explore Now</Button>
     </HeroContainer>
   );
