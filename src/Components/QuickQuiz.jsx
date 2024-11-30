@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import emailjs from 'emailjs-com'; // Import EmailJS SDK
+import emailjs from 'emailjs-com';
 
 const QuizModal = styled.div`
   position: fixed;
@@ -30,7 +30,38 @@ const QuizContent = styled.div`
 
   @media (max-width: 600px) {
     padding: 20px;
+    margin-left:-30px;
+    margin-top:30px;
+    width: 80%;
     border-radius: 15px;
+  }
+`;
+
+const Heading = styled.h1`
+  font-size: 2.5rem;
+  color: purple;
+  margin-bottom: 20px;
+  font-weight: bold;
+`;
+
+const StartMessage = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+`;
+
+const StartButton = styled.button`
+  background: #6a0572;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #4b0251;
   }
 `;
 
@@ -80,17 +111,24 @@ const Option = styled.label`
 `;
 
 const InputBox = styled.input`
-  width: 100%;
+  width: 95%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-top: 10px;
+  
   font-size: 1rem;
   transition: border-color 0.3s ease;
 
   &:focus {
     border-color: #888;
     outline: none;
+  }
+
+  @media (max-width: 600px) {
+    
+    width: 85%;
+    
   }
 `;
 
@@ -122,44 +160,54 @@ const Button = styled.button`
 `;
 
 const QuickQuiz = ({ closeQuiz }) => {
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState({
-    name: '',
-    gender: '',
-    age: '',
-    interests: [],
-    occupation: '',
-    occasion: '',
-    email: '',
-  });
+  const [step, setStep] = useState(-1); // Start screen state
+  const [answers, setAnswers] = useState({});
+  const [additionalQuestion, setAdditionalQuestion] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const questions = [
     { question: 'What is your name?', type: 'text', key: 'name' },
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
-    { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35-44', '45-54', '55+'], type: 'radio', key: 'age' },
+    { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34','35+'], type: 'radio', key: 'age' },
     {
       question: 'What are your top interests?',
-      options: ['Technology', 'Gaming', 'Anime', 'Books', 'Beauty and Health Care', 'Fashion', 'Grooming Essentials'],
+      options: ['Tech','Fashion','Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials','Books'],
+      type: 'checkbox',
+      key: 'interests',
+    },{
+      question: 'What is your Profession?',
+      options: ['student', 'working professional', 'TFI Banisa', 'Gamer', 'Paivem kaadhu'],
       type: 'checkbox',
       key: 'interests',
     },
-    { question: 'What is your occupation?', options: ['Student', 'Professional', 'Homemaker', 'Other'], type: 'radio', key: 'occupation' },
-    { question: 'What is the occasion?', options: ['Birthday', 'Anniversary', 'Holiday', 'Just Because'], type: 'radio', key: 'occasion' },
     { question: 'What is your email?', type: 'text', key: 'email' },
   ];
 
-  const currentQuestion = questions[step];
+  const handleStart = () => setStep(0); // Transition from start screen to first question
 
-  const handleNext = () => setStep((prev) => prev + 1);
-  const handlePrevious = () => setStep((prev) => prev - 1);
+  const handleNext = () => {
+    if (additionalQuestion && step === 3) {
+      setStep('additional');
+    } else {
+      setStep((prev) => prev + 1);
+    }
+  };
 
-  const handleInputChange = (key, value) => setAnswers((prev) => ({ ...prev, [key]: value }));
+  const handleInputChange = (key, value) => {
+    setAnswers((prev) => ({ ...prev, [key]: value }));
+    if (key === 'interests' && value.includes('Anime')) {
+      setAdditionalQuestion({ question: 'What is your favorite anime?', key: 'favoriteAnime' });
+    } else if (key === 'interests' && value.includes('Gaming')) {
+      setAdditionalQuestion({ question: 'What is your favorite game?', key: 'favoriteGame' });
+    } else {
+      setAdditionalQuestion(null);
+    }
+  };
 
   const handleCheckboxChange = (key, value) => {
     setAnswers((prev) => ({
       ...prev,
-      [key]: prev[key].includes(value) ? prev[key].filter((item) => item !== value) : [...prev[key], value],
+      [key]: prev[key]?.includes(value) ? prev[key].filter((item) => item !== value) : [...(prev[key] || []), value],
     }));
   };
 
@@ -169,20 +217,19 @@ const QuickQuiz = ({ closeQuiz }) => {
       return;
     }
 
-    // Prepare the email data for EmailJS
     const emailData = {
-      service_id: 'service_edbt7zp', // Your EmailJS service ID
-      template_id: 'template_972f8sw', // Your EmailJS template ID
-      user_id: 'yjg3HZpZru2uEP3WF', // Your EmailJS user ID
+      service_id: 'service_edbt7zp',
+      template_id: 'template_972f8sw',
+      user_id: 'yjg3HZpZru2uEP3WF',
       template_params: {
-        to_email: 'curiocratessurprises@gmail.com', // Your email address to receive the data
+        to_email: 'curiocratessurprises@gmail.com',
         subject: 'QuickQuiz Submission',
         text: `QuickQuiz Data: ${JSON.stringify(answers)}`,
       },
     };
 
-    // Send the email using EmailJS API
-    emailjs.send('service_edbt7zp', 'template_972f8sw', emailData.template_params, 'yjg3HZpZru2uEP3WF')
+    emailjs
+      .send('service_edbt7zp', 'template_972f8sw', emailData.template_params, 'yjg3HZpZru2uEP3WF')
       .then(
         (response) => {
           console.log('SUCCESS!', response);
@@ -195,7 +242,21 @@ const QuickQuiz = ({ closeQuiz }) => {
       );
   };
 
+  const currentQuestion = step === 'additional' ? additionalQuestion : questions[step];
+
   if (isSubmitted) return null;
+
+  if (step === -1) {
+    return (
+      <QuizModal>
+        <QuizContent>
+          <Heading>QuickQuiz</Heading>
+          <StartMessage>Let's have a QuickQuiz!</StartMessage>
+          <StartButton onClick={handleStart}>Start</StartButton>
+        </QuizContent>
+      </QuizModal>
+    );
+  }
 
   return (
     <QuizModal>
@@ -231,18 +292,22 @@ const QuickQuiz = ({ closeQuiz }) => {
           {currentQuestion.type === 'text' && (
             <InputBox
               type="text"
-              value={answers[currentQuestion.key] || ''}
               placeholder="Type your answer here..."
+              value={answers[currentQuestion.key] || ''}
               onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
             />
           )}
         </OptionsContainer>
         <NavButtonContainer>
-          {step > 0 && <Button onClick={handlePrevious}>← Previous</Button>}
-          {step < questions.length - 1 ? (
-            <Button onClick={handleNext} disabled={!answers[currentQuestion.key]}>Next →</Button>
-          ) : (
+          <Button onClick={() => setStep((prev) => prev - 1)} disabled={step === 0}>
+            Previous
+          </Button>
+          {step === questions.length - 1 && !additionalQuestion ? (
             <Button onClick={handleSubmit}>Submit</Button>
+          ) : (
+            <Button onClick={handleNext} disabled={!answers[currentQuestion.key]}>
+              Next
+            </Button>
           )}
         </NavButtonContainer>
       </QuizContent>

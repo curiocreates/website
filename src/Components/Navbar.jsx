@@ -21,6 +21,7 @@ const Nav = styled.nav`
 
 const Logo = styled.h1`
   font-size: 30px;
+  font-family: 'Cinzel Decorative', cursive;
   color: #FFD700;
 
   a {
