@@ -127,11 +127,11 @@ const BoxContainer = styled(Box)`
 
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "know what's in it" },
-    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "know what's in it" },
-    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "know what's in it" },
-    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "know what's in it" },
-    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "know what's in it" },
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
+    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
+    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
+    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
+    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "know what's in it",click:'Click on the box to know more' },
   ];
 
   return (
@@ -146,10 +146,11 @@ const BoxesSection = () => {
             <PriceContainer>
               <OriginalPrice>{box.price}</OriginalPrice>
               <DiscountedPrice>{box.discountedPrice}</DiscountedPrice>
+              <p>{box.click}</p>
             </PriceContainer>
             <HoverButton>
               <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>
-                What's in the Box?
+                Know What's in it?
               </Link>
             </HoverButton>
             <Button to="/ContactForm">{box.name}</Button><br />
