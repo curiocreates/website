@@ -105,7 +105,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowQuiz(false);
-    }, 300000); // 5 minutes
+    }, 200000); // 5 minutes
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);

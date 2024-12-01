@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+
+
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
-import { useEffect } from 'react';
 
+// ... (styles remain unchanged)
 const QuizModal = styled.div`
   position: fixed;
   top: 0;
@@ -31,8 +33,8 @@ const QuizContent = styled.div`
 
   @media (max-width: 600px) {
     padding: 20px;
-    margin-left:-30px;
-    margin-top:30px;
+    margin-left: -30px;
+    margin-top: 30px;
     width: 80%;
     border-radius: 15px;
   }
@@ -117,7 +119,6 @@ const InputBox = styled.input`
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-top: 10px;
-  
   font-size: 1rem;
   transition: border-color 0.3s ease;
 
@@ -127,9 +128,7 @@ const InputBox = styled.input`
   }
 
   @media (max-width: 600px) {
-    
     width: 85%;
-    
   }
 `;
 
@@ -160,45 +159,30 @@ const Button = styled.button`
   }
 `;
 
+
 const QuickQuiz = ({ closeQuiz }) => {
   const [step, setStep] = useState(-1); // Start screen state
   const [answers, setAnswers] = useState({});
   const [additionalQuestion, setAdditionalQuestion] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
-    useEffect(() => {
-      const timer = setTimeout(() => setStep(0), 20000); // Show quiz after 10 seconds
-      return () => clearTimeout(timer); // Cleanup timer
-    }, []);
-  
+  useEffect(() => {
+    const timer = setTimeout(() => setStep(0), 20000); // Show quiz after 20 seconds
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
 
   const questions = [
     { question: 'What is your name?', type: 'text', key: 'name' },
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
-    { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34','35+'], type: 'radio', key: 'age' },
+    { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
     {
       question: 'What are your top interests?',
-      options: ['Tech','Fashion','Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials','Books'],
-      type: 'checkbox',
-      key: 'interests',
-    },{
-      question: 'What is your Profession?',
-      options: ['student', 'working professional', 'TFI Banisa', 'Gamer', 'Paivem kaadhu'],
+      options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],
       type: 'checkbox',
       key: 'interests',
     },
     { question: 'What is your email?', type: 'text', key: 'email' },
   ];
-
-  const handleStart = () => setStep(0); // Transition from start screen to first question
-
-  const handleNext = () => {
-    if (additionalQuestion && step === 3) {
-      setStep('additional');
-    } else {
-      setStep((prev) => prev + 1);
-    }
-  };
 
   const handleInputChange = (key, value) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
@@ -209,13 +193,6 @@ const QuickQuiz = ({ closeQuiz }) => {
     } else {
       setAdditionalQuestion(null);
     }
-  };
-
-  const handleCheckboxChange = (key, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [key]: prev[key]?.includes(value) ? prev[key].filter((item) => item !== value) : [...(prev[key] || []), value],
-    }));
   };
 
   const handleSubmit = () => {
@@ -236,34 +213,39 @@ const QuickQuiz = ({ closeQuiz }) => {
     };
 
     emailjs
-      .send('service_edbt7zp', 'template_972f8sw', emailData.template_params, 'yjg3HZpZru2uEP3WF')
-      .then(
-        (response) => {
-          console.log('SUCCESS!', response);
-          setIsSubmitted(true);
-          closeQuiz();
-        },
-        (error) => {
-          console.log('FAILED...', error);
-        }
-      );
+      .send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id)
+      .then(() => {
+        setShowThankYou(true);
+      })
+      .catch((error) => console.error('Failed to send email:', error));
   };
 
-  const currentQuestion = step === 'additional' ? additionalQuestion : questions[step];
-
-  if (isSubmitted) return null;
+  if (showThankYou) {
+    return (
+      <QuizModal>
+        <QuizContent>
+          <Heading>Thank You!</Heading>
+          <StartMessage>Thank you for your response!</StartMessage>
+          <Button onClick={closeQuiz}>Close</Button>
+        </QuizContent>
+      </QuizModal>
+    );
+  }
 
   if (step === -1) {
     return (
       <QuizModal>
         <QuizContent>
           <Heading>QuickQuiz</Heading>
+          <SkipButton onClick={closeQuiz}>Skip</SkipButton>
           <StartMessage>Let's have a QuickQuiz!</StartMessage>
-          <StartButton onClick={handleStart}>Start</StartButton>
+          <StartButton onClick={() => setStep(0)}>Start</StartButton>
         </QuizContent>
       </QuizModal>
     );
   }
+
+  const currentQuestion = step === 'additional' ? additionalQuestion : questions[step];
 
   return (
     <QuizModal>
@@ -291,7 +273,14 @@ const QuickQuiz = ({ closeQuiz }) => {
                   type="checkbox"
                   value={option}
                   checked={answers[currentQuestion.key]?.includes(option)}
-                  onChange={() => handleCheckboxChange(currentQuestion.key, option)}
+                  onChange={() =>
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [currentQuestion.key]: prev[currentQuestion.key]?.includes(option)
+                        ? prev[currentQuestion.key].filter((item) => item !== option)
+                        : [...(prev[currentQuestion.key] || []), option],
+                    }))
+                  }
                 />
                 {option}
               </Option>
@@ -312,7 +301,7 @@ const QuickQuiz = ({ closeQuiz }) => {
           {step === questions.length - 1 && !additionalQuestion ? (
             <Button onClick={handleSubmit}>Submit</Button>
           ) : (
-            <Button onClick={handleNext} disabled={!answers[currentQuestion.key]}>
+            <Button onClick={() => setStep((prev) => prev + 1)} disabled={!answers[currentQuestion.key]}>
               Next
             </Button>
           )}
