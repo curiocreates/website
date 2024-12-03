@@ -10,6 +10,7 @@ import QuickQuiz from './Components/QuickQuiz'; // Quick Quiz component
 import TermsAndConditions from './Components/TermsAndConditions'; // Terms and Conditions page
 import { AppContainer } from './AppStyles';
 import AboutBox from './Components/AboutBox'; // AboutBox component for each box detail
+import PaymentSuccess from './Components/PaymentSuccess'; // Import the PaymentSuccess component
 
 // Array of boxes with details
 const boxes = [
@@ -148,6 +149,8 @@ function App() {
           <Route path="/Boxes" element={<BoxesSection boxes={boxes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/terms" element={<TermsAndConditions />} />
+          {/* Payment Success Page */}
+          <Route path="/payment-success" element={<PaymentSuccess />} />
 
           {/* Dynamic AboutBox page for each box */}
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />

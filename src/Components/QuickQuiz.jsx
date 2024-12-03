@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 
@@ -166,16 +166,12 @@ const QuickQuiz = ({ closeQuiz }) => {
   const [additionalQuestion, setAdditionalQuestion] = useState(null);
   const [showThankYou, setShowThankYou] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setStep(0), 20000); // Show quiz after 20 seconds
-    return () => clearTimeout(timer); // Cleanup timer
-  }, []);
-
   const questions = [
     { question: 'What is your name?', type: 'text', key: 'name' },
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
     { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
-    {
+    { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'age' },
+    { question: 'What is your occasion', options: ['Birthday', 'Aniversary','Gifing someone', 'Just because of'], type: 'radio', key: 'age' },    {
       question: 'What are your top interests?',
       options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],
       type: 'checkbox',
@@ -216,16 +212,19 @@ const QuickQuiz = ({ closeQuiz }) => {
       .send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id)
       .then(() => {
         setShowThankYou(true);
+        setStep(-1); // Reset the step to hide the quiz form immediately after submission
       })
-      .catch((error) => console.error('Failed to send email:', error));
-  };
+      .catch((error) => {
+        console.error('Failed to send email:', error);
+        alert('Something went wrong! Please try again later.');
+      });  };
 
   if (showThankYou) {
     return (
       <QuizModal>
         <QuizContent>
           <Heading>Thank You!</Heading>
-          <StartMessage>Thank you for your response!</StartMessage>
+          <StartMessage>This will help us to know more about you!</StartMessage>
           <Button onClick={closeQuiz}>Close</Button>
         </QuizContent>
       </QuizModal>
@@ -238,7 +237,7 @@ const QuickQuiz = ({ closeQuiz }) => {
         <QuizContent>
           <Heading>QuickQuiz</Heading>
           <SkipButton onClick={closeQuiz}>Skip</SkipButton>
-          <StartMessage>Let's have a QuickQuiz!</StartMessage>
+          <StartMessage>Let's take a QuickQuiz to help us get to know you better!</StartMessage>
           <StartButton onClick={() => setStep(0)}>Start</StartButton>
         </QuizContent>
       </QuizModal>

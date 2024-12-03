@@ -74,7 +74,7 @@ const DiscountedPrice = styled.div`
   font-family: 'Cinzel Decorative', serif;
 `;
 
-const Button = styled(Link)`
+const Button = styled.a`
   display: inline-block;
   background: #FFD700; /* Gold */
   color: #4B0082; /* Royal Purple */
@@ -127,11 +127,11 @@ const BoxContainer = styled(Box)`
 
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
-    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
-    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
-    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "know what's in it" ,click:'Click on the box to know more'},
-    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "know what's in it",click:'Click on the box to know more' },
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/treasure-chest-box'},
+    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/ultimate-surprise-box'},
+    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/gold-premium-box'},
+    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/exclusive-custom-box'},
+    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "click here to know more",click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/premium-enigma-box'},
   ];
 
   return (
@@ -150,10 +150,12 @@ const BoxesSection = () => {
             </PriceContainer>
             <HoverButton>
               <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>
-                Know What's in it?
+                click me to know more!
               </Link>
             </HoverButton>
-            <Button to="/ContactForm">{box.name}</Button><br />
+            <Button href={box.externalLink} target="_blank" rel="noopener noreferrer">
+              {box.name}
+            </Button><br />
           </BoxContainer>
         ))}
       </Grid>
