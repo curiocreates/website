@@ -164,14 +164,14 @@ const QuickQuiz = ({ closeQuiz }) => {
   const [step, setStep] = useState(-1); // Start screen state
   const [answers, setAnswers] = useState({});
   const [additionalQuestion, setAdditionalQuestion] = useState(null);
-  const [showThankYou, setShowThankYou] = useState(false);
+  
 
   const questions = [
     { question: 'What is your name?', type: 'text', key: 'name' },
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
     { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
-    { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'age' },
-    { question: 'What is your occasion', options: ['Birthday', 'Aniversary','Gifing someone', 'Just because of'], type: 'radio', key: 'age' },    {
+    { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'Profession' },
+    { question: 'What is your occasion', options: ['Birthday', 'Aniversary','Gifing someone', 'Just because of'], type: 'radio', key: 'occasion' },    {
       question: 'What are your top interests?',
       options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],
       type: 'checkbox',
@@ -197,6 +197,8 @@ const QuickQuiz = ({ closeQuiz }) => {
       return;
     }
 
+    closeQuiz();
+
     const emailData = {
       service_id: 'service_edbt7zp',
       template_id: 'template_972f8sw',
@@ -211,7 +213,9 @@ const QuickQuiz = ({ closeQuiz }) => {
     emailjs
       .send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id)
       .then(() => {
-        setShowThankYou(true);
+        
+        
+        
         setStep(-1); // Reset the step to hide the quiz form immediately after submission
       })
       .catch((error) => {
@@ -219,17 +223,7 @@ const QuickQuiz = ({ closeQuiz }) => {
         alert('Something went wrong! Please try again later.');
       });  };
 
-  if (showThankYou) {
-    return (
-      <QuizModal>
-        <QuizContent>
-          <Heading>Thank You!</Heading>
-          <StartMessage>This will help us to know more about you!</StartMessage>
-          <Button onClick={closeQuiz}>Close</Button>
-        </QuizContent>
-      </QuizModal>
-    );
-  }
+  
 
   if (step === -1) {
     return (
@@ -298,7 +292,7 @@ const QuickQuiz = ({ closeQuiz }) => {
             Previous
           </Button>
           {step === questions.length - 1 && !additionalQuestion ? (
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button onClick={handleSubmit} >Submit</Button>
           ) : (
             <Button onClick={() => setStep((prev) => prev + 1)} disabled={!answers[currentQuestion.key]}>
               Next
