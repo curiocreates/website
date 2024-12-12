@@ -11,6 +11,7 @@ import TermsAndConditions from './Components/TermsAndConditions'; // Terms and C
 import { AppContainer } from './AppStyles';
 import AboutBox from './Components/AboutBox'; // AboutBox component for each box detail
 import PaymentSuccess from './Components/PaymentSuccess'; // Import the PaymentSuccess component
+import RefundPolicy from './Components/RefundAndCancellationsPolicy';
 
 // Array of boxes with details
 const boxes = [
@@ -161,6 +162,7 @@ function App() {
           <Route path="/Boxes" element={<BoxesSection boxes={boxes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/refunds" element={<RefundPolicy />} />
           {/* Payment Success Page */}
           <Route path="/payment-success" element={<PaymentSuccess />} />
 

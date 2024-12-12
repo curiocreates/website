@@ -181,16 +181,33 @@ const QuickQuiz = ({ closeQuiz }) => {
   ];
 
   const handleInputChange = (key, value) => {
-    setAnswers((prev) => ({ ...prev, [key]: value }));
+    setAnswers((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  
+    // Handle specific case for 'interests' containing 'Anime'
     if (key === 'interests' && value.includes('Anime')) {
       setAdditionalQuestion({ question: 'What is your favorite anime?', key: 'favoriteAnime' });
+  
+    // Handle specific case for 'interests' containing 'Gaming'
     } else if (key === 'interests' && value.includes('Gaming')) {
       setAdditionalQuestion({ question: 'What is your favorite game?', key: 'favoriteGame' });
+  
+    // Handle the case for 'occasion' containing 'Gifting Someone'
+    } else if (key === 'occasion' && value.includes('Gifting someone')) {
+      setAdditionalQuestion({
+        question: 'Please enter the recipient\'s details (name, email, address):',
+        key: 'recipientDetails'
+      });
+  
+    // Reset additional question if no specific interest is selected
     } else {
       setAdditionalQuestion(null);
     }
   };
-
+  
+  
   const handleSubmit = () => {
     if (!/\S+@\S+\.\S+/.test(answers.email)) {
       alert('Please provide a valid email.');
