@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 
 const TermsContainer = styled.div`
   padding: 2rem;
-  background-color: #FFFFFF; /* Neutral white for a clean and balanced look */
-  color: #4B0082; /* Royal Purple text color for content */
+  background-color: #FFFFFF; 
+  color: #4B0082;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
 `;
 
 const Title = styled.h1`
   text-align: center;
-  color: #FFD700; /* Gold */
+  color: #FFD700; 
   margin-bottom: 1.5rem;
 `;
 
 const SectionTitle = styled.h2`
-  color: #40E0D0; /* Turquoise */
+  color: #40E0D0;
   margin-top: 1rem;
 `;
 
@@ -34,42 +34,44 @@ const TermsAndConditions = () => {
       <Paragraph><strong>Last Updated:</strong> November 30, 2024</Paragraph>
       
       <SectionTitle>1. General Use of the Website</SectionTitle>
-      <Paragraph>1.1. This website is intended to provide users with information, interactive content, and the ability to purchase products.</Paragraph>
-      <Paragraph>1.2. Access to certain features, including the QuickQuiz and shopping functionality, may require you to provide personal information such as your email. By providing this information, you consent to its use as described in our Privacy Policy.</Paragraph>
-      <Paragraph>1.3. You agree not to misuse this website, including attempting to hack or disrupt the services provided.</Paragraph>
+      <Paragraph>1.1. This website provides interactive content and enables users to make online purchases through payment gateways like Cashfree.</Paragraph>
+      <Paragraph>1.2. By providing your personal information during transactions (such as email and payment details), you consent to its use in accordance with our Privacy Policy.</Paragraph>
+      <Paragraph>1.3. You agree not to misuse this website, including attempting to hack or disrupt services.</Paragraph>
       
       <SectionTitle>2. Products and Purchases</SectionTitle>
-      <Paragraph>2.1. <strong>Product Information:</strong> The website offers mystery boxes for sale, including the Treasure Chest Box, Ultimate Surprise Box, Gold Premium Box, Exclusive Custom Box, and Premium Enigma Box. Product images and descriptions are for illustrative purposes and may not represent the exact contents of the boxes.</Paragraph>
-      <Paragraph>2.2. <strong>Pricing and Payment:</strong> All prices are listed in Indian Rupees (₹). We reserve the right to modify prices at any time without prior notice. Payments must be made through the options provided during checkout.</Paragraph>
-      <Paragraph>2.3. <strong>Shipping and Delivery:</strong> Shipping times and costs vary based on location and box type. We are not responsible for delays caused by third-party shipping providers.</Paragraph>
-      <Paragraph>2.4. <strong>Returns and Refunds:</strong> Due to the nature of mystery boxes, refunds or exchanges are not permitted unless the product is defective. If you receive a damaged or defective item, contact us within 3 days of delivery at curiocratessurprises@gmail.com.</Paragraph>
+      <Paragraph>2.1. Our website offers various mystery boxes for sale. Prices, product details, and images are provided for illustrative purposes. Actual contents may vary.</Paragraph>
+      <Paragraph>2.2. All payments must be made through supported payment gateways such as Cashfree. You are responsible for ensuring your payment details are accurate.</Paragraph>
+      <Paragraph>2.3. Shipping costs and times may vary. We are not responsible for any third-party shipping delays.</Paragraph>
+      <Paragraph>2.4. Returns and exchanges are not allowed unless products are defective. Please contact us within 3 days if you receive a damaged item.</Paragraph>
+
+      <SectionTitle>3. Payment Terms</SectionTitle>
+      <Paragraph>3.1. All transactions are securely processed through our integrated payment gateway (Cashfree). We do not store any sensitive payment information.</Paragraph>
+      <Paragraph>3.2. If your payment fails or there are discrepancies, please report the issue immediately via our customer support at curiocratessurprises@gmail.com.</Paragraph>
       
-      <SectionTitle>3. QuickQuiz</SectionTitle>
-      <Paragraph>3.1. QuickQuiz is provided for entertainment purposes and to help us understand user preferences.</Paragraph>
-      <Paragraph>3.2. Participation is optional, and responses may be used to enhance user experience or tailor our offerings.</Paragraph>
-      <Paragraph>3.3. Your quiz responses are subject to our Privacy Policy and will not be shared with third parties without consent.</Paragraph>
-      
-      <SectionTitle>4. Privacy and Data Protection</SectionTitle>
-      <Paragraph>4.1. Personal data collected through the website, including contact forms, purchases, and quizzes, will be handled in accordance with our Privacy Policy.</Paragraph>
-      <Paragraph>4.2. You are responsible for keeping your account details secure if applicable.</Paragraph>
-      
-      <SectionTitle>5. Intellectual Property</SectionTitle>
-      <Paragraph>5.1. All content on this website, including text, images, and designs, is the intellectual property of Curiocrates unless otherwise stated.</Paragraph>
-      <Paragraph>5.2. Unauthorized reproduction, distribution, or commercial use of our content is prohibited.</Paragraph>
-      
-      <SectionTitle>6. Limitations of Liability</SectionTitle>
-      <Paragraph>6.1. The website and its content are provided "as is" without warranties of any kind.</Paragraph>
-      <Paragraph>6.2. We are not liable for any direct, indirect, or incidental damages arising from the use of this website or its services.</Paragraph>
-      
-      <SectionTitle>7. Modifications to Terms</SectionTitle>
-      <Paragraph>7.1. We reserve the right to update these Terms and Conditions at any time.</Paragraph>
-      <Paragraph>7.2. Continued use of the website after changes are posted constitutes acceptance of the new terms.</Paragraph>
-      
-      <SectionTitle>8. Governing Law</SectionTitle>
-      <Paragraph>These Terms and Conditions are governed by the laws of Andhra Pradesh and Telangana. Any disputes arising from these terms will be subject to the jurisdiction of the courts in Hyderabad, Telangana.</Paragraph>
-      
-      <SectionTitle>9. Contact Us</SectionTitle>
-      <Paragraph>For questions, concerns, or support, please visit our <Link to="/Contact" style={{ color: '#40E0D0', textDecoration: 'underline' }}>Contact Us</Link> page or reach out to us at:</Paragraph>
+      <SectionTitle>4. QuickQuiz</SectionTitle>
+      <Paragraph>4.1. Participation in the QuickQuiz is optional and helps us improve user experience. Your responses will be stored according to our Privacy Policy.</Paragraph>
+      <Paragraph>4.2. We may use quiz results to personalize our offerings, but will not share your information with third parties unless permitted.</Paragraph>
+
+      <SectionTitle>5. Privacy and Data Protection</SectionTitle>
+      <Paragraph>5.1. We respect your privacy and are committed to protecting your personal data. All information provided is processed according to our Privacy Policy.</Paragraph>
+      <Paragraph>5.2. You are responsible for maintaining the confidentiality of your account details, and you agree to notify us of any unauthorized access to your account.</Paragraph>
+
+      <SectionTitle>6. Intellectual Property</SectionTitle>
+      <Paragraph>6.1. All content on this website, including images, text, and designs, is owned by Curiocrates and is protected by intellectual property laws.</Paragraph>
+      <Paragraph>6.2. Unauthorized use or reproduction of this content is strictly prohibited.</Paragraph>
+
+      <SectionTitle>7. Limitations of Liability</SectionTitle>
+      <Paragraph>7.1. Our website and its contents are provided "as is" without any warranty of any kind, either express or implied.</Paragraph>
+      <Paragraph>7.2. We are not liable for any direct, indirect, incidental, or consequential damages arising from the use of this website or its services.</Paragraph>
+
+      <SectionTitle>8. Modifications to Terms</SectionTitle>
+      <Paragraph>8.1. We may update these Terms and Conditions at any time. Your continued use of the website after such updates implies your acceptance of the new terms.</Paragraph>
+
+      <SectionTitle>9. Governing Law and Disputes</SectionTitle>
+      <Paragraph>These Terms and Conditions are governed by the laws of Andhra Pradesh and Telangana, India. Any disputes will be resolved under the jurisdiction of the courts in Hyderabad, Telangana.</Paragraph>
+
+      <SectionTitle>10. Contact Us</SectionTitle>
+      <Paragraph>If you have any questions, please contact us via the following methods:</Paragraph>
       <Paragraph><strong>Email:</strong> curiocratessurprises@gmail.com</Paragraph>
       <Paragraph><strong>Instagram:</strong> curio_crates</Paragraph>
     </TermsContainer>
