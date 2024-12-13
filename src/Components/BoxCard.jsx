@@ -127,11 +127,11 @@ const BoxContainer = styled(Box)`
 
 const BoxesSection = () => {
   const boxes = [
-    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/treasure-chest-box'},
-    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/ultimate-surprise-box'},
-    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/gold-premium-box'},
-    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/exclusive-custom-box'},
-    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "click here to know more",click:'Click on the box to know more', externalLink: 'https://payments.cashfree.com/forms/premium-enigma-box'},
+    { img: treasureBox, title: "Treasure Chest Box", desc: "A chest full of surprises!", name: "Buy Now", price: "399 ₹", discountedPrice: "299 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://rzp.io/rzp/treasure-chest-box'},
+    { img: surpriseBox, title: "Ultimate Surprise Box", desc: "The ultimate thrill of mystery.", name: "Buy Now", price: "599 ₹", discountedPrice: "499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://rzp.io/rzp/ultimate-surprise-box'},
+    { img: goldBox, title: "Gold Premium Box", desc: "Elegance meets mystery.", name: "Buy Now", price: "1199 ₹", discountedPrice: "999 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://rzp.io/rzp/gold-premium-box'},
+    { img: customBox, title: "Exclusive Custom Box", desc: "Personalized just for you.", name: "Buy Now", price: "1799 ₹", discountedPrice: "1499 ₹", about: "click here to know more" ,click:'Click on the box to know more', externalLink: 'https://rzp.io/rzp/exclusive-custom-box'},
+    { img: enigmaBox, title: "Premium Enigma Box", desc: "The enigma awaits.", name: "Buy Now", price: "3599 ₹", discountedPrice: "2999 ₹", about: "click here to know more",click:'Click on the box to know more', externalLink: 'https://rzp.io/rzp/premium-enigma-box'},
   ];
 
   return (
