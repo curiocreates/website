@@ -12,6 +12,8 @@ import { AppContainer } from './AppStyles';
 import AboutBox from './Components/AboutBox'; // AboutBox component for each box detail
 import PaymentSuccess from './Components/PaymentSuccess'; // Import the PaymentSuccess component
 import RefundPolicy from './Components/RefundAndCancellationsPolicy';
+import PrivacyPolicy from './Components/PrivacyPolicy'; // Import PrivacyPolicy component
+import ShippingAndExchange from './Components/ShippingAndExchange'; // Import ShippingAndExchange component
 
 // Array of boxes with details
 const boxes = [
@@ -165,6 +167,11 @@ function App() {
           <Route path="/refunds" element={<RefundPolicy />} />
           {/* Payment Success Page */}
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          {/* Privacy Policy Page */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+          {/* Shipping and Exchange Policy Page */}
+          <Route path="/shipping-and-exchange" element={<ShippingAndExchange />} />
 
           {/* Dynamic AboutBox page for each box */}
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />
