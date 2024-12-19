@@ -159,19 +159,18 @@ const Button = styled.button`
   }
 `;
 
-
 const QuickQuiz = ({ closeQuiz }) => {
   const [step, setStep] = useState(-1); // Start screen state
   const [answers, setAnswers] = useState({});
-  const [additionalQuestion, setAdditionalQuestion] = useState(null);
-  
+  const [isGifting, setIsGifting] = useState(false); // Default state for gifting
 
-  const questions = [
+  const baseQuestions = [
     { question: 'What is your name?', type: 'text', key: 'name' },
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
     { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
     { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'Profession' },
-    { question: 'What is your occasion', options: ['Birthday', 'Aniversary','Gifing someone', 'Just because of'], type: 'radio', key: 'occasion' },    {
+    { question: 'What is your occasion?', options: ['Birthday', 'Anniversary', 'Gifting someone', 'Just because'], type: 'radio', key: 'occasion' },
+    {
       question: 'What are your top interests?',
       options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],
       type: 'checkbox',
@@ -180,42 +179,49 @@ const QuickQuiz = ({ closeQuiz }) => {
     { question: 'What is your email?', type: 'text', key: 'email' },
   ];
 
+  const recipientQuestions = [
+    {
+      question: "Lucky recipient's details",
+      type: 'group',
+      fields: [
+        { label: "Name", type: 'text', key: 'recipientName', placeholder: "Enter Their name" },
+        { label: "Gender", type: 'text', key: 'recipientGender',placeholder: "Enter Their Gender" },
+        { label: "Age", type: 'text', key: 'recipientAge', placeholder: "Enter age" },
+        { label: "occasion", type: 'text', key: 'recipientoccasion', placeholder: "Enter the occasion Details" },
+
+      ],
+    },
+  ];
+  
+
+  const getQuestions = () => {
+    const allQuestions = [...baseQuestions];
+    const occasionIndex = allQuestions.findIndex((q) => q.key === 'occasion');
+
+    if (isGifting) {
+      allQuestions.splice(occasionIndex + 1, 0, ...recipientQuestions);
+    }
+    return allQuestions;
+  };
+
+  const questions = getQuestions();
+
   const handleInputChange = (key, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  
-    // Handle specific case for 'interests' containing 'Anime'
-    if (key === 'interests' && value.includes('Anime')) {
-      setAdditionalQuestion({ question: 'What is your favorite anime?', key: 'favoriteAnime' });
-  
-    // Handle specific case for 'interests' containing 'Gaming'
-    } else if (key === 'interests' && value.includes('Gaming')) {
-      setAdditionalQuestion({ question: 'What is your favorite game?', key: 'favoriteGame' });
-  
-    // Handle the case for 'occasion' containing 'Gifting Someone'
-    } else if (key === 'occasion' && value.includes('Gifting someone')) {
-      setAdditionalQuestion({
-        question: 'Please enter the recipient\'s details (name, email, address):',
-        key: 'recipientDetails'
-      });
-  
-    // Reset additional question if no specific interest is selected
-    } else {
-      setAdditionalQuestion(null);
+    setAnswers((prev) => ({ ...prev, [key]: value }));
+    if (key === 'occasion') {
+      setIsGifting(value === 'Gifting someone');
     }
   };
-  
-  
   const handleSubmit = () => {
-    if (!/\S+@\S+\.\S+/.test(answers.email)) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(answers.email)) {
       alert('Please provide a valid email.');
       return;
     }
 
     closeQuiz();
-
+    
     const emailData = {
       service_id: 'service_edbt7zp',
       template_id: 'template_972f8sw',
@@ -255,7 +261,7 @@ const QuickQuiz = ({ closeQuiz }) => {
     );
   }
 
-  const currentQuestion = step === 'additional' ? additionalQuestion : questions[step];
+  const currentQuestion =  questions[step];
 
   return (
     <QuizModal>
@@ -263,59 +269,104 @@ const QuickQuiz = ({ closeQuiz }) => {
         <SkipButton onClick={closeQuiz}>Skip</SkipButton>
         <Question color="purple">{currentQuestion.question}</Question>
         <OptionsContainer>
-          {currentQuestion.type === 'radio' &&
-            currentQuestion.options.map((option) => (
-              <Option key={option}>
-                <input
-                  type="radio"
-                  name={currentQuestion.key}
-                  value={option}
-                  checked={answers[currentQuestion.key] === option}
-                  onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
-                />
-                {option}
-              </Option>
-            ))}
-          {currentQuestion.type === 'checkbox' &&
-            currentQuestion.options.map((option) => (
-              <Option key={option}>
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={answers[currentQuestion.key]?.includes(option)}
-                  onChange={() =>
-                    setAnswers((prev) => ({
-                      ...prev,
-                      [currentQuestion.key]: prev[currentQuestion.key]?.includes(option)
-                        ? prev[currentQuestion.key].filter((item) => item !== option)
-                        : [...(prev[currentQuestion.key] || []), option],
-                    }))
-                  }
-                />
-                {option}
-              </Option>
-            ))}
-          {currentQuestion.type === 'text' && (
+  {/* Render for 'radio' type */}
+  {currentQuestion.type === 'radio' &&
+    currentQuestion.options.map((option) => (
+      <Option key={option}>
+        <input
+          type="radio"
+          name={currentQuestion.key}
+          value={option}
+          checked={answers[currentQuestion.key] === option}
+          onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
+        />
+        {option}
+      </Option>
+    ))}
+
+  {/* Render for 'checkbox' type */}
+  {currentQuestion.type === 'checkbox' &&
+    currentQuestion.options.map((option) => (
+      <Option key={option}>
+        <input
+          type="checkbox"
+          value={option}
+          checked={answers[currentQuestion.key]?.includes(option)}
+          onChange={() =>
+            setAnswers((prev) => ({
+              ...prev,
+              [currentQuestion.key]: prev[currentQuestion.key]?.includes(option)
+                ? prev[currentQuestion.key].filter((item) => item !== option)
+                : [...(prev[currentQuestion.key] || []), option],
+            }))
+          }
+        />
+        {option}
+      </Option>
+    ))}
+
+  {/* Render for 'text' type */}
+  {currentQuestion.type === 'text' && (
+    <InputBox
+      type="text"
+      placeholder="Type your answer here..."
+      value={answers[currentQuestion.key] || ''}
+      onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
+    />
+  )}
+
+  {/* Render for 'group' type */}
+  {currentQuestion.type === 'group' && (
+    <div>
+      {currentQuestion.fields.map((field) => (
+        <div key={field.key}>
+          {field.type === 'text' && (
             <InputBox
               type="text"
-              placeholder="Type your answer here..."
-              value={answers[currentQuestion.key] || ''}
-              onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
+              placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}`}
+              value={answers[field.key] || ''}
+              onChange={(e) => handleInputChange(field.key, e.target.value)}
             />
           )}
-        </OptionsContainer>
-        <NavButtonContainer>
-          <Button onClick={() => setStep((prev) => prev - 1)} disabled={step === 0}>
-            Previous
-          </Button>
-          {step === questions.length - 1 && !additionalQuestion ? (
-            <Button onClick={handleSubmit} >Submit</Button>
-          ) : (
-            <Button onClick={() => setStep((prev) => prev + 1)} disabled={!answers[currentQuestion.key]}>
-              Next
-            </Button>
+
+          {field.type === 'radio' && (
+            <div>
+              <label>{field.label}</label>
+              {field.options.map((option) => (
+                <Option key={option}>
+                  <input
+                    type="radio"
+                    name={field.key}
+                    value={option}
+                    checked={answers[field.key] === option}
+                    onChange={(e) => handleInputChange(field.key, e.target.value)}
+                  />
+                  {option}
+                </Option>
+              ))}
+            </div>
           )}
-        </NavButtonContainer>
+        </div>
+      ))}
+    </div>
+  )}
+</OptionsContainer>
+
+<NavButtonContainer>
+  <Button onClick={() => setStep((prev) => prev - 1)} disabled={step === 0}>
+    Previous
+  </Button>
+  {step === questions.length - 1 ? (
+    <Button onClick={handleSubmit}>Submit</Button>
+  ) : (
+    <Button
+      onClick={() => setStep((prev) => prev + 1)}
+      disabled={!answers[currentQuestion.key] && !(currentQuestion.type === 'group' && currentQuestion.fields.every(field => answers[field.key]))}
+    >
+      Next
+    </Button>
+  )}
+</NavButtonContainer>
       </QuizContent>
     </QuizModal>
   );

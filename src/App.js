@@ -134,9 +134,6 @@ function App() {
   return (
     <Router>
       <AppContainer>
-        {/* Show QuickQuiz if enabled */}
-        {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />}
-        
         {/* Navbar always visible */}
         <Navbar />
 
@@ -147,6 +144,8 @@ function App() {
             path="/" 
             element={
               <>
+              {/* Show QuickQuiz if enabled */}
+              {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />}
                 <Hero />
                 <BoxesSection boxes={boxes} /> {/* Pass the boxes array to BoxesSection */}
                 <Footer />
