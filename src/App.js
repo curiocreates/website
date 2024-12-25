@@ -14,6 +14,7 @@ import PaymentSuccess from './Components/PaymentSuccess'; // Import the PaymentS
 import RefundPolicy from './Components/RefundAndCancellationsPolicy';
 import PrivacyPolicy from './Components/PrivacyPolicy'; // Import PrivacyPolicy component
 import ShippingAndExchange from './Components/ShippingAndExchange'; // Import ShippingAndExchange component
+import CustomizeBoxPage from './Components/CustomizeBoxPage';
 
 // Array of boxes with details
 const boxes = [
@@ -161,6 +162,7 @@ function App() {
           <Route path="/Contact" element={<Footer />} />
           <Route path="/Curiocrates" element={<Hero />} />
           <Route path="/Boxes" element={<BoxesSection boxes={boxes} />} />
+          <Route path="/customize-box/:index" element={<CustomizeBoxPage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/refunds" element={<RefundPolicy />} />
@@ -171,6 +173,7 @@ function App() {
 
           {/* Shipping and Exchange Policy Page */}
           <Route path="/shipping-and-exchange" element={<ShippingAndExchange />} />
+          <Route path="/customize/:index" element={<CustomizeBoxPage />} />
 
           {/* Dynamic AboutBox page for each box */}
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />

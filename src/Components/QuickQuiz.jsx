@@ -169,7 +169,7 @@ const QuickQuiz = ({ closeQuiz }) => {
     { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
     { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
     { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'Profession' },
-    { question: 'What is your occasion?', options: ['Birthday', 'Anniversary', 'Gifting someone', 'Just because'], type: 'radio', key: 'occasion' },
+    { question: 'What is your occasion?', options: ['Birthday', 'Anniversary', 'Gifting someone', 'Just because of'], type: 'radio', key: 'occasion' },
     {
       question: 'What are your top interests?',
       options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],

@@ -148,14 +148,17 @@ const BoxesSection = () => {
               <DiscountedPrice>{box.discountedPrice}</DiscountedPrice>
               <p>{box.click}</p>
             </PriceContainer>
+            <Button as={Link} to={`/customize-box/${index}`}>
+              Buy Now
+            </Button>
             <HoverButton>
               <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>
                 click me to know more!
               </Link>
             </HoverButton>
-            <Button href={box.externalLink} target="_blank" rel="noopener noreferrer">
+            {/* <Button href={box.externalLink} target="_blank" rel="noopener noreferrer">
               {box.name}
-            </Button><br />
+            </Button><br /> */}
           </BoxContainer>
         ))}
       </Grid>

@@ -7,7 +7,7 @@ const AboutContainer = styled.section`
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background-color: #f4f4f4;
+  background-color: rgb(230,230,250);
   min-height: 100vh;
 `;
 

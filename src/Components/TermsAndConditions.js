@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const TermsContainer = styled.div`
   padding: 2rem;
-  background-color: #FFFFFF; 
+  background-color: rgb(230,230,250); 
   color: #4B0082;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;

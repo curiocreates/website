@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const PolicyContainer = styled.div`
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: rgb(230,230,250);
   color: #4B0082;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
