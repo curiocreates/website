@@ -1,70 +1,80 @@
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 
-
-import React, { useState} from 'react';
-import styled from 'styled-components';
-import emailjs from 'emailjs-com';
-
-// ... (styles remain unchanged)
-const QuizModal = styled.div`
+// Define a mysterious, dark theme with immersive features
+const GameModal = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background: url("/path-to-mystical-background.jpg") no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
+  font-family: "Poppins", sans-serif;
 `;
 
-const QuizContent = styled.div`
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
-  padding: 30px;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const GameContent = styled.div`
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 40px 30px;
   border-radius: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-  font-family: 'Arial', sans-serif;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.9);
   position: relative;
+  animation: ${fadeIn} 1s ease-in;
+  margin: 20px;
+  //  margin-left: 10%;
 
   @media (max-width: 600px) {
-    padding: 20px;
-    margin-left: -30px;
-    margin-top: 30px;
-    width: 80%;
-    border-radius: 15px;
+    max-width: 90%;
+    padding: 25px;
+    margin: 15px;
+    margin-right: 10%; 
+    margin-left: -1%;
   }
 `;
 
 const Heading = styled.h1`
   font-size: 2.5rem;
-  color: purple;
+  color: #ffd700;
   margin-bottom: 20px;
   font-weight: bold;
+  animation: ${fadeIn} 1s ease-in;
+  text-shadow: 0 0 10px #ffd700;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 
-const StartMessage = styled.p`
-  font-size: 1.2rem;
+const GameMessage = styled.p`
+  font-size: 1.4rem;
+  color: #40e0d0;
   margin-bottom: 30px;
-`;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  animation: ${fadeIn} 1s ease-in;
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+  white-space: pre-wrap;
 
-const StartButton = styled.button`
-  background: #6a0572;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background: #4b0251;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -73,73 +83,19 @@ const SkipButton = styled.button`
   top: 10px;
   right: 10px;
   background-color: transparent;
-  color: #333;
+  color: #ffd700;
   border: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
-`;
-
-const Question = styled.h3`
-  font-size: 1.8rem;
-  color: ${({ color }) => (color === 'turquoise' ? '#40e0d0' : '#800080')};
-  margin-bottom: 20px;
-`;
-
-const OptionsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-`;
-
-const Option = styled.label`
-  background-color: #e9ecef;
-  border: 2px solid #ccc;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #dee2e6;
-    border-color: #adb5bd;
-  }
-
-  input {
-    margin-right: 10px;
+    color: #fff;
   }
 `;
 
-const InputBox = styled.input`
-  width: 95%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-top: 10px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-
-  &:focus {
-    border-color: #888;
-    outline: none;
-  }
-
-  @media (max-width: 600px) {
-    width: 85%;
-  }
-`;
-
-const NavButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
-
-const Button = styled.button`
-  background-color: #007bff;
+const OptionButton = styled.button`
+  background-color: #8b00ff;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -147,229 +103,109 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  margin: 15px 5px;
 
   &:hover {
-    background-color: #0056b3;
-  }
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    background-color: #6a00b1;
+    transform: scale(1.05);
   }
 `;
 
-const QuickQuiz = ({ closeQuiz }) => {
-  const [step, setStep] = useState(-1); // Start screen state
-  const [answers, setAnswers] = useState({});
-  const [isGifting, setIsGifting] = useState(false); // Default state for gifting
+const Game = ({ closeGame }) => {
+  const [stage, setStage] = useState(1);
+  const [choices, setChoices] = useState([]);
 
-  const baseQuestions = [
-    { question: 'What is your name?', type: 'text', key: 'name' },
-    { question: 'What is your gender?', options: ['Male', 'Female', 'Other'], type: 'radio', key: 'gender' },
-    { question: 'What is your age group?', options: ['Under 18', '18-24', '25-34', '35+'], type: 'radio', key: 'age' },
-    { question: 'What is your Profession?', options: ['Student', 'Working Professional', 'TFI Banisa'], type: 'radio', key: 'Profession' },
-    { question: 'What is your occasion?', options: ['Birthday', 'Anniversary', 'Gifting someone', 'Just because of'], type: 'radio', key: 'occasion' },
+  const stages = [
     {
-      question: 'What are your top interests?',
-      options: ['Tech', 'Fashion', 'Gaming', 'Anime', 'Beauty and Health Care', 'Grooming Essentials', 'Books'],
-      type: 'checkbox',
-      key: 'interests',
+      title: "Welcome to Crate Quest!",
+      message: `Embark on a journey filled with mystery and adventure.
+Are you ready to uncover hidden treasures?`,
+      options: ["Start the Adventure"],
     },
-    { question: 'What is your email?', type: 'text', key: 'email' },
+    {
+      title: "The Mystic Portal",
+      message: `You discover a glowing portal.
+It hums with an ancient energy. 
+Do you step inside, or explore the surroundings?`,
+      options: ["Enter the Portal", "Search the Surroundings"],
+    },
+    {
+      title: "The Enchanted Forest",
+      message: `Through the portal, you find a magical forest.
+Glowing plants light your path.
+You see a fork in the road. 
+Which way will you go?`,
+      options: ["Follow the Bright Path", "Enter the Dark Woods"],
+    },
+    {
+      title: "The Guardian’s Riddle",
+      message: `A mystical guardian blocks your way. 
+It says, 'To pass, answer this:
+I speak without a mouth and hear without ears. 
+I have no body, but I come alive with the wind.
+What am I?'`,
+      options: ["An Echo", "A Whisper"],
+    },
+    {
+      title: "The Hidden Chamber",
+      message: `You solve the riddle and reach a hidden chamber.
+Inside, you see strange symbols glowing on the walls.
+A door lies ahead. 
+What do you do?`,
+      options: ["Inspect the Symbols", "Open the Door"],
+    },
+    {
+      title: "The Final Challenge",
+      message: `Before you is a final challenge. 
+The voice whispers: 'I am not alive, but I can grow. 
+I do not have lungs, but I need air.
+What am I?'`,
+      options: ["A Fire", "A Shadow"],
+    },
+    {
+      title: "The Treasure Room",
+      message: `You have conquered all challenges! 
+The treasure chamber opens before you.
+It's time to claim your reward.`,
+      options: ["Pick Your Mystery Box"],
+    },
   ];
 
-  const recipientQuestions = [
-    {
-      question: "Lucky recipient's details",
-      type: 'group',
-      fields: [
-        { label: "Name", type: 'text', key: 'recipientName', placeholder: "Enter Their name" },
-        { label: "Gender", type: 'text', key: 'recipientGender',placeholder: "Enter Their Gender" },
-        { label: "Age", type: 'text', key: 'recipientAge', placeholder: "Enter age" },
-        { label: "occasion", type: 'text', key: 'recipientoccasion', placeholder: "Enter the occasion Details" },
-
-      ],
-    },
-  ];
-  
-
-  const getQuestions = () => {
-    const allQuestions = [...baseQuestions];
-    const occasionIndex = allQuestions.findIndex((q) => q.key === 'occasion');
-
-    if (isGifting) {
-      allQuestions.splice(occasionIndex + 1, 0, ...recipientQuestions);
-    }
-    return allQuestions;
-  };
-
-  const questions = getQuestions();
-
-  const handleInputChange = (key, value) => {
-    setAnswers((prev) => ({ ...prev, [key]: value }));
-    if (key === 'occasion') {
-      setIsGifting(value === 'Gifting someone');
+  const handleChoice = (choice) => {
+    setChoices([...choices, choice]);
+    if (stage === stages.length) {
+      window.location.href = "/Boxes"; // Redirect after game completion
+    } else {
+      setStage((prevStage) => prevStage + 1);
     }
   };
-  const handleSubmit = () => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!emailRegex.test(answers.email)) {
-      alert('Please provide a valid email.');
-      return;
-    }
-
-    closeQuiz();
-    
-    const emailData = {
-      service_id: 'service_edbt7zp',
-      template_id: 'template_972f8sw',
-      user_id: 'yjg3HZpZru2uEP3WF',
-      template_params: {
-        to_email: 'curiocratessurprises@gmail.com',
-        subject: 'QuickQuiz Submission',
-        text: `QuickQuiz Data: ${JSON.stringify(answers)}`,
-      },
-    };
-
-    emailjs
-      .send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id)
-      .then(() => {
-        
-        
-        
-        setStep(-1); // Reset the step to hide the quiz form immediately after submission
-      })
-      .catch((error) => {
-        console.error('Failed to send email:', error);
-        alert('Something went wrong! Please try again later.');
-      });  };
-
-  
-
-  if (step === -1) {
-    return (
-      <QuizModal>
-        <QuizContent>
-          <Heading>QuickQuiz</Heading>
-          <SkipButton onClick={closeQuiz}>Skip</SkipButton>
-          <StartMessage>Let's take a QuickQuiz to help us get to know you better!</StartMessage>
-          <StartButton onClick={() => setStep(0)}>Start</StartButton>
-        </QuizContent>
-      </QuizModal>
-    );
-  }
-
-  const currentQuestion =  questions[step];
+  const currentStage = stages[stage - 1];
 
   return (
-    <QuizModal>
-      <QuizContent>
-        <SkipButton onClick={closeQuiz}>Skip</SkipButton>
-        <Question color="purple">{currentQuestion.question}</Question>
-        <OptionsContainer>
-  {/* Render for 'radio' type */}
-  {currentQuestion.type === 'radio' &&
-    currentQuestion.options.map((option) => (
-      <Option key={option}>
-        <input
-          type="radio"
-          name={currentQuestion.key}
-          value={option}
-          checked={answers[currentQuestion.key] === option}
-          onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
-        />
-        {option}
-      </Option>
-    ))}
-
-  {/* Render for 'checkbox' type */}
-  {currentQuestion.type === 'checkbox' &&
-    currentQuestion.options.map((option) => (
-      <Option key={option}>
-        <input
-          type="checkbox"
-          value={option}
-          checked={answers[currentQuestion.key]?.includes(option)}
-          onChange={() =>
-            setAnswers((prev) => ({
-              ...prev,
-              [currentQuestion.key]: prev[currentQuestion.key]?.includes(option)
-                ? prev[currentQuestion.key].filter((item) => item !== option)
-                : [...(prev[currentQuestion.key] || []), option],
-            }))
-          }
-        />
-        {option}
-      </Option>
-    ))}
-
-  {/* Render for 'text' type */}
-  {currentQuestion.type === 'text' && (
-    <InputBox
-      type="text"
-      placeholder="Type your answer here..."
-      value={answers[currentQuestion.key] || ''}
-      onChange={(e) => handleInputChange(currentQuestion.key, e.target.value)}
-    />
-  )}
-
-  {/* Render for 'group' type */}
-  {currentQuestion.type === 'group' && (
-    <div>
-      {currentQuestion.fields.map((field) => (
-        <div key={field.key}>
-          {field.type === 'text' && (
-            <InputBox
-              type="text"
-              placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}`}
-              value={answers[field.key] || ''}
-              onChange={(e) => handleInputChange(field.key, e.target.value)}
-            />
-          )}
-
-          {field.type === 'radio' && (
-            <div>
-              <label>{field.label}</label>
-              {field.options.map((option) => (
-                <Option key={option}>
-                  <input
-                    type="radio"
-                    name={field.key}
-                    value={option}
-                    checked={answers[field.key] === option}
-                    onChange={(e) => handleInputChange(field.key, e.target.value)}
-                  />
-                  {option}
-                </Option>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  )}
-</OptionsContainer>
-
-<NavButtonContainer>
-  <Button onClick={() => setStep((prev) => prev - 1)} disabled={step === 0}>
-    Previous
-  </Button>
-  {step === questions.length - 1 ? (
-    <Button onClick={handleSubmit}>Submit</Button>
-  ) : (
-    <Button
-      onClick={() => setStep((prev) => prev + 1)}
-      disabled={!answers[currentQuestion.key] && !(currentQuestion.type === 'group' && currentQuestion.fields.every(field => answers[field.key]))}
-    >
-      Next
-    </Button>
-  )}
-</NavButtonContainer>
-      </QuizContent>
-    </QuizModal>
+    <GameModal>
+      <GameContent>
+        <SkipButton onClick={closeGame}>Skip</SkipButton>
+        <Heading>{currentStage.title}</Heading>
+        <GameMessage>{currentStage.message}</GameMessage>
+        {currentStage.options.map((option) => (
+          <OptionButton key={option} onClick={() => handleChoice(option)}>
+            {option}
+          </OptionButton>
+        ))}
+      </GameContent>
+    </GameModal>
   );
 };
 
-export default QuickQuiz;
+const App = () => {
+  const [isGameOpen, setIsGameOpen] = useState(true);
+
+  const closeGame = () => setIsGameOpen(false);
+
+  return <>{isGameOpen && <Game closeGame={closeGame} />}</>;
+};
+
+export default App;
