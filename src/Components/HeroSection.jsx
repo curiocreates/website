@@ -41,6 +41,17 @@ const Subheading = styled.p`
   }
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1.5rem; /* Space between buttons */
+  margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
 const Button = styled.a`
   background: linear-gradient(90deg, #40E0D0, #FFD700); /* Turquoise to Gold */
   color: #4B0082; /* Royal Purple */
@@ -52,6 +63,8 @@ const Button = styled.a`
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  min-width: 200px; /* Ensures both buttons are the same width */
+  text-align: center;
 
   &:hover {
     background: linear-gradient(90deg, #FFD700, #40E0D0); /* Reverse gradient */
@@ -67,7 +80,11 @@ const Hero = () => {
       <Heading>Welcome to Curiocrates</Heading>
       <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading>
       
-      <Button href="#boxes">Explore Now</Button>
+       {/* Properly using ButtonContainer here */}
+       <ButtonContainer>
+        <Button href="#boxes">Our Mystery Boxes</Button>
+        <Button href="valentine-boxes">Our Valentine Boxes</Button>
+      </ButtonContainer>
     </HeroContainer>
   );
 };

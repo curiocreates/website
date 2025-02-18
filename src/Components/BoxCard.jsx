@@ -149,7 +149,7 @@ const BoxesSection = () => {
               <p>{box.click}</p>
             </PriceContainer>
             <Button as={Link} to={`/customize-box/${index}`}>
-              Buy Now
+              customize Now
             </Button>
             <HoverButton>
               <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>

@@ -117,7 +117,8 @@ const Navbar = () => {
       </Hamburger>
       <NavLinks isOpen={menuOpen}>
         <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/Boxes" onClick={closeMenu}>Boxes</Link>
+        <Link to="/Boxes" onClick={closeMenu}>Mystery-Boxes</Link>
+        <Link to="/valentine-boxes" onClick={closeMenu}>Valentine-Boxes</Link>
         <Link to="/about" onClick={closeMenu}>About Us</Link>
         <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
         <Link to="/terms" onClick={closeMenu}>Terms and Conditions</Link>

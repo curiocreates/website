@@ -15,6 +15,10 @@ import RefundPolicy from './Components/RefundAndCancellationsPolicy';
 import PrivacyPolicy from './Components/PrivacyPolicy'; // Import PrivacyPolicy component
 import ShippingAndExchange from './Components/ShippingAndExchange'; // Import ShippingAndExchange component
 import CustomizeBoxPage from './Components/CustomizeBoxPage';
+import ValentineBoxesSection from "./Components/ValentineBoxesSection";
+import ValentineBoxDetail from "./Components/ValentineBoxDetail";
+
+
 
 // Array of boxes with details
 const boxes = [
@@ -177,6 +181,8 @@ function App() {
 
           {/* Dynamic AboutBox page for each box */}
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />
+          <Route path="/valentine-boxes" element={<ValentineBoxesSection />} />
+          <Route path="/valentine-box/:id" element={<ValentineBoxDetail />} />
         </Routes>
       </AppContainer>
     </Router>
