@@ -140,7 +140,9 @@ const BoxesSection = () => {
       <Grid>
         {boxes.map((box, index) => (
           <BoxContainer key={index}>
+            <Link to={`/customize-box/${index}`}>
             <Image src={box.img} alt={box.title} />
+            </Link>
             <Title>{box.title}</Title>
             <Description>{box.desc}</Description>
             <PriceContainer>

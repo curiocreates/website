@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
-// Define a mysterious, dark theme with immersive features
 const GameModal = styled.div`
   position: fixed;
   top: 0;
@@ -18,12 +17,8 @@ const GameModal = styled.div`
 `;
 
 const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 `;
 
 const GameContent = styled.div`
@@ -38,7 +33,6 @@ const GameContent = styled.div`
   position: relative;
   animation: ${fadeIn} 1s ease-in;
   margin: 20px;
-  //  margin-left: 10%;
 
   @media (max-width: 600px) {
     max-width: 90%;
@@ -89,9 +83,7 @@ const SkipButton = styled.button`
   cursor: pointer;
   font-weight: bold;
 
-  &:hover {
-    color: #fff;
-  }
+  &:hover { color: #fff; }
 `;
 
 const OptionButton = styled.button`
@@ -103,9 +95,9 @@ const OptionButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
+  margin: 15px 5px;
   transition: background-color 0.3s ease, transform 0.2s ease-in-out;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-  margin: 15px 5px;
 
   &:hover {
     background-color: #6a00b1;
@@ -173,21 +165,21 @@ It's time to claim your reward.`,
     },
   ];
 
+
   const handleChoice = (choice) => {
     setChoices([...choices, choice]);
     if (stage === stages.length) {
-      window.location.href = "/Boxes"; // Redirect after game completion
+      sessionStorage.setItem("quizCompleted", "true");
+      window.location.href = "/Boxes";
     } else {
-      setStage((prevStage) => prevStage + 1);
+      setStage(stage + 1);
     }
   };
-
   const currentStage = stages[stage - 1];
-
   return (
     <GameModal>
       <GameContent>
-        <SkipButton onClick={closeGame}>Skip</SkipButton>
+        <SkipButton onClick={() => { closeGame(); sessionStorage.setItem("quizCompleted", "true"); }}>Skip</SkipButton>
         <Heading>{currentStage.title}</Heading>
         <GameMessage>{currentStage.message}</GameMessage>
         {currentStage.options.map((option) => (
@@ -203,9 +195,13 @@ It's time to claim your reward.`,
 const App = () => {
   const [isGameOpen, setIsGameOpen] = useState(true);
 
-  const closeGame = () => setIsGameOpen(false);
+  useEffect(() => {
+    if (sessionStorage.getItem("quizCompleted")) {
+      setIsGameOpen(false);
+    }
+  }, []);
 
-  return <>{isGameOpen && <Game closeGame={closeGame} />}</>;
+  return <>{isGameOpen && <Game closeGame={() => setIsGameOpen(false)} />}</>;
 };
 
 export default App;

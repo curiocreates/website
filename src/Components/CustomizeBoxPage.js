@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useLocation, useParams } from 'react-router-dom';
 import emailjs from 'emailjs-com';
+import { useNavigate } from 'react-router-dom';
 import treasureBox from '../assets/Treasure-chest-Box.jpg';
 import surpriseBox from '../assets/ultimate-surprise-box.jpg';
 import goldBox from '../assets/gold-premium-box.jpg';
@@ -17,8 +18,11 @@ const boxes = [
   { img: [enigmaBox], title: "Premium Enigma Box", price: "₹2,999", externalLink: 'https://rzp.io/rzp/premium-enigma-box' },
 ];
 
+
 const CustomizeBoxPage = () => {
+
   const { index } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const box = boxes[index];
   const purchaseLink = location.state?.purchaseLink || box?.externalLink;
@@ -102,7 +106,7 @@ const CustomizeBoxPage = () => {
 
   return (
     <Container>
-      <ProductSection>
+        <button onClick={() => navigate(-1)}> ← Back </button>;      <ProductSection>
         <ProductTitle>{box.title}</ProductTitle>
         <ProductPrice>{box.price}</ProductPrice>
         <Carousel>
@@ -382,6 +386,7 @@ const Option = styled.div`
     resize: vertical;
   }
 `;
+
 const ProceedButton = styled.button`
   padding: 14px 30px;
   font-size: 1.3rem;

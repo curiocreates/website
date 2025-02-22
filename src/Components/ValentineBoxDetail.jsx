@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,9 +11,9 @@ import LoveBoxHer from "../assets/LoveBox-her.jpg";
 import LoveBoxHim from "../assets/LoveBox-him.jpg";
 import loading from "../assets/loading image.jpg";
 
-
 // Styled components
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 3rem 2rem;
@@ -30,7 +30,6 @@ const ProductSection = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
-    
   }
 `;
 
@@ -40,7 +39,6 @@ const ImageContainer = styled.div`
 
   @media (max-width: 768px) {
     max-width: 100%;
-    color: #800080;
   }
 `;
 
@@ -75,10 +73,18 @@ const Title = styled.h2`
   color: #800080;
 `;
 
-const Description = styled.p`
+const SubTitle = styled.h3`
+  font-size: 1.3rem;
+  color: #000;
+  margin-top: 1rem;
+`;
+
+const DescriptionList = styled.ul`
   font-size: 1.1rem;
   margin: 1rem 0;
-  color: Black;
+  color: #000;
+  list-style-type: disc;
+  padding-left: 20px;
 `;
 
 const StockStatus = styled.p`
@@ -91,7 +97,7 @@ const PriceTag = styled.div`
   font-size: 1.8rem;
   font-weight: bold;
   margin-top: 1rem;
-  color: Black;
+  color: #000;
 
   .original {
     text-decoration: line-through;
@@ -110,6 +116,24 @@ const OfferTag = styled.div`
   margin-top: 10px;
 `;
 
+const BackButton = styled(Link)`
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  background: #800080;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #660066;
+  }
+`;
+
+
 const BuyButton = styled.a`
   display: inline-block;
   background: #800080;
@@ -124,7 +148,7 @@ const BuyButton = styled.a`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background: #800080;
+    background: #660066;
   }
 `;
 
@@ -135,18 +159,16 @@ const ValentineBoxDetail = () => {
   const products = {
     "love-her": {
       title: "Mystic Love Box - For Her",
-      images: [LoveBoxHer,loading,LoveBoxHer,LoveBoxHer],
+      subTitle: "ITEMS IN THE BOX ARE:",
+      images: [LoveBoxHer, loading, LoveBoxHer, loading, LoveBoxHer],
       description: [
-        "ITEMS IN THE BOX ARE",
-
+        "🌸 Two Premium floral Perfumes",
         "✨ Round beautiful makeup mirror",
-        "🌸 Premium floral attar",
-        "🛁 Handmade natural soap from Sparsh Organics",
-        "🔑 Beautiful keychain",
-        "📒 Chocolate notebook",
-        "💎 Elegant jhumkas",
-        "🧸 Small teddy",
-        "💖 A perfect surprise filled with handpicked luxurious and mysterious items! Perfect for gifting."
+        "🛁 One Handmade natural soap",
+        "🔑 A Beautiful keychain",
+        "✨ A leather Diary",
+        "📒 A Chocolate notebook",
+        "🧸 A Small teddy",
       ],
       price: "₹999",
       originalPrice: "₹1500",
@@ -154,24 +176,21 @@ const ValentineBoxDetail = () => {
     },
     "love-him": {
       title: "Mystic Love Box - For Him",
-      images: [LoveBoxHim,loading,LoveBoxHim,loading,LoveBoxHim],
+      subTitle: "ITEMS IN THE BOX ARE:",
+      images: [LoveBoxHim, loading, LoveBoxHim, loading, LoveBoxHim],
       description: [
-        "ITEMS IN THE BOX ARE",
-        
-        "🪢 Genuine leather belt",
         "💼 Genuine leather wallet",
-        "🧴 Premium men's attar",
-        "🔑 Stylish keychain",
-        "⌚ Leather bracelet",
-        "🎁 A mystery-filled surprise with exclusive and exciting gifts!"
+        "🪢 Genuine leather belt",
+        "🛁 Handmade charcoal soap",
+        "🧴 Premium men's Fragrance",
+        "✨ Stylish keychain",
+        "✨ Leather bracelet",
       ],
       price: "₹999",
       originalPrice: "₹1500",
       buyLink: "https://rzp.io/rzp/Mystic-Love-Box-For-Him",
     },
   };
-  
-  
 
   const product = products[id];
 
@@ -181,13 +200,13 @@ const ValentineBoxDetail = () => {
 
   return (
     <Container>
+      <BackButton to="/valentine-boxes"> ← back  </BackButton>
       <ProductSection>
-        {/* Image Section */}
         <ImageContainer>
-          <Swiper navigation={true} modules={[Navigation, Thumbs]} thumbs={{ swiper: thumbsSwiper }}>
+          <Swiper navigation={true} loop={true} lazy={true} modules={[Navigation, Thumbs]} thumbs={{ swiper: thumbsSwiper }}>
             {product.images.map((img, index) => (
               <SwiperSlide key={index}>
-                <img src={img} alt={`${product.title} - ${index}`} style={{ width: "100%", borderRadius: "10px" }} />
+                <img src={img} alt={`${product.title} - ${index}`} loading="lazy" style={{ width: "100%", borderRadius: "10px" }} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -196,19 +215,21 @@ const ValentineBoxDetail = () => {
             <Swiper onSwiper={setThumbsSwiper} spaceBetween={10} slidesPerView={3} watchSlidesProgress>
               {product.images.map((img, index) => (
                 <SwiperSlide key={index}>
-                  <img src={img} alt={`Thumbnail ${index}`} />
+                  <img src={img} alt={`Thumbnail ${index}`} loading="lazy" />
                 </SwiperSlide>
               ))}
             </Swiper>
           </ThumbnailContainer>
         </ImageContainer>
 
-        {/* Details Section */}
         <DetailsContainer>
           <Title>{product.title}</Title>
-          <Description>{product.description.map((point, index) => (
-                      <li key={index}>{point}</li>))}
-          </Description>
+          <SubTitle>{product.subTitle}</SubTitle>
+          <DescriptionList>
+            {product.description.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </DescriptionList>
           <StockStatus>In Stock</StockStatus>
           <OfferTag>Limited Time Offer</OfferTag>
           <PriceTag>
