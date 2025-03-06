@@ -10,6 +10,17 @@ import { Navigation, Thumbs } from "swiper/modules";
 import LoveBoxHer from "../assets/LoveBox-her.jpg";
 import LoveBoxHim from "../assets/LoveBox-him.jpg";
 import loading from "../assets/loading image.jpg";
+import Mirrors1 from"../assets/Mirrors/Mirrors-1.JPG";
+import Mirrors2 from"../assets/Mirrors/Mirrors-2.JPG";
+
+import CharcoalSoap from "../assets/Soaps/Charcoal-Soap.JPG";
+import GoatmilkSoap from "../assets/Soaps/Goatmilk-Soap.JPG";
+import RedSandalSoap from "../assets/Soaps/Red-Sandal-Soap.JPG";
+import RoseSoap from "../assets/Soaps/Rose-Soap.JPG";
+
+
+
+
 
 // Styled components
 const Container = styled.div`
@@ -26,6 +37,7 @@ const ProductSection = styled.div`
   display: flex;
   width: 80%;
   gap: 2rem;
+  
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -36,6 +48,7 @@ const ProductSection = styled.div`
 const ImageContainer = styled.div`
   flex: 1;
   max-width: 50%;
+  
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -85,6 +98,7 @@ const DescriptionList = styled.ul`
   color: #000;
   list-style-type: disc;
   padding-left: 20px;
+  
 `;
 
 const StockStatus = styled.p`
@@ -160,7 +174,7 @@ const ValentineBoxDetail = () => {
     "love-her": {
       title: "Mystic Love Box - For Her",
       subTitle: "ITEMS IN THE BOX ARE:",
-      images: [LoveBoxHer, loading, LoveBoxHer, loading, LoveBoxHer],
+      images: [LoveBoxHer, Mirrors1,Mirrors2, RoseSoap, GoatmilkSoap, RedSandalSoap,CharcoalSoap,],
       description: [
         "🌸 Two Premium floral Perfumes",
         "✨ Round beautiful makeup mirror",
@@ -177,7 +191,7 @@ const ValentineBoxDetail = () => {
     "love-him": {
       title: "Mystic Love Box - For Him",
       subTitle: "ITEMS IN THE BOX ARE:",
-      images: [LoveBoxHim, loading, LoveBoxHim, loading, LoveBoxHim],
+      images: [LoveBoxHim, loading, CharcoalSoap, loading, LoveBoxHim],
       description: [
         "💼 Genuine leather wallet",
         "🪢 Genuine leather belt",

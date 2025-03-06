@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
-import LoveBoxHer from "../assets/LoveBox-her.jpg";
-import LoveBoxHim from "../assets/LoveBox-him.jpg";
+import LoveBoxHer from "../assets/form-image.jpg";
+import LoveBoxHim from "../assets/form-image.jpg";
 import loading from "../assets/loading image.jpg";
 
-
+const Section = styled.section`
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #4B0082;
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -27,32 +30,6 @@ const Box = styled.div`
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(64, 224, 208, 0.6);
-  }
-`;
-
-const Section = styled.section`
-  padding: 3rem 2rem;
-  text-align: center;
-  background-color: #4B0082;
-  position: relative; /* Ensures BackButton is positioned relative to this */
-`;
-
-const BackButton = styled.button`
-  background: #f0a500;
-  position: absolute; /* Ensures it's placed within Section */
-  top: 10px; /* Moves it to the top */
-  left: 10px; /* Moves it to the left */
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
-  padding: 8px 15px;
-  border-radius: 15px;
-  transition: background 0.2s ease-in-out;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -85,34 +62,30 @@ const DiscountedPrice = styled.div`
   font-family: 'Cinzel Decorative', serif;
 `;
 
-
-const ValentineBoxesSection = () => {
-const navigate = useNavigate();
-
+const GiftingBoxsection = () => {
   const boxes = [
     {
       id: "love-her",
       images: [LoveBoxHer, LoveBoxHer], // Multiple images for the slider
-      title: "Mystic Love Box - For Her",
-      desc: "A perfect surprise for her!",
+      title: "Mystic Gifting Box - Platinum",
+      desc: "A perfect surprise !",
       discountedPrice: "₹999",
     },
     {
       id: "love-him",
       images: [LoveBoxHim, LoveBoxHim,loading],
-      title: "Mystic Love Box - For Him",
-      desc: "A mystery-filled surprise for him!",
-      discountedPrice: "₹999",
+      title: "Mystic Gifting Box - Gold",
+      desc: "A mystery-filled surprise !",
+      discountedPrice: "₹699",
     },
   ];
 
   return (
-    <Section id="valentine-boxes">
-<BackButton onClick={() => navigate("/home")}> ← Back </BackButton>
-<h2 style={{ color: "#FFD700" }}>Valentine's Special</h2>
+    <Section id="Gifting-boxes">
+      <h2 style={{ color: "#FFD700" }}>Gifting Special</h2>
       <Grid>
         {boxes.map((box, index) => (
-          <Link key={index} to={`/valentine-box/${box.id}`} style={{ textDecoration: "none" }}>
+          <Link key={index} to={`/MysticGiftingBox`} style={{ textDecoration: "none" }}>
             <Box>
               <Image src={box.images[0]} alt={box.title} />
               <Title>{box.title}</Title>
@@ -128,4 +101,4 @@ const navigate = useNavigate();
   );
 };
 
-export default ValentineBoxesSection;
+export default GiftingBoxsection;

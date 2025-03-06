@@ -106,7 +106,8 @@ const CustomizeBoxPage = () => {
 
   return (
     <Container>
-        <button onClick={() => navigate(-1)}> ← Back </button>;      <ProductSection>
+        <button onClick={() => navigate(-1)}> ← Back </button>;      
+        <ProductSection>
         <ProductTitle>{box.title}</ProductTitle>
         <ProductPrice>{box.price}</ProductPrice>
         <Carousel>

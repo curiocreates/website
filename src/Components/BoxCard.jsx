@@ -155,7 +155,7 @@ const BoxesSection = () => {
             </Button>
             <HoverButton>
               <Link to={`/about-box/${box.title}`} style={{ color: "#4B0082", textDecoration: "none" }}>
-                click me to know more!
+              ℹ️ know more
               </Link>
             </HoverButton>
             {/* <Button href={box.externalLink} target="_blank" rel="noopener noreferrer">

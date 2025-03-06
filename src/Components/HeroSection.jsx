@@ -78,12 +78,13 @@ const Hero = () => {
   return (
     <HeroContainer id="home">
       <Heading>Welcome to Curiocrates</Heading>
-      <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading>
+      {/* <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading> */}
       
        {/* Properly using ButtonContainer here */}
        <ButtonContainer>
         <Button href="#boxes">Our Mystery Boxes</Button>
         <Button href="valentine-boxes">Our Mystic Love Boxes🎁</Button>
+        <Button href="/MysticGiftingBox">Build Your Own Gifting Box</Button>
       </ButtonContainer>
     </HeroContainer>
   );

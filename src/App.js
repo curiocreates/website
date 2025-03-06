@@ -17,6 +17,8 @@ import ShippingAndExchange from './Components/ShippingAndExchange'; // Import Sh
 import CustomizeBoxPage from './Components/CustomizeBoxPage';
 import ValentineBoxesSection from "./Components/ValentineBoxesSection";
 import ValentineBoxDetail from "./Components/ValentineBoxDetail";
+import MysticGiftingBox from './Components/MysticGiftingBox';
+import GiftingBoxsection from './Components/GiftingBoxsection';
 
 
 
@@ -183,6 +185,10 @@ function App() {
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />
           <Route path="/valentine-boxes" element={<ValentineBoxesSection />} />
           <Route path="/valentine-box/:id" element={<ValentineBoxDetail />} />
+          <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
+          <Route path="/GiftingBoxsection" element={<GiftingBoxsection/>}/>
+
+
         </Routes>
       </AppContainer>
     </Router>
