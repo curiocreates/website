@@ -126,13 +126,16 @@ const Footer = () => {
 
       {/* Contact details */}
       <ContactSection>
-        <h4>Contact Us</h4>
-        <FooterText>E-Mail: <a href="mailto:curiocratessurprises@gmail.com">curiocratessurprises@gmail.com</a></FooterText>
-        <FooterText>Instagram: <a href="https://www.instagram.com/curio_crates?igsh=MW9qemx5YWtkaHRtZw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-          curio_crates <FaInstagram />
-        </a></FooterText>
-        <p> Annojiguda, Hyderabad-500088 </p>
+      <h4>Contact Us</h4>
+       <FooterText>Merchant Name: Raghavendra Palaparthi</FooterText>
+       <FooterText>Registered Address: 6-72/A, Annojiguda, Hyderabad, Telangana, PIN: 500088</FooterText>
+       {/* <FooterText>Operational Address: 6-72/A, Annojiguda, Hyderabad, Telangana, PIN: 500088</FooterText> */}
+       <FooterText>Telephone No: <a href="tel:8328413800">8328413800</a></FooterText>
+       <FooterText>E-Mail: <a href="mailto:curiocratescustomization@gmail.com">curiocratescustomization@gmail.com</a></FooterText>
+       <FooterText>Instagram: <a href="https://www.instagram.com/curio_crates?igsh=MW9qemx5YWtkaHRtZw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">curio_crates <FaInstagram />
+      </a></FooterText>
       </ContactSection>
+
 
       <QuickLinks>
         <h4>Quick Links</h4>

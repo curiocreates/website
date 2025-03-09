@@ -64,30 +64,30 @@ const products = [
   { id: 36, name: "RedSandal Soap", price: 299, category: "Soaps", images: [RedSandalSoap] },
   { id: 37, name: "Rose Soap", price: 199, category: "Soaps", images: [RoseSoap] },
 
-  { id: 38, name: "Classic Leather Wallet", price: 999, category: "Wallet Crates", images: [loading] },
-  { id: 39, name: "Vintage Leather Wallet", price: 1199, category: "Wallet Crates", images: [loading] },
-  { id: 40, name: "Slim RFID Wallet", price: 899, category: "Wallet Crates", images: [loading] },
-  { id: 41, name: "Executive Leather Wallet", price: 1299, category: "Wallet Crates", images: [loading] },
+  { id: 38, name: "Classic Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  { id: 39, name: "Vintage Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  { id: 40, name: "Slim RFID Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  { id: 41, name: "Executive Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
 
   { id: 42, name: "Insulated Steel Bottle", price: 799, category: "Bottles", images: [loading] },
   { id: 43, name: "Frosted Glass Water Bottle", price: 899, category: "Bottles", images: [loading] },
   { id: 44, name: "Smart Temperature Bottle", price: 999, category: "Bottles", images: [loading] },
-  { id: 45, name: "Eco-Friendly Bamboo Bottle", price: 1199, category: "Bottles", images: [loading] },
+  { id: 45, name: "Eco-Friendly Bamboo Bottle", price: 799, category: "Bottles", images: [loading] },
 
-  { id: 46, name: "Luxury Perfume Set", price: 1499, category: "Fragrances", images: [loading] },
-  { id: 47, name: "Mystic Oud Fragrance", price: 1699, category: "Fragrances", images: [loading] },
-  { id: 48, name: "Floral Bliss Perfume", price: 1299, category: "Fragrances", images: [loading] },
-  { id: 49, name: "Woody Musk Essence", price: 1399, category: "Fragrances", images: [loading] },
+  { id: 46, name: "Luxury Perfume Set", price: 399, category: "Fragrances", images: [loading] },
+  { id: 47, name: "Mystic Oud Fragrance", price: 399, category: "Fragrances", images: [loading] },
+  { id: 48, name: "Floral Bliss Perfume", price: 399, category: "Fragrances", images: [loading] },
+  { id: 49, name: "Woody Musk Essence", price: 399, category: "Fragrances", images: [loading] },
 
-  { id: 50, name: "Strategy Board Game", price: 1299, category: "Board Games", images: [loading] },
-  { id: 51, name: "Classic Chess Set", price: 999, category: "Board Games", images: [loading] },
-  { id: 52, name: "Fast-Paced Card Game", price: 799, category: "Board Games", images: [loading] },
-  { id: 53, name: "Trivia Challenge Game", price: 899, category: "Board Games", images: [loading] },
+  { id: 50, name: "Strategy Board Game", price: 399, category: "Board Games", images: [loading] },
+  { id: 51, name: "Classic Chess Set", price: 399, category: "Board Games", images: [loading] },
+  { id: 52, name: "Fast-Paced Card Game", price: 399, category: "Board Games", images: [loading] },
+  { id: 53, name: "Trivia Challenge Game", price: 399, category: "Board Games", images: [loading] },
 
-  { id: 54, name: "Premium Leather Belt", price: 899, category: "Leather Belts", images: [loading] },
-  { id: 55, name: "Vintage Brown Leather Belt", price: 999, category: "Leather Belts", images: [loading] },
-  { id: 56, name: "Formal Black Leather Belt", price: 1099, category: "Leather Belts", images: [loading] },
-  { id: 57, name: "Casual Suede Leather Belt", price: 1199, category: "Leather Belts", images: [loading] },
+  { id: 54, name: "Premium Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  { id: 55, name: "Vintage Brown Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  { id: 56, name: "Formal Black Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  { id: 57, name: "Casual Suede Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
 
 
   { id: 1, name: "Dancing Girl", price: 299, category: "Beauty Mirrors", images: [dancingGirl] },
@@ -137,17 +137,7 @@ const Banner = styled.div`
   width: 100%;
   height: 100px;
 `;
-const CashbackTag = styled.span`
-  background:  #f0a500;
-  color: black;
-  padding: 4px 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-`;
+
 
 const FilterContainer = styled.div`
   display: flex;
@@ -156,13 +146,6 @@ const FilterContainer = styled.div`
   gap: 10px;
 `;
 
-const TitleSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-`;
 const FilterBar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -182,13 +165,6 @@ const FilterBar = styled.div`
     background: #888; /* Customize scrollbar color */
     border-radius: 10px;
   }
-`;
-
-const SortDropdown = styled.select`
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  cursor: pointer;
 `;
 
 const FilterButton = styled.button`
@@ -367,7 +343,6 @@ const MysticGiftingBox = () => {
   const [selectedOccasion, setSelectedOccasion] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [filter, setFilter] = useState("All");
-  const [sortOption, setSortOption] = useState("best-sellers");
 
     // Function to filter products
   const filteredProducts = filter === "All" ? products : products.filter((p) => p.category === filter);
@@ -422,11 +397,7 @@ const MysticGiftingBox = () => {
         : prev
     );
   };
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
-    console.log("Selected sort option:", e.target.value);
-    // Add sorting logic here
-  };
+
   
 
   return (
@@ -438,18 +409,7 @@ const MysticGiftingBox = () => {
       <SubText>+ A greeting card</SubText>
       </OfferBox>
       </Banner>
-      <div style={{ overflowX: "auto", width: "100%" }}>
-      <FilterContainer>
 
-      <FilterBar>
-        {["All", "Gifting", "Beauty Mirrors", "Books and Novels","Soaps","Wallet Crates","Bottles","Fragrances","Board Games","Leather Belts"].map((category) => (
-          <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
-            {category}
-          </FilterButton>
-        ))}
-      </FilterBar>
-    </FilterContainer>
-      </div>
     
       {!selectedBox ? (
         <>
@@ -480,6 +440,21 @@ const MysticGiftingBox = () => {
           </Grid>
         </>
       ) : (
+        <>
+
+        <div style={{ overflowX: "auto", width: "100%" }}>
+        <FilterContainer>
+  
+        <FilterBar>
+          {["All", "Gifting", "Beauty Mirrors", "Books and Novels","Soaps","Wallet Crates","Bottles","Fragrances","Board Games","Leather Belts"].map((category) => (
+            <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
+              {category}
+            </FilterButton>
+          ))}
+        </FilterBar>
+      </FilterContainer>
+        </div>
+        
         <Grid>
         {filteredProducts.map((product) => (
           <Card key={product.id} onClick={() => toggleSelection(product.id)}>
@@ -495,7 +470,8 @@ const MysticGiftingBox = () => {
             )}
           </Card>
         ))}
-      </Grid>      
+      </Grid>  
+      </>    
         
       )}
       <ProgressContainer>
