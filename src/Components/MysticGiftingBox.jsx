@@ -366,7 +366,7 @@ const MysticGiftingBox = () => {
     emailjs
       .send('service_66e2uo9', 'template_ndb777t', templateParams, 'b5F6NgNmYXKTreTna')
       .then(() => {
-        window.location.href = "https://rzp.io/rzp/Mystic-Gifting-Box"; // Change to actual checkout link
+        window.location.href = "/payment-Gateway-issue"; // Change to actual checkout link
       })
       .catch((error) => {
         console.error("Error sending email:", error);

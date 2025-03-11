@@ -11,11 +11,11 @@ import enigmaBox from '../assets/premium-enigma-box.jpg';
 
 // Define available boxes
 const boxes = [
-  { img: [treasureBox], title: "Treasure Chest Box", price: "₹299", externalLink: 'https://rzp.io/rzp/treasure-chest-box' },
-  { img: [surpriseBox], title: "Ultimate Surprise Box", price: "₹499", externalLink: 'https://rzp.io/rzp/ultimate-surprise-box' },
-  { img: [goldBox], title: "Gold Premium Box", price: "₹999", externalLink: 'https://rzp.io/rzp/gold-premium-box' },
-  { img: [customBox], title: "Exclusive Custom Box", price: "₹1,499", externalLink: 'https://rzp.io/rzp/exclusive-custom-box' },
-  { img: [enigmaBox], title: "Premium Enigma Box", price: "₹2,999", externalLink: 'https://rzp.io/rzp/premium-enigma-box' },
+  { img: [treasureBox], title: "Treasure Chest Box", price: "₹299", externalLink: "/payment-Gateway-issue" },
+  { img: [surpriseBox], title: "Ultimate Surprise Box", price: "₹499", externalLink: "/payment-Gateway-issue"},
+  { img: [goldBox], title: "Gold Premium Box", price: "₹999", externalLink: "/payment-Gateway-issue"},
+  { img: [customBox], title: "Exclusive Custom Box", price: "₹1,499", externalLink: "/payment-Gateway-issue"},
+  { img: [enigmaBox], title: "Premium Enigma Box", price: "₹2,999", externalLink: "/payment-Gateway-issue"},
 ];
 
 

@@ -186,7 +186,7 @@ const ValentineBoxDetail = () => {
       ],
       price: "₹999",
       originalPrice: "₹1500",
-      buyLink: "https://rzp.io/rzp/Mystic-Love-Box-For-Her",
+      buyLink: "/payment-Gateway-issue",
     },
     "love-him": {
       title: "Mystic Love Box - For Him",
@@ -202,7 +202,7 @@ const ValentineBoxDetail = () => {
       ],
       price: "₹999",
       originalPrice: "₹1500",
-      buyLink: "https://rzp.io/rzp/Mystic-Love-Box-For-Him",
+      buyLink: "/payment-Gateway-issue",
     },
   };
 

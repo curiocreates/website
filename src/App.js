@@ -4,7 +4,6 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/HeroSection';
 import BoxesSection from './Components/BoxCard';
 import Footer from './Components/Footer';
-import ContactForm from './Components/ContactForm';
 import AboutUs from './Components/AboutUs'; // About Us page component
 import QuickQuiz from './Components/QuickQuiz'; // Quick Quiz component
 import TermsAndConditions from './Components/TermsAndConditions'; // Terms and Conditions page
@@ -19,6 +18,7 @@ import ValentineBoxesSection from "./Components/ValentineBoxesSection";
 import ValentineBoxDetail from "./Components/ValentineBoxDetail";
 import MysticGiftingBox from './Components/MysticGiftingBox';
 import GiftingBoxsection from './Components/GiftingBoxsection';
+import PaymentIssueNotice from './Components/PaymentIssueNotice';
 
 
 
@@ -160,9 +160,7 @@ function App() {
             } 
           />
           
-          {/* Contact Form Page */}
-          <Route path="/ContactForm" element={<ContactForm />} />
-
+          
           {/* Other routes */}
           <Route path="/Home" element={<Hero />} />
           <Route path="/Contact" element={<Footer />} />
@@ -187,6 +185,8 @@ function App() {
           <Route path="/valentine-box/:id" element={<ValentineBoxDetail />} />
           <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
           <Route path="/GiftingBoxsection" element={<GiftingBoxsection/>}/>
+          <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice/>} />
+
 
 
         </Routes>
