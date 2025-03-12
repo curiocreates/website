@@ -5,7 +5,7 @@ const PaymentIssueNotice = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.location.href = "https://www.instagram.com/curio_crates"; // Redirect to Instagram
-    }, 4000);
+    }, 6000);
     return () => clearTimeout(timer);
   }, []);
 

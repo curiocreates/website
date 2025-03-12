@@ -197,7 +197,7 @@ const WalletCrateDetail = () => {
                      " Timeless black finish, perfect for formal and casual occasions"],
       originalPrice: "₹799",
       price: "₹599",
-      buyLink: "/buy/TommyBlack",
+      buyLink: "/payment-Gateway-issueck",
     },
     TedBaker: {
       images: [Tedbaker1, Tedbaker2, Tedbaker3, Tedbaker4, Tedbaker5],
@@ -208,7 +208,7 @@ const WalletCrateDetail = () => {
                     "A slim and lightweight design for ultimate comfort"],
       originalPrice: "₹799",
       price: "₹599",
-      buyLink: "/buy/TedBaker",
+      buyLink: "/payment-Gateway-issue",
     },
     TommyTan: {
       images: [TommyHilfiger, TommyTan1, TommyTan2, TommyTan3, TommyTan4, TommyTan5],
@@ -219,7 +219,7 @@ const WalletCrateDetail = () => {
                     "A perfect gifting option for those who appreciate quality and sophistication"],
       originalPrice: "₹799",
       price: "₹599",
-      buyLink: "/buy/TommyTan",
+      buyLink: "/payment-Gateway-issue",
     },
   };
   
@@ -269,30 +269,10 @@ const WalletCrateDetail = () => {
           </PriceTag>
           <BuyButton href={product.buyLink}>Buy Now</BuyButton>
         </DetailsContainer>
-      </ProductSection>
-       <Nav>
-            <Logo>
-              <Link to="/" onClick={closeMenu}>Curiocrates</Link>
-            </Logo>
-            <Hamburger onClick={toggleMenu} className={menuOpen ? 'open' : ''}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </Hamburger>
-            <NavLinks isOpen={menuOpen}>
-              <Link to="/" onClick={closeMenu}>Home</Link>
-              <Link to="/Boxes" onClick={closeMenu}>Mystery-Boxes</Link>
-              <Link to="/valentine-boxes" onClick={closeMenu}>Mystic Love-Boxes</Link>
-              <Link to="/MysticGiftingBox" onClick={closeMenu}>Build your own Boxes</Link>
-              <Link to="/Leather-Wallets" onClick={closeMenu}>Leather Wallet Crates</Link>
-              <Link to="/about" onClick={closeMenu}>About Us</Link>
-              <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
-              <Link to="/terms" onClick={closeMenu}>Terms and Conditions</Link>
-      
-            </NavLinks>
-          </Nav>
+      </ProductSection>        
     </Container>
   );
+
 };
 
 export default WalletCrateDetail;

@@ -18,6 +18,7 @@ import TommyTan3 from "../assets/Wallets/Tommy-Tan-3.JPG";
 import TommyTan4 from "../assets/Wallets/Tommy-Tan-4.JPG";
 import TommyTan5 from "../assets/Wallets/Tommy-Tan-5.JPG";
 import TommyHilfiger from "../assets/Wallets/TommyHilfiger.JPG";
+import Footer from "./Footer";
 
 
 
@@ -108,21 +109,21 @@ const boxes = [
     id: "TommyBlack",
     images: [TommyHilfiger, TommyBlack1, TommyBlack2, TommyBlack3, TommyBlack4, TommyBlack5],
     title: "Tommy - Black",
-    description: ["Genuine Leather", "Multiple Card Slots", "Compact Design"],
+    desc: "A timeless black wallet crafted with premium leather.",
     discountedPrice: "₹599",
   },
   {
     id: "TedBaker",
     images: [Tedbaker1, Tedbaker2, Tedbaker3, Tedbaker4, Tedbaker5],
-    title: "Tedbaker - Brown",
-    description: ["Soft Leather Finish", "Spacious Compartments", "Slim Design"],
+    title: "Ted Baker - Brown",
+    desc: "A sophisticated brown leather wallet with a refined finish.",    
     discountedPrice: "₹599",
   },
   {
     id: "TommyTan",
     images: [TommyHilfiger, TommyTan1, TommyTan2, TommyTan3, TommyTan4, TommyTan5],
     title: "Tommy - Tan",
-    description: ["Durable Build", "Elegant Look", "Perfect for Gifting"],
+    desc: "A classy tan leather wallet that exudes elegance.",
     discountedPrice: "₹599",
   },
   
@@ -146,7 +147,9 @@ const boxes = [
           </Link>
         ))}
       </Grid>
+      <Footer/>
     </Section>
+    
   );
 };
 

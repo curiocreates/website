@@ -2,17 +2,22 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
+import Footer from "../Components/Footer"
+
 import candle from "../assets/gifting/candle.jpg";
 import chocolates from "../assets/gifting/chocolates.jpg";
 import mug from "../assets/gifting/mug.jpg";
 import frame from "../assets/gifting/frame.jpg";
 import soap from "../assets/gifting/soap.jpg";
 import keychain from "../assets/gifting/keychain.jpg";
+
 import birthday from "../assets/occasions/birthday.jpg";
 import anniversary from "../assets/occasions/Anniversary.jpg";
 import congratulations from "../assets/occasions/congratulations.jpg";
 import love from "../assets/occasions/love.jpg";
+
 import boxImage from "../assets/Mystery-Gifting-box.jpg";
+
 import dancingGirl from "../assets/Mirrors/dancing-girl.JPG";
 import elephant from "../assets/Mirrors/elephant.JPG";
 import featherBlue from "../assets/Mirrors/feather-blue.JPG";
@@ -32,7 +37,9 @@ import teddyBlue from "../assets/Mirrors/teddy-blue.JPG";
 import unicornBlue from "../assets/Mirrors/unicorn-blue.JPG";
 import unicornMagico from "../assets/Mirrors/unicorn-magico.JPG";
 import unicornWhite from "../assets/Mirrors/unicorn-white.JPG";
+
 import banner from "../assets/banner.jpg"
+
 import AtomicHabits from "../assets/Books/Atomic-habits.JPG";
 import DoEpicShitDone from "../assets/Books/Do-epic-shit-done.JPG";
 import IkigaiHardcoverBook from "../assets/Books/Ikigai-hardcover-book.JPG";
@@ -41,10 +48,12 @@ import RichDadPoorDad from "../assets/Books/Rich-dad-poor-dad.JPG";
 import TheAlchemist from "../assets/Books/The-Alchemist.JPG";
 import TheMonkWhoSoldHisFerrari from "../assets/Books/The-monk-who-sold-his-ferrari.JPG";
 import ThePowerOfSubconsciousMind from "../assets/Books/The-power-of-subconscious-mind.JPG";
+
 import CharcoalSoap from "../assets/Soaps/Charcoal-Soap.JPG";
 import GoatmilkSoap from "../assets/Soaps/Goatmilk-Soap.JPG";
 import RedSandalSoap from "../assets/Soaps/Red-Sandal-Soap.JPG";
 import RoseSoap from "../assets/Soaps/Rose-Soap.JPG";
+
 import loading from "../assets/loading image.jpg";
 
 
@@ -177,25 +186,6 @@ const FilterButton = styled.button`
   &:hover {
     background: rgb(58, 32, 72);
   }
-`;
-const ProgressContainer = styled.div`
-  margin-top: 16px;
-  text-align: center;
-`;
-
-const ProgressBar = styled.div`
-  width: 100%;
-  background: #eee;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 8px 0;
-`;
-
-const ProgressFill = styled.div`
-  width: ${(props) => props.progress}%;
-  background: orange;
-  height: 8px;
-  transition: width 0.3s ease;
 `;
 
 const Card = styled.div`
@@ -335,6 +325,54 @@ const SubText = styled.span`
   color:rgb(247, 241, 241);
   margin-top: 5px;
 `;
+const FixedBar = styled.div`
+  position:fixed;
+  bottom: 0;
+  left: 5;
+  right: 5;
+  width: 100%;
+  background:rgb(22, 22, 22);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 10px rgba(255, 255, 255, 0.1);
+  min-height: 100px; /* Adjust height so it doesn’t overlap content */
+  padding-bottom: 10px;
+  padding-top: 20px;
+  text-align: center;
+  
+`;
+
+
+const SelectionSteps = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+`;
+
+const Step = styled.div`
+  background: #333;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  min-width: 100px;
+`;
+
+const CartSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  flex-wrap: wrap;
+  text-align: center;
+`;
 
 
 
@@ -413,18 +451,18 @@ const MysticGiftingBox = () => {
     
       {!selectedBox ? (
         <>
-        <StepsContainer>
-        <p><strong>Step 1:</strong> Select Your Gifting Box.</p>
-        <p><strong>Step 2:</strong> Select an Occasion Card.</p>
-        <p><strong>Step 3:</strong> Add any 5 products to your box.</p>
-        <p><strong>Step 4:</strong> Click "Buy Now" to proceed.</p>
-        </StepsContainer>
           <h3>Select Your Gifting Box</h3>
           <Card onClick={() => setSelectedBox(true)}>
           <Image src={boxImage} alt="Mystic Gifting Box" />
             <h3>Mystic Gifting Box @ ₹999</h3>
             <Button>Select</Button>
           </Card>
+          <StepsContainer>
+        <p><strong>Step 1:</strong> Select Your Gifting Box.</p>
+        <p><strong>Step 2:</strong> Select an Occasion Card.</p>
+        <p><strong>Step 3:</strong> Add any 5 products to your box.</p>
+        <p><strong>Step 4:</strong> Click "Buy Now" to proceed.</p>
+        </StepsContainer>
           
         </>
       ) :!selectedOccasion ? (
@@ -446,7 +484,7 @@ const MysticGiftingBox = () => {
         <FilterContainer>
   
         <FilterBar>
-          {["All", "Gifting", "Beauty Mirrors", "Books and Novels","Soaps","Wallet Crates","Bottles","Fragrances","Board Games","Leather Belts"].map((category) => (
+          {["All","Beauty Mirrors", "Books and Novels","Soaps", "Gifting", "Wallet Crates","Bottles","Fragrances","Board Games","Leather Belts"].map((category) => (
             <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
               {category}
             </FilterButton>
@@ -470,20 +508,30 @@ const MysticGiftingBox = () => {
             )}
           </Card>
         ))}
+         <FixedBar>
+        <SelectionSteps>
+          {Array.from({ length: 5 }, (_, index) => (
+            <Step
+             key={index}
+             style={{
+              background: selectedItems[index] ? "purple" : "transparent",
+              padding: "9px",
+              borderRadius: "5px",
+              transition: "0.3s",
+            }}>{selectedItems[index] ? selectedItems[index].name : `Select Item ${index + 1}`}</Step>
+          ))}
+        </SelectionSteps>
+        <CartSection>
+        <Button onClick={sendEmail} style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Total ₹999 - Buy Now
+      </Button>
+        </CartSection>
+      </FixedBar>
       </Grid>  
+      <Footer/>
       </>    
         
       )}
-      <ProgressContainer>
-        <p>Add {Math.max(0, 5 - selectedItems.length)} more items to unlock Buy Any 5 @ ₹999</p>
-        <ProgressBar>
-          <ProgressFill progress={(selectedItems.length / 5) * 100} />
-        </ProgressBar>
-      </ProgressContainer>
-      {/* <FinalPrice>Total ₹999</FinalPrice> */}
-      <Button onClick={sendEmail}
-      style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Total ₹999 - Buy Now
-      </Button>
+     
     </Container>
   );
 };
