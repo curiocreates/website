@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 
 // Styled components for Navbar
@@ -97,7 +96,6 @@ const Hamburger = styled.div`
 
 // Navbar Component
 const Navbar = () => {
-  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -126,7 +124,8 @@ const Navbar = () => {
         <Link to="/" onClick={closeMenu}>Home</Link>
         <Link to="/Boxes" onClick={closeMenu}>Mystery-Boxes</Link>
         <Link to="/valentine-boxes" onClick={closeMenu}>Mystic Love-Boxes</Link>
-        <Link to="/MysticGiftingBox" onClick={closeMenu}>Mystic Gifting-Boxes</Link>
+        <Link to="/MysticGiftingBox" onClick={closeMenu}>Build your own Boxes</Link>
+        <Link to="/Leather-Wallets" onClick={closeMenu}>Leather Wallet Crates</Link>
         <Link to="/about" onClick={closeMenu}>About Us</Link>
         <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>
         <Link to="/terms" onClick={closeMenu}>Terms and Conditions</Link>

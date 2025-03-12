@@ -30,17 +30,6 @@ const Heading = styled.h1`
   }
 `;
 
-const Subheading = styled.p`
-  font-family: 'Playfair Display', serif;
-  text-shadow: 2px 2px 6px rgba(75, 0, 130, 0.8);
-  font-size: 1.7rem;
-  margin-bottom: 2rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   gap: 1.5rem; /* Space between buttons */
@@ -85,6 +74,8 @@ const Hero = () => {
         <Button href="#boxes">Our Mystery Boxes</Button>
         <Button href="valentine-boxes">Our Mystic Love Boxes🎁</Button>
         <Button href="/MysticGiftingBox">Build Your Own Gifting Box</Button>
+        <Button href="/Leather-Wallets">Our Leather Wallet Crates</Button>
+
       </ButtonContainer>
     </HeroContainer>
   );

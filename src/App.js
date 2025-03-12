@@ -19,6 +19,9 @@ import ValentineBoxDetail from "./Components/ValentineBoxDetail";
 import MysticGiftingBox from './Components/MysticGiftingBox';
 import GiftingBoxsection from './Components/GiftingBoxsection';
 import PaymentIssueNotice from './Components/PaymentIssueNotice';
+import WalletCrateDetail from './Components/WalletCrateDetail';
+import WalletCrateSection from './Components/WalletCrateSection';
+
 
 
 
@@ -183,9 +186,12 @@ function App() {
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />
           <Route path="/valentine-boxes" element={<ValentineBoxesSection />} />
           <Route path="/valentine-box/:id" element={<ValentineBoxDetail />} />
+          <Route path="/Leather-Wallets" element={<WalletCrateSection />} />
+          <Route path="/Leather-Wallets/:id" element={<WalletCrateDetail />} />
           <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
           <Route path="/GiftingBoxsection" element={<GiftingBoxsection/>}/>
           <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice/>} />
+
 
 
 
