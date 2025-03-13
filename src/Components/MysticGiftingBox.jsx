@@ -68,10 +68,10 @@ const products = [
   { id: 32, name: "The Monk Who Sold His Ferrari", price: 249, category: "Books and Novels", images: [TheMonkWhoSoldHisFerrari] },
   { id: 33, name: "The Power Of Subconscious Mind", price: 249, category: "Books and Novels", images: [ThePowerOfSubconsciousMind] },
 
-  { id: 34, name: "Charcoal Soap", price: 199, category: "Soaps", images: [CharcoalSoap] },
-  { id: 35, name: "Goatmilk Soap", price: 249, category: "Soaps", images: [GoatmilkSoap] },
-  { id: 36, name: "RedSandal Soap", price: 299, category: "Soaps", images: [RedSandalSoap] },
-  { id: 37, name: "Rose Soap", price: 199, category: "Soaps", images: [RoseSoap] },
+  { id: 34, name: "Charcoal Soap", price: 240, category: "Soaps", images: [CharcoalSoap] },
+  { id: 35, name: "Goatmilk Soap", price: 240, category: "Soaps", images: [GoatmilkSoap] },
+  { id: 36, name: "RedSandal Soap", price: 240, category: "Soaps", images: [RedSandalSoap] },
+  { id: 37, name: "Rose Soap", price: 240, category: "Soaps", images: [RoseSoap] },
 
   { id: 38, name: "Classic Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
   { id: 39, name: "Vintage Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
@@ -163,7 +163,7 @@ const FilterBar = styled.div`
   overflow-x: auto; /* Enables horizontal scrolling */
   white-space: nowrap;
   padding: 10px;
-  scrollbar-width: thin; /* Optional: Adjust scrollbar appearance */
+  scrollbar-width: 5px; /* Optional: Adjust scrollbar appearance */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
   
   &::-webkit-scrollbar {
@@ -171,7 +171,7 @@ const FilterBar = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #888; /* Customize scrollbar color */
+    background: orange; /* Customize scrollbar color */
     border-radius: 10px;
   }
 `;
@@ -232,10 +232,12 @@ const Grid = styled.div`
   right:0;
   justify-content: center;
   align-items: stretch;
-  
-  
+  width: 100%; 
 
-
+  @media (min-width: 601px) { 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for desktop */
+  }
+  
   @media (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -270,7 +272,7 @@ const Button = styled.button`
   background: ${(props) => (props.selected ? "#ff9800" : "#f0f0f0")};
   color: ${(props) => (props.selected ? "white" : "black")};
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   &:hover {
     background: #ddd;
@@ -326,54 +328,51 @@ const SubText = styled.span`
   margin-top: 5px;
 `;
 const FixedBar = styled.div`
-  position:fixed;
+  position: fixed;
   bottom: 0;
-  left: 5;
-  right: 5;
-  width: 100%;
-  background:rgb(22, 22, 22);
-  padding: 0.5rem;
+  left: 5px;
+  right: 5px;
+  width: (100px); /* Adjust for left/right margins */
+  border-radius: 10px;
+  background: rgb(22, 22, 22);
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 10px rgba(255, 255, 255, 0.1);
-  min-height: 100px; /* Adjust height so it doesn’t overlap content */
-  padding-bottom: 10px;
-  padding-top: 20px;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+  min-height: 100px;
+  padding: 10px 10px; /* Ensure padding consistency */
   text-align: center;
-  
+  max-width: 1200px; /* Prevent stretching on larger screens */
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+  min-height: 120px; /* Adjust height for better visibility on desktop */
+  padding: 15px 20px; /* Ensure proper spacing */
+}
+
 `;
 
 
-const SelectionSteps = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-`;
-
-const Step = styled.div`
-  background: #333;
-  padding: 0.5rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
+const ProgressContainer = styled.div`
+  margin-top: 16px;
   text-align: center;
-  min-width: 100px;
 `;
 
-const CartSection = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+const ProgressBar = styled.div`
   width: 100%;
-  max-width: 600px;
-  flex-wrap: wrap;
-  text-align: center;
+  background: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px 0;
 `;
 
+const ProgressFill = styled.div`
+  width: ${(props) => props.progress}%;
+  background: orange;
+  height: 8px;
+  transition: width 0.3s ease;
+`;
 
 
 const MysticGiftingBox = () => {
@@ -509,22 +508,16 @@ const MysticGiftingBox = () => {
           </Card>
         ))}
          <FixedBar>
-        <SelectionSteps>
-          {Array.from({ length: 5 }, (_, index) => (
-            <Step
-             key={index}
-             style={{
-              background: selectedItems[index] ? "purple" : "transparent",
-              padding: "9px",
-              borderRadius: "5px",
-              transition: "0.3s",
-            }}>{selectedItems[index] ? selectedItems[index].name : `Select Item ${index + 1}`}</Step>
-          ))}
-        </SelectionSteps>
-        <CartSection>
-        <Button onClick={sendEmail} style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Total ₹999 - Buy Now
+         <ProgressContainer>
+        <p>Add {Math.max(0, 5 - selectedItems.length)} more items to unlock Buy Any 5 @ ₹999</p>
+        <ProgressBar>
+          <ProgressFill progress={(selectedItems.length / 5) * 100} />
+        </ProgressBar>
+      </ProgressContainer>
+      {/* <FinalPrice>Total ₹999</FinalPrice> */}
+      <Button onClick={sendEmail}
+      style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Total ₹999 - Buy Now
       </Button>
-        </CartSection>
       </FixedBar>
       </Grid>  
       <Footer/>
