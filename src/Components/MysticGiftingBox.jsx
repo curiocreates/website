@@ -16,7 +16,7 @@ import anniversary from "../assets/occasions/Anniversary.jpg";
 import congratulations from "../assets/occasions/congratulations.jpg";
 import love from "../assets/occasions/love.jpg";
 
-import boxImage from "../assets/Mystery-Gifting-box.jpg";
+import boxImage from "../assets/Mystery-Gifting-box.JPG";
 
 import dancingGirl from "../assets/Mirrors/dancing-girl.JPG";
 import elephant from "../assets/Mirrors/elephant.JPG";
@@ -29,14 +29,11 @@ import hand from "../assets/Mirrors/hand.JPG";
 import haveAGoodTime from "../assets/Mirrors/have-a-good-time.JPG";
 import iLoveUnicorn from "../assets/Mirrors/i-love-unicorn.JPG";
 import peacocksBeige from "../assets/Mirrors/peacocks-beige.JPG";
-import singlePeacock from "../assets/Mirrors/single-peacock.JPG";
 import sleeptune from "../assets/Mirrors/sleeptune.JPG";
-import sun from "../assets/Mirrors/sun.JPG";
 import teddyBlack from "../assets/Mirrors/teddy-black.JPG";
 import teddyBlue from "../assets/Mirrors/teddy-blue.JPG";
 import unicornBlue from "../assets/Mirrors/unicorn-blue.JPG";
 import unicornMagico from "../assets/Mirrors/unicorn-magico.JPG";
-import unicornWhite from "../assets/Mirrors/unicorn-white.JPG";
 
 import banner from "../assets/banner.jpg"
 
@@ -54,7 +51,7 @@ import GoatmilkSoap from "../assets/Soaps/Goatmilk-Soap.JPG";
 import RedSandalSoap from "../assets/Soaps/Red-Sandal-Soap.JPG";
 import RoseSoap from "../assets/Soaps/Rose-Soap.JPG";
 
-import loading from "../assets/loading image.jpg";
+// import loading from "../assets/loading image.jpg";
 
 
 const products = [
@@ -73,51 +70,48 @@ const products = [
   { id: 36, name: "RedSandal Soap", price: 240, category: "Soaps", images: [RedSandalSoap] },
   { id: 37, name: "Rose Soap", price: 240, category: "Soaps", images: [RoseSoap] },
 
-  { id: 38, name: "Classic Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
-  { id: 39, name: "Vintage Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
-  { id: 40, name: "Slim RFID Wallet", price: 699, category: "Wallet Crates", images: [loading] },
-  { id: 41, name: "Executive Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  // { id: 38, name: "Classic Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  // { id: 39, name: "Vintage Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  // { id: 40, name: "Slim RFID Wallet", price: 699, category: "Wallet Crates", images: [loading] },
+  // { id: 41, name: "Executive Leather Wallet", price: 699, category: "Wallet Crates", images: [loading] },
 
-  { id: 42, name: "Insulated Steel Bottle", price: 799, category: "Bottles", images: [loading] },
-  { id: 43, name: "Frosted Glass Water Bottle", price: 899, category: "Bottles", images: [loading] },
-  { id: 44, name: "Smart Temperature Bottle", price: 999, category: "Bottles", images: [loading] },
-  { id: 45, name: "Eco-Friendly Bamboo Bottle", price: 799, category: "Bottles", images: [loading] },
+  // { id: 42, name: "Insulated Steel Bottle", price: 799, category: "Bottles", images: [loading] },
+  // { id: 43, name: "Frosted Glass Water Bottle", price: 899, category: "Bottles", images: [loading] },
+  // { id: 44, name: "Smart Temperature Bottle", price: 999, category: "Bottles", images: [loading] },
+  // { id: 45, name: "Eco-Friendly Bamboo Bottle", price: 799, category: "Bottles", images: [loading] },
 
-  { id: 46, name: "Luxury Perfume Set", price: 399, category: "Fragrances", images: [loading] },
-  { id: 47, name: "Mystic Oud Fragrance", price: 399, category: "Fragrances", images: [loading] },
-  { id: 48, name: "Floral Bliss Perfume", price: 399, category: "Fragrances", images: [loading] },
-  { id: 49, name: "Woody Musk Essence", price: 399, category: "Fragrances", images: [loading] },
+  // { id: 46, name: "Luxury Perfume Set", price: 399, category: "Fragrances", images: [loading] },
+  // { id: 47, name: "Mystic Oud Fragrance", price: 399, category: "Fragrances", images: [loading] },
+  // { id: 48, name: "Floral Bliss Perfume", price: 399, category: "Fragrances", images: [loading] },
+  // { id: 49, name: "Woody Musk Essence", price: 399, category: "Fragrances", images: [loading] },
 
-  { id: 50, name: "Strategy Board Game", price: 399, category: "Board Games", images: [loading] },
-  { id: 51, name: "Classic Chess Set", price: 399, category: "Board Games", images: [loading] },
-  { id: 52, name: "Fast-Paced Card Game", price: 399, category: "Board Games", images: [loading] },
-  { id: 53, name: "Trivia Challenge Game", price: 399, category: "Board Games", images: [loading] },
+  // { id: 50, name: "Strategy Board Game", price: 399, category: "Board Games", images: [loading] },
+  // { id: 51, name: "Classic Chess Set", price: 399, category: "Board Games", images: [loading] },
+  // { id: 52, name: "Fast-Paced Card Game", price: 399, category: "Board Games", images: [loading] },
+  // { id: 53, name: "Trivia Challenge Game", price: 399, category: "Board Games", images: [loading] },
 
-  { id: 54, name: "Premium Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
-  { id: 55, name: "Vintage Brown Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
-  { id: 56, name: "Formal Black Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
-  { id: 57, name: "Casual Suede Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  // { id: 54, name: "Premium Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  // { id: 55, name: "Vintage Brown Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  // { id: 56, name: "Formal Black Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
+  // { id: 57, name: "Casual Suede Leather Belt", price: 699, category: "Leather Belts", images: [loading] },
 
 
-  { id: 1, name: "Dancing Girl", price: 299, category: "Beauty Mirrors", images: [dancingGirl] },
-  { id: 2, name: "Elephant", price: 399, category: "Beauty Mirrors", images: [elephant] },
-  { id: 3, name: "Feather - Blue", price: 349, category: "Beauty Mirrors", images: [featherBlue] },
-  { id: 4, name: "Feather - Green", price: 199, category: "Beauty Mirrors", images: [featherGreen] },
-  { id: 5, name: "Feather - Multicolour", price: 249, category: "Beauty Mirrors", images: [featherMulticolour] },
-  { id: 6, name: "Feather - Violet", price: 299, category: "Beauty Mirrors", images: [featherViolet] },
-  { id: 7, name: "Feather - Violet Yellow", price: 349, category: "Beauty Mirrors", images: [featherVioletYellow] },
-  { id: 8, name: "Hand", price: 199, category: "Beauty Mirrors", images: [hand] },
-  { id: 9, name: "Have A Good Time", price: 249, category: "Beauty Mirrors", images: [haveAGoodTime] },
-  { id: 10, name: "I Love Unicorn", price: 299, category: "Beauty Mirrors", images: [iLoveUnicorn] },
-  { id: 11, name: "Peacocks - Beige", price: 349, category: "Beauty Mirrors", images: [peacocksBeige] },
-  { id: 12, name: "Single Peacock", price: 199, category: "Beauty Mirrors", images: [singlePeacock] },
-  { id: 13, name: "Sleeptune", price: 249, category: "Beauty Mirrors", images: [sleeptune] },
-  { id: 14, name: "Sun", price: 299, category: "Beauty Mirrors", images: [sun] },
-  { id: 15, name: "Teddy - Black", price: 349, category: "Beauty Mirrors", images: [teddyBlack] },
-  { id: 16, name: "Teddy - Blue", price: 199, category: "Beauty Mirrors", images: [teddyBlue] },
-  { id: 17, name: "Unicorn - Blue", price: 249, category: "Beauty Mirrors", images: [unicornBlue] },
-  { id: 18, name: "Unicorn - Magico", price: 299, category: "Beauty Mirrors", images: [unicornMagico] },
-  { id: 19, name: "Unicorn - White", price: 349, category: "Beauty Mirrors", images: [unicornWhite] },
+  { id: 1, name: "Dancing Girl - Mirror", price: 299, category: "Beauty Mirrors", images: [dancingGirl] },
+  { id: 2, name: "Elephant - Mirror", price: 399, category: "Beauty Mirrors", images: [elephant] },
+  { id: 3, name: "Feather - Blue - Mirror", price: 349, category: "Beauty Mirrors", images: [featherBlue] },
+  { id: 4, name: "Feather - Green - Mirror", price: 199, category: "Beauty Mirrors", images: [featherGreen] },
+  { id: 5, name: "Feather - Multicolour - Mirror", price: 249, category: "Beauty Mirrors", images: [featherMulticolour] },
+  { id: 6, name: "Feather - Violet - Mirror", price: 299, category: "Beauty Mirrors", images: [featherViolet] },
+  { id: 7, name: "Feather - Violet Yellow - Mirror", price: 349, category: "Beauty Mirrors", images: [featherVioletYellow] },
+  { id: 8, name: "Hand - Mirror", price: 199, category: "Beauty Mirrors", images: [hand] },
+  { id: 9, name: "Have A Good Time - Mirror", price: 249, category: "Beauty Mirrors", images: [haveAGoodTime] },
+  { id: 10, name: "I Love Unicorn - Mirror", price: 299, category: "Beauty Mirrors", images: [iLoveUnicorn] },
+  { id: 11, name: "Peacocks - Beige - Mirror", price: 349, category: "Beauty Mirrors", images: [peacocksBeige] },
+  { id: 13, name: "Sleeptune - Mirror", price: 249, category: "Beauty Mirrors", images: [sleeptune] },
+  { id: 15, name: "Teddy - Black - Mirror", price: 349, category: "Beauty Mirrors", images: [teddyBlack] },
+  { id: 16, name: "Teddy - Blue - Mirror", price: 199, category: "Beauty Mirrors", images: [teddyBlue] },
+  { id: 17, name: "Unicorn - Blue - Mirror", price: 249, category: "Beauty Mirrors", images: [unicornBlue] },
+  { id: 18, name: "Unicorn - Magico - Mirror", price: 299, category: "Beauty Mirrors", images: [unicornMagico] },
 
   { id: 20, name: "Scented Candle", price: 299, category: "Gifting", images: [candle] },
   { id: 21, name: "Luxury Chocolates", price: 399, category: "Gifting", images: [chocolates] },
@@ -145,14 +139,6 @@ const Banner = styled.div`
   position: relative;
   width: 100%;
   height: 100px;
-`;
-
-
-const FilterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  gap: 10px;
 `;
 
 const FilterBar = styled.div`
@@ -188,40 +174,28 @@ const FilterButton = styled.button`
   }
 `;
 
-const Card = styled.div`
-  background:rgb(58, 32, 72);
-  border-radius: 12px;
-  padding: 0.5rem;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: 0.3s;
-  cursor: pointer;
-  width: 170px; /* Increased card size */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  &:hover {
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-  }
-`;
+
 
 const Container = styled.div`
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2px;
+  justify-content: center; /* Ensures proper centering */
+  padding: 10px; /* Increased padding for better spacing */
   margin: auto;
-  background:rgb(16, 16, 16);
+  background: rgb(16, 16, 16);
   color: white;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevents unwanted horizontal scroll */
   position: relative;
-  
+
+  @media (max-width: 600px) {
+    padding: 5px; /* Reduce padding on small screens */
+  }
 `;
+
 
 
 const Grid = styled.div`
@@ -240,6 +214,23 @@ const Grid = styled.div`
   
   @media (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+`;
+const Card = styled.div`
+  background:rgb(58, 32, 72);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 170px; /* Increased card size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
   }
 `;
 
@@ -316,16 +307,18 @@ const OfferBox = styled.div`
 
 const OfferText = styled.h4`
   margin: 0;
-  font-size: 22px;
-  color:rgb(221, 205, 37);
+  font-size: 28px;
+  color: beige;
   font-weight: bold;
+  
 `;
 
 const SubText = styled.span`
   display: block;
   font-size: 16px;
-  color:rgb(247, 241, 241);
+  color:rgb(246, 240, 240);
   margin-top: 5px;
+  font-size: 16px;
 `;
 const FixedBar = styled.div`
   position: fixed;
@@ -374,16 +367,143 @@ const ProgressFill = styled.div`
   transition: width 0.3s ease;
 `;
 
+const ViewBoxButton = styled.button`
+  background: purple;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  &:hover {
+    background: darkviolet;
+  }
+`;
+
+const BuyButton = styled.button`
+  background: purple;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  &:hover {
+    background: darkviolet;
+  }
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+`;
+
+const ModalContent = styled.div`
+  background: linear-gradient(135deg, rgb(128, 0, 128), rgb(218, 165, 32));
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  
+`;
+
+const CloseButton = styled.button`
+  background: purple;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  &:hover {
+    background: darkviolet;
+  }
+`;
+
+const SelectedItem = styled.div`
+  background: black;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const RemoveButton = styled.button`
+  background: purple;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+`;
+
+const SortSelect = styled.select`
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+`;
+const FixedHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgb(16, 16, 16);
+  padding: 10px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 2px;
+  padding-bottom:1px;
+`;
+
+const FilterWrapper = styled.div`
+  overflow-x: auto;
+  width: 100%;
+  white-space: nowrap;
+  background: rgb(16, 16, 16); /* Prevents overlap */
+`;
+
+
+
+
 
 const MysticGiftingBox = () => {
   const [selectedBox, setSelectedBox] = useState(false);
   const [selectedOccasion, setSelectedOccasion] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isViewBoxOpen, setIsViewBoxOpen] = useState(false);
   const [filter, setFilter] = useState("All");
+  const [sortBy, setSortBy] = useState("");
+
+  const handleSort = (option) => {
+    setSortBy(option);
+  };
+
+  // Apply Sorting
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortBy === "priceLow") return a.price - b.price;
+    if (sortBy === "priceHigh") return b.price - a.price;
+    if (sortBy === "nameAZ") return a.name.localeCompare(b.name);
+    if (sortBy === "nameZA") return b.name.localeCompare(a.name);
+    return 0;
+  });
 
     // Function to filter products
-  const filteredProducts = filter === "All" ? products : products.filter((p) => p.category === filter);
-  const navigate = useNavigate();
+    const filteredProducts = filter === "All" ? sortedProducts : sortedProducts.filter((p) => p.category === filter);
+
+      const navigate = useNavigate();
 
   // const form = useRef();
 
@@ -443,11 +563,10 @@ const MysticGiftingBox = () => {
        <BackButton onClick={() => navigate(-1)}> ← Back </BackButton>
        <OfferBox>
       <OfferText>Buy 5 @ ₹ 999</OfferText>
-      <SubText>+ A greeting card</SubText>
+      <SubText>+ A greeting card free</SubText>
       </OfferBox>
       </Banner>
 
-    
       {!selectedBox ? (
         <>
           <h3>Select Your Gifting Box</h3>
@@ -456,13 +575,12 @@ const MysticGiftingBox = () => {
             <h3>Mystic Gifting Box @ ₹999</h3>
             <Button>Select</Button>
           </Card>
-          <StepsContainer>
+        <StepsContainer>
         <p><strong>Step 1:</strong> Select Your Gifting Box.</p>
         <p><strong>Step 2:</strong> Select an Occasion Card.</p>
         <p><strong>Step 3:</strong> Add any 5 products to your box.</p>
         <p><strong>Step 4:</strong> Click "Buy Now" to proceed.</p>
-        </StepsContainer>
-          
+        </StepsContainer>  
         </>
       ) :!selectedOccasion ? (
         <>
@@ -479,18 +597,29 @@ const MysticGiftingBox = () => {
       ) : (
         <>
 
-        <div style={{ overflowX: "auto", width: "100%" }}>
-        <FilterContainer>
-  
-        <FilterBar>
-          {["All","Beauty Mirrors", "Books and Novels","Soaps", "Gifting", "Wallet Crates","Bottles","Fragrances","Board Games","Leather Belts"].map((category) => (
-            <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
-              {category}
-            </FilterButton>
-          ))}
-        </FilterBar>
-      </FilterContainer>
-        </div>
+       {/* Fixed Header (Offer Text + Sort By) */}
+    <FixedHeader>
+      <OfferText>Buy 5 @ ₹ 999</OfferText>
+
+      <SortSelect onChange={(e) => handleSort(e.target.value)}>
+        <option value="">Sort By</option>
+        <option value="priceLow">Price: Low to High</option>
+        <option value="priceHigh">Price: High to Low</option>
+        <option value="nameAZ">Name: A-Z</option>
+        <option value="nameZA">Name: Z-A</option>
+      </SortSelect>
+    </FixedHeader>
+
+    {/* Scrollable Filter Bar */}
+    <FilterWrapper>
+      <FilterBar>
+        {["All", "Beauty Mirrors", "Books and Novels", "Handmade-Soaps", "Gifting"].map((category) => (
+          <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
+            {category}
+          </FilterButton>
+        ))}
+      </FilterBar>
+    </FilterWrapper>
         
         <Grid>
         {filteredProducts.map((product) => (
@@ -515,11 +644,38 @@ const MysticGiftingBox = () => {
         </ProgressBar>
       </ProgressContainer>
       {/* <FinalPrice>Total ₹999</FinalPrice> */}
-      <Button onClick={sendEmail}
-      style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Total ₹999 - Buy Now
-      </Button>
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+      <ViewBoxButton onClick={() => setIsViewBoxOpen(true)}>View Box</ViewBoxButton>
+      <BuyButton onClick={sendEmail}
+      style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Buy Now
+      </BuyButton> 
+      </div>
       </FixedBar>
-      </Grid>  
+      </Grid> 
+      {isViewBoxOpen && (
+        <ModalOverlay>
+          <ModalContent>
+            <h1>Selected Items</h1>
+            {selectedItems.length === 0 ? (
+              <h3>No items in the box. Please Select the items</h3>
+            ) : (
+              selectedItems.map((item) => (
+                <SelectedItem key={item.id}>
+                  {item.name}
+                  <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
+                </SelectedItem>
+              ))
+            )}
+            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <CloseButton onClick={() => setIsViewBoxOpen(false)}>Hide Box</CloseButton>
+             <BuyButton onClick={sendEmail}
+              style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Buy Now
+            </BuyButton> 
+            </div>
+
+          </ModalContent>
+        </ModalOverlay>
+      )} 
       <Footer/>
       </>    
         
