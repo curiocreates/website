@@ -16,7 +16,7 @@ import anniversary from "../assets/occasions/Anniversary.jpg";
 import congratulations from "../assets/occasions/congratulations.jpg";
 import love from "../assets/occasions/love.jpg";
 
-import boxImage from "../assets/Mystery-Gifting-box.JPG";
+import boxImage from "../assets/Mystery-Gifting-box.jpg";
 
 import dancingGirl from "../assets/Mirrors/dancing-girl.JPG";
 import elephant from "../assets/Mirrors/elephant.JPG";
