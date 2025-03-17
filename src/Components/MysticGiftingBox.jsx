@@ -9,7 +9,7 @@ import anniversary from "../assets/occasions/Anniversary.jpg";
 import congratulations from "../assets/occasions/congratulations.jpg";
 import love from "../assets/occasions/love.jpg";
 
-import boxImage from "../assets/Mystery-Gifting-box-1.JPG";
+import boxImage from "../assets/BasicImages/Mystery-Gifting-box-1.JPG";
 
 import dancingGirl from "../assets/Mirrors/dancing-girl.JPG";
 import elephant from "../assets/Mirrors/elephant.JPG";
@@ -28,7 +28,7 @@ import teddyBlue from "../assets/Mirrors/teddy-blue.JPG";
 import unicornBlue from "../assets/Mirrors/unicorn-blue.JPG";
 import unicornMagico from "../assets/Mirrors/unicorn-magico.JPG";
 
-import banner from "../assets/banner.jpg"
+import banner from "../assets/BasicImages/banner.jpg"
 
 import AtomicHabits from "../assets/Books/Atomic-habits.JPG";
 import DoEpicShitDone from "../assets/Books/Do-epic-shit-done.JPG";
@@ -62,71 +62,91 @@ import HarryPotterClock from "../assets/PocketWatches/HarryPotter-Clock.JPEG";
 import TheGreatestDadClock from "../assets/PocketWatches/The-Greatest-Dad-Clock.JPEG";
 import TheGreatestMomClock from "../assets/PocketWatches/The-Greatest-Mom-Clock.JPEG";
 
-import loading from "../assets/loading image.jpg"
+import loading from "../assets/BasicImages/loading image.jpg";
+
+import basic from "../assets/Perfumes/Basic.JPEG";
+import Gold from "../assets/Perfumes/Gold.JPEG";
+import Premium from "../assets/Perfumes/Premium-1.JPEG";
+import Classic from "../assets/Perfumes/Premium-2.JPEG";
+
 
 
 
 const products = [
+
+  // Soft Toys (First)
+  { id: 1, name: "Biege Teddy", price: 299, category: "Soft Toys", images: [BiegeTeddy], inStock: true },
+  { id: 2, name: "Blue Teddy", price: 299, category: "Soft Toys", images: [BlueTeddy], inStock: true },
+  { id: 3, name: "Brown Teddy", price: 299, category: "Soft Toys", images: [BrownTeddy], inStock: true },
+  { id: 4, name: "Pink Teddy", price: 299, category: "Soft Toys", images: [PinkTeddy], inStock: true },
+  { id: 5, name: "Red Teddy", price: 299, category: "Soft Toys", images: [RedTeddy], inStock: true },
+  { id: 6, name: "Yellow Teddy", price: 299, category: "Soft Toys", images: [YellowTeddy], inStock: true },
+
+  // Cute Bottles
+  { id: 7, name: "Vacuum Bottle Biege", price: 399, category: "Cute Bottles", images: [VacuumBottleBiege], inStock: true },
+  { id: 8, name: "Vacuum Bottle Black", price: 399, category: "Cute Bottles", images: [VacuumBottleBlack], inStock: true },
+  { id: 9, name: "Vacuum Bottle Blue", price: 399, category: "Cute Bottles", images: [VacuumBottleBlue], inStock: true },
+  { id: 10, name: "Vacuum Bottle Peach", price: 399, category: "Cute Bottles", images: [VacuumBottlePeach], inStock: true },
+  { id: 11, name: "Vacuum Bottle Red", price: 399, category: "Cute Bottles", images: [VacuumBottleRed], inStock: true },
+
+  // Pocket Watches
+  { id: 12, name: "Crown Clock", price: 399, category: "Pocket Watches", images: [CrownClock], inStock: true },
+  { id: 13, name: "Harry Potter Clock", price: 399, category: "Pocket Watches", images: [HarryPotterClock], inStock: true },
+  { id: 14, name: "The Greatest Dad Clock", price: 399, category: "Pocket Watches", images: [TheGreatestDadClock], inStock: true },
+  { id: 15, name: "The Greatest Mom Clock", price: 399, category: "Pocket Watches", images: [TheGreatestMomClock], inStock: true },
+
+  // Handmade Soaps
+  { id: 16, name: "Charcoal Soap", price: 240, category: "Handmade-Soaps", images: [CharcoalSoap], inStock: true },
+  { id: 17, name: "Goatmilk Soap", price: 240, category: "Handmade-Soaps", images: [GoatmilkSoap], inStock: true },
+  { id: 18, name: "RedSandal Soap", price: 240, category: "Handmade-Soaps", images: [RedSandalSoap], inStock: true },
+  { id: 19, name: "Rose Soap", price: 240, category: "Handmade-Soaps", images: [RoseSoap], inStock: true },
+
+  // Books and Novels
+  { id: 20, name: "Atomic Habits", price: 249, category: "Books and Novels", images: [AtomicHabits], inStock: true },
+  { id: 21, name: "Do Epic Shit Done", price: 249, category: "Books and Novels", images: [DoEpicShitDone], inStock: true },
+  { id: 22, name: "Ikigai HardcoverBook", price: 249, category: "Books and Novels", images: [IkigaiHardcoverBook], inStock: true },
+  { id: 23, name: "Psychology Of Money", price: 249, category: "Books and Novels", images: [PsychologyOfMoney], inStock: true },
+  { id: 24, name: "Rich Dad Poor Dad", price: 249, category: "Books and Novels", images: [RichDadPoorDad], inStock: true },
+  { id: 25, name: "The Alchemist", price: 249, category: "Books and Novels", images: [TheAlchemist], inStock: true },
+  { id: 26, name: "The Monk Who Sold His Ferrari", price: 249, category: "Books and Novels", images: [TheMonkWhoSoldHisFerrari], inStock: true },
+  { id: 27, name: "The Power Of Subconscious Mind", price: 249, category: "Books and Novels", images: [ThePowerOfSubconsciousMind], inStock: true },
+
+    // Beauty Mirrors (Fixed IDs)
+    { id: 28, name: "Dancing Girl - Mirror", price: 299, category: "Beauty Mirrors", images: [dancingGirl], inStock: true },
+    { id: 29, name: "Elephant - Mirror", price: 399, category: "Beauty Mirrors", images: [elephant], inStock: true },
+    { id: 30, name: "Feather - Blue - Mirror", price: 349, category: "Beauty Mirrors", images: [featherBlue], inStock: true },
+    { id: 31, name: "Feather - Green - Mirror", price: 199, category: "Beauty Mirrors", images: [featherGreen], inStock: true },
+    { id: 32, name: "Feather - Multicolour - Mirror", price: 249, category: "Beauty Mirrors", images: [featherMulticolour], inStock: true },
+    { id: 33, name: "Feather - Violet - Mirror", price: 299, category: "Beauty Mirrors", images: [featherViolet], inStock: true },
+    { id: 34, name: "Feather - Violet Yellow - Mirror", price: 349, category: "Beauty Mirrors", images: [featherVioletYellow], inStock: true },
+    { id: 35, name: "Hand - Mirror", price: 199, category: "Beauty Mirrors", images: [hand], inStock: true },
+    { id: 36, name: "Have A Good Time - Mirror", price: 249, category: "Beauty Mirrors", images: [haveAGoodTime], inStock: true },
+    { id: 37, name: "I Love Unicorn - Mirror", price: 299, category: "Beauty Mirrors", images: [iLoveUnicorn], inStock: true },
+    { id: 38, name: "Peacocks - Beige - Mirror", price: 349, category: "Beauty Mirrors", images: [peacocksBeige], inStock: true },
+    { id: 39, name: "Sleeptune - Mirror", price: 249, category: "Beauty Mirrors", images: [sleeptune], inStock: true },
+    { id: 40, name: "Teddy - Black - Mirror", price: 349, category: "Beauty Mirrors", images: [teddyBlack], inStock: true },
+    { id: 41, name: "Teddy - Blue - Mirror", price: 199, category: "Beauty Mirrors", images: [teddyBlue], inStock: true },
+    { id: 42, name: "Unicorn - Blue - Mirror", price: 249, category: "Beauty Mirrors", images: [unicornBlue], inStock: true },
+    { id: 43, name: "Unicorn - Magico - Mirror", price: 299, category: "Beauty Mirrors", images: [unicornMagico], inStock: true },
   
-  { id: 26, name: "Atomic Habits", price: 249, category: "Books and Novels", images: [AtomicHabits],inStock: true },
-  { id: 27, name: "Do Epic Shit Done", price: 249, category: "Books and Novels", images: [DoEpicShitDone],inStock: true },
-  { id: 28, name: "Ikigai HardcoverBook", price: 249, category: "Books and Novels", images: [IkigaiHardcoverBook],inStock: true },
-  { id: 29, name: "Psychology Of Money", price: 249, category: "Books and Novels", images: [PsychologyOfMoney],inStock: true },
-  { id: 30, name: "Rich Dad Poor Dad", price: 249, category: "Books and Novels", images: [RichDadPoorDad],inStock: true },
-  { id: 31, name: "The Alchemist", price: 249, category: "Books and Novels", images: [TheAlchemist],inStock: true },
-  { id: 32, name: "The Monk Who Sold His Ferrari", price: 249, category: "Books and Novels", images: [TheMonkWhoSoldHisFerrari],inStock: true },
-  { id: 33, name: "The Power Of Subconscious Mind", price: 249, category: "Books and Novels", images: [ThePowerOfSubconsciousMind],inStock: true },
+    // Curio Crates Signature Attars (Non-Alcoholic)
+  { id: 44, name: "Mystic Oud", price: 499, category: "Perfumes", description: "A deep, mysterious blend of aged oud, evoking luxury and timeless elegance.", images: [Classic], inStock: true },
+  { id: 45, name: "Choco Luxe", price: 349, category: "Perfumes", description: "A rich and velvety chocolate scent with warm amber undertones.", images: [Gold], inStock: true },
+  { id: 46, name: "Arabian Majestic", price: 399, category: "Perfumes", description: "A bold Arabian oud infused with spicy and woody notes.", images: [Premium], inStock: true },
+  { id: 47, name: "Flora Facinate", price: 499, category: "Perfumes", description: "A mesmerizing floral symphony of exotic roses and jasmine.", images: [Classic], inStock: true },
+  { id: 48, name: "Flora Amaze", price: 499, category: "Perfumes", description: "A vibrant bouquet of fresh blossoms with a soft, sweet touch.", images: [Classic], inStock: true },
+  { id: 49, name: "Flora Eternal Heaven", price: 449, category: "Perfumes", description: "A heavenly blend of florals and soft musk, pure and serene.", images: [Gold], inStock: true },
+  { id: 50, name: "Femme Intense", price: 499, category: "Perfumes", description: "A powerful yet graceful mix of deep florals and creamy woods.", images: [Classic], inStock: true },
+  { id: 51, name: "Silver Musk", price: 349, category: "Perfumes", description: "A smooth, fresh musk with hints of citrus and soft vanilla.", images: [Premium], inStock: true },
+  { id: 52, name: "Sweet Ember", price: 299, category: "Perfumes", description: "A warm, romantic blend of sugared notes and sandalwood.", images: [basic], inStock: true },
 
-  { id: 34, name: "Charcoal Soap", price: 240, category: "Handmade-Soaps", images: [CharcoalSoap],inStock: true },
-  { id: 35, name: "Goatmilk Soap", price: 240, category: "Handmade-Soaps", images: [GoatmilkSoap],inStock: true },
-  { id: 36, name: "RedSandal Soap", price: 240, category: "Handmade-Soaps", images: [RedSandalSoap],inStock: true },
-  { id: 37, name: "Rose Soap", price: 240, category: "Handmade-Soaps", images: [RoseSoap],inStock: true },
+  // Keychains
+  { id: 53, name: "Crown Keychain", price: 199, category: "Keychains", images: [loading], inStock: true },
+  { id: 54, name: "Dragon Keychain", price: 249, category: "Keychains", images: [loading], inStock: false },
+  { id: 55, name: "Heart Keychain", price: 179, category: "Keychains", images: [loading], inStock: true },
 
-  { id: 38, name: "Biege Teddy", price: 299, category: "Soft Toys", images: [BiegeTeddy],inStock: true },
-  { id: 39, name: "Blue Teddy", price: 299, category: "Soft Toys", images: [BlueTeddy],inStock: true },
-  { id: 40, name: "Brown Teddy", price: 299, category: "Soft Toys", images: [BrownTeddy],inStock: true },
-  { id: 41, name: "Pink Teddy", price: 299, category: "Soft Toys", images: [PinkTeddy],inStock: true },
-  { id: 42, name: "Red Teddy", price: 299, category: "Soft Toys", images: [RedTeddy],inStock: true },
-  { id: 43, name: "Yellow Teddy", price: 299, category: "Soft Toys", images: [YellowTeddy],inStock: true },
+];
 
-  { id: 44, name: "Vacuum Bottle Biege", price: 399, category: "Cute Bottles", description: "150 ml insulated bottle, keeps drinks hot or cold.", images: [VacuumBottleBiege],inStock: true },
-  { id: 45, name: "Vacuum Bottle Black", price: 399, category: "Cute Bottles", description: "Sleek 150 ml vacuum bottle for perfect temperature control.", images: [VacuumBottleBlack],inStock: true },
-  { id: 46, name: "Vacuum Bottle Blue", price: 399, category: "Cute Bottles", description: "Trendy 150 ml bottle, ideal for daily use.", images: [VacuumBottleBlue],inStock: true },
-  { id: 47, name: "Vacuum Bottle Peach", price: 399, category: "Cute Bottles", description: "Cute 150 ml insulated bottle, compact and stylish.", images: [VacuumBottlePeach],inStock: true },
-  { id: 48, name: "Vacuum Bottle Red", price: 399, category: "Cute Bottles", description: "Vibrant 150 ml bottle, keeps beverages fresh for hours.", images: [VacuumBottleRed],inStock: true },
-
-  { id: 49, name: "Crown Clock", price: 399, category: "Pocket Watches", description: "Elegant crown-themed pocket watch.", images: [CrownClock],inStock: true},
-  { id: 50, name: "Harry Potter Clock", price: 399, category: "Pocket Watches", description: "Magical Harry Potter-themed pocket watch.", images: [HarryPotterClock],inStock: true },
-  { id: 51, name: "The Greatest Dad Clock", price: 399, category: "Pocket Watches", description: "A perfect gift for the greatest dad.", images: [TheGreatestDadClock],inStock: true},
-  { id: 52, name: "The Greatest Mom Clock", price: 399, category: "Pocket Watches", description: "A beautiful tribute to the greatest mom.", images: [TheGreatestMomClock],inStock: true },
-
-  { id: 1, name: "Dancing Girl - Mirror", price: 299, category: "Beauty Mirrors", images: [dancingGirl],inStock: true },
-  { id: 2, name: "Elephant - Mirror", price: 399, category: "Beauty Mirrors", images: [elephant],inStock: true },
-  { id: 3, name: "Feather - Blue - Mirror", price: 349, category: "Beauty Mirrors", images: [featherBlue],inStock: true },
-  { id: 4, name: "Feather - Green - Mirror", price: 199, category: "Beauty Mirrors", images: [featherGreen],inStock: true },
-  { id: 5, name: "Feather - Multicolour - Mirror", price: 249, category: "Beauty Mirrors", images: [featherMulticolour],inStock: true },
-  { id: 6, name: "Feather - Violet - Mirror", price: 299, category: "Beauty Mirrors", images: [featherViolet],inStock: true },
-  { id: 7, name: "Feather - Violet Yellow - Mirror", price: 349, category: "Beauty Mirrors", images: [featherVioletYellow],inStock: true },
-  { id: 8, name: "Hand - Mirror", price: 199, category: "Beauty Mirrors", images: [hand],inStock: true },
-  { id: 9, name: "Have A Good Time - Mirror", price: 249, category: "Beauty Mirrors", images: [haveAGoodTime],inStock: true },
-  { id: 10, name: "I Love Unicorn - Mirror", price: 299, category: "Beauty Mirrors", images: [iLoveUnicorn],inStock: true },
-  { id: 11, name: "Peacocks - Beige - Mirror", price: 349, category: "Beauty Mirrors", images: [peacocksBeige],inStock: true },
-  { id: 13, name: "Sleeptune - Mirror", price: 249, category: "Beauty Mirrors", images: [sleeptune],inStock: true },
-  { id: 15, name: "Teddy - Black - Mirror", price: 349, category: "Beauty Mirrors", images: [teddyBlack],inStock: true },
-  { id: 16, name: "Teddy - Blue - Mirror", price: 199, category: "Beauty Mirrors", images: [teddyBlue],inStock: true },
-  { id: 17, name: "Unicorn - Blue - Mirror", price: 249, category: "Beauty Mirrors", images: [unicornBlue],inStock: true },
-  { id: 18, name: "Unicorn - Magico - Mirror", price: 299, category: "Beauty Mirrors", images: [unicornMagico],inStock: true },
-
-  { id: 49, name: "Rose Perfume", price: 499, category: "Perfumes", images:[loading], inStock: true },
-  { id: 50, name: "Oud Perfume", price: 599, category: "Perfumes", images:[loading], inStock: false },
-  { id: 51, name: "Lavender Perfume", price: 549, category: "Perfumes", images:[loading], inStock: true },
-
-  // Keychains Category
-  { id: 52, name: "Crown Keychain", price: 199, category: "Keychains", images:[loading], inStock: true },
-  { id: 53, name: "Dragon Keychain", price: 249, category: "Keychains", images:[loading], inStock: false },
-  { id: 54, name: "Heart Keychain", price: 179, category: "Keychains", images:[loading], inStock: true }
-
-]
 
 const occasionCards = [
   { id: 1, name: "Birthday", image: birthday },
@@ -509,7 +529,9 @@ const MysticGiftingBox = () => {
   });
 
     // Function to filter products
-    const filteredProducts = filter === "All" ? sortedProducts : sortedProducts.filter((p) => p.category === filter);
+    const filteredProducts = filter === "All" 
+    ? sortedProducts 
+    : sortedProducts.filter((p) => p.category === filter);
 
       const navigate = useNavigate();
 
@@ -545,7 +567,7 @@ const MysticGiftingBox = () => {
 
   const handleSelect = (product) => {
     if (selectedItems.some(item => item.category === product.category)) {
-      alert(`You can only select one product from the ${product.category} category. please`);
+      alert(`You can only select one product from the ${product.category} category. please select product from other category`);
       return;
     }
 
@@ -557,19 +579,7 @@ const MysticGiftingBox = () => {
   const handleRemove = (id) => {
     setSelectedItems((prev) => prev.filter((item) => item.id !== id));
   };
-  const toggleSelection = (productId) => {
-     // Ensure gift card is selected first
-    setSelectedItems((prev) =>
-      prev.includes(productId)
-        ? prev.filter((id) => id !== productId)
-        : prev.length < 5
-        ? [...prev, productId]
-        : prev
-    );
-  };
-
   
-
   return (
     <Container>
        <Banner>
@@ -636,7 +646,7 @@ const MysticGiftingBox = () => {
         
         <Grid>
         {filteredProducts.map((product) => (
-          <Card key={product.id} onClick={() => toggleSelection(product.id)}>
+          <Card key={product.id} >
           <Image src={product.images[0]} alt={product.name} />
           <ItemTitle>{product.name}</ItemTitle>
           <Price>₹{product.price}</Price>
@@ -681,7 +691,7 @@ const MysticGiftingBox = () => {
             ) : (
               selectedItems.map((item) => (
                 <SelectedItem key={item.id}>
-                  {item.name}
+                  <span>{item.name}</span>
                   <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
                 </SelectedItem>
               ))

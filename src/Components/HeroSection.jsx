@@ -1,7 +1,7 @@
 // src/components/Hero.js
 import React from 'react';
 import styled from 'styled-components';
-import heroBg from '../assets/bg-2.jpg';
+import heroBg from '../assets/BasicImages/bg-2.jpg';
 
 const HeroContainer = styled.section`
   background-image: url(${heroBg});

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import LoveBoxHer from "../assets/LoveBox-her.jpg";
-import LoveBoxHim from "../assets/LoveBox-him.jpg";
-import loading from "../assets/loading image.jpg";
+import LoveBoxHer from "../assets/Loveboxes/LoveBox-her.jpg";
+import LoveBoxHim from "../assets/Loveboxes/LoveBox-him.jpg";
+import loading from "../assets/BasicImages/loading image.jpg";
 
 
 

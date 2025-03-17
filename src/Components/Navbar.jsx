@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 // Styled components for Navbar
 const Nav = styled.nav`
   display: flex;
+  background: #000; /* Changed to black */
   height: 60px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #4B0082;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -19,6 +19,7 @@ const Nav = styled.nav`
     padding: 10px 15px;
   }
 `;
+
 
 const Logo = styled.h1`
   font-size: 30px;

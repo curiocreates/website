@@ -7,9 +7,9 @@ import "swiper/css/navigation";
 import { Navigation, Thumbs } from "swiper/modules";
 
 // Import box images
-import LoveBoxHer from "../assets/LoveBox-her.jpg";
-import LoveBoxHim from "../assets/LoveBox-him.jpg";
-import loading from "../assets/loading image.jpg";
+import LoveBoxHer from "../assets/Loveboxes/LoveBox-her.jpg";
+import LoveBoxHim from "../assets/Loveboxes/LoveBox-him.jpg";
+import loading from "../assets/BasicImages/loading image.jpg";
 import Mirrors1 from"../assets/Mirrors/Mirrors-1.JPG";
 import Mirrors2 from"../assets/Mirrors/Mirrors-2.JPG";
 

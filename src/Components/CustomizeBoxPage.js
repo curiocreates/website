@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { useLocation, useParams } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import { useNavigate } from 'react-router-dom';
-import treasureBox from '../assets/Treasure-chest-Box.jpg';
-import surpriseBox from '../assets/ultimate-surprise-box.jpg';
-import goldBox from '../assets/gold-premium-box.jpg';
-import customBox from '../assets/exclusive-custom-box.jpg';
-import enigmaBox from '../assets/premium-enigma-box.jpg';
+import treasureBox from '../assets/MysteryBoxes/Treasure-chest-Box.jpg';
+import surpriseBox from '../assets/MysteryBoxes/ultimate-surprise-box.jpg';
+import goldBox from '../assets/MysteryBoxes/gold-premium-box.jpg';
+import customBox from '../assets/MysteryBoxes/exclusive-custom-box.jpg';
+import enigmaBox from '../assets/MysteryBoxes/premium-enigma-box.jpg';
+
 
 // Define available boxes
 const boxes = [
