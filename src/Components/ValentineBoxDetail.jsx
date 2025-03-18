@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Thumbs } from "swiper/modules";
+import emailjs from "emailjs-com";
 
 // Import box images
 import LoveBoxHer from "../assets/Loveboxes/LoveBox-her.jpg";
@@ -17,6 +18,12 @@ import CharcoalSoap from "../assets/Soaps/Charcoal-Soap.JPG";
 import GoatmilkSoap from "../assets/Soaps/Goatmilk-Soap.JPG";
 import RedSandalSoap from "../assets/Soaps/Red-Sandal-Soap.JPG";
 import RoseSoap from "../assets/Soaps/Rose-Soap.JPG";
+
+import Redbox from "../assets/Loveboxes/LoveBox-her-Red.JPEG";
+import Brownbox from "../assets/Loveboxes/LoveBox-her-Brown.JPEG";
+import Biegebox from "../assets/Loveboxes/LoveBox-her-Biege.JPEG";
+import Bluebox from "../assets/Loveboxes/LoveBox-her-Blue.JPEG";
+import Pinkbox from "../assets/Loveboxes/LoveBox-her-Pink.JPEG";
 
 
 
@@ -96,11 +103,18 @@ const Title = styled.h2`
   color: #ffd700;
 `;
 
+const Title1 = styled.h2`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(128, 0, 128);
+`;
+
 const SubTitle = styled.h3`
   font-size: 1.5rem;
   color: white;
   margin-top: 1rem;
 `;
+
 
 const DescriptionList = styled.ul`
   font-size: 1.2rem;
@@ -178,21 +192,79 @@ const BuyButton = styled.a`
 `;
 
 
+const Select = styled.select`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+`;
+
+
+const CustomizationSection = styled.section`
+  background-color: white;
+  padding: 4rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.05);
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+`;
+
+const Label = styled.label`
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  margin: 1rem 0 0.5rem;
+  color: #333;
+  text-align: left;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+`;
+
+
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+`;
+
+
+
 const ValentineBoxDetail = () => {
   const { id } = useParams();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [personalizedNote, setPersonalizedNote] = useState("");
+  const [selectedTeddy, setSelectedTeddy] = useState("Red colour Teddy");
+  const [selectedSoap, setSelectedSoap] = useState("Rose Soap");
+  const [beltColor, setBeltColor] = useState("Black");
+  const [walletColor, setWalletColor] = useState("Brown");
+  const [braceletColor, setBraceletColor] = useState("Silver");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const products = {
     "love-her": {
       title: "Mystic Love Box - For Her",
       subTitle: "ITEMS IN THE BOX ARE:",
-      images: [LoveBoxHer, Mirrors1,Mirrors2, RoseSoap, GoatmilkSoap, RedSandalSoap,CharcoalSoap,],
+      images: [LoveBoxHer, Redbox,Brownbox,Biegebox,Bluebox,Pinkbox,Mirrors1,Mirrors2, RoseSoap, GoatmilkSoap, RedSandalSoap,CharcoalSoap,],
       description: [
-        "🌸 Two Premium floral Perfumes",
-        "✨ Round beautiful makeup mirror",
+        "🌸 A Premium Perfume",
+        "🍫 A Heart shape box with Hersheys Kisses chocolates",
+        "✨ Any one Round beautiful makeup mirror",
         "🛁 One Handmade natural soap",
         "🔑 A Beautiful keychain",
-        "✨ A leather Diary",
         "📒 A Chocolate notebook",
         "🧸 A Small teddy",
       ],
@@ -217,14 +289,35 @@ const ValentineBoxDetail = () => {
       buyLink: "/payment-Gateway-issue",
     },
   };
+    const handleProceed = () => {
+      if (!userName) {
+        alert("Please enter your name.");
+        return;
+      }
+      setIsSubmitting(true);
+      const formData = {
+        user_name: userName,
+        personalized_note: personalizedNote,
+        box_type: id === "love-her" ? "Mystic Love Box - For Her" : "Mystic Love Box - For Him",
+        ...(id === "love-her"
+          ? { teddy: selectedTeddy, soap: selectedSoap }
+          : { belt_color: beltColor, wallet_color: walletColor, bracelet_color: braceletColor }),
+      };
+  
 
-  const product = products[id];
-
-  if (!product) {
-    return <Container>Product not found!</Container>;
-  }
-
+    emailjs.send('service_66e2uo9', 'template_ndb777t', formData, 'b5F6NgNmYXKTreTna')
+    .then(() => {
+      window.location.href = products[id].buyLink;
+    })
+    .catch((error) => {
+      console.error('Error sending email:', error);
+      alert("Failed to send customization details. Please try again.");
+    })
+    .finally(() => setIsSubmitting(false));
+};
+  const product = products[id]
   return (
+
     <Container>
       <BackButton to="/valentine-boxes"> ← Back  </BackButton>
       <ProductSection>
@@ -249,7 +342,48 @@ const ValentineBoxDetail = () => {
         </ImageContainer>
 
         <DetailsContainer>
-          <Title>{product.title}</Title>
+      <Title>{product.title}</Title>
+      <CustomizationSection>
+       <Title1>{id === "love-her" ? " You can Customize Your Box Here" : " You can Customize Here"}</Title1>
+      <Label>Your Name:</Label>
+      <Input type="text"  placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)} required />
+      
+      {id === "love-her" ? (
+        <> 
+          <Label>Select a Teddy:</Label>
+          <Select value={selectedTeddy} onChange={(e) => setSelectedTeddy(e.target.value)}>
+            <option>Red colour Teddy</option>
+            <option>Blue colour Teddy</option>
+            <option>Brown colour Teddy</option>
+            <option>Yellow colour Teddy</option>
+            <option>Pink colour Teddy</option>
+            <option>Biege colour Teddy</option>
+          </Select>
+
+          <Label>Select a Handmade Soap:</Label>
+          <Select value={selectedSoap} onChange={(e) => setSelectedSoap(e.target.value)}>
+            <option>Rose Soap</option>
+            <option>Charcoal Soap</option>
+            <option>Goatmilk Soap</option>
+            <option>Red Sandal Soap</option>
+          </Select>
+        </>
+      ) : (
+        <>
+          <Label>Select Belt Color:</Label>
+          <Input type="text" value={beltColor} onChange={(e) => setBeltColor(e.target.value)} />
+          
+          <Label>Select Wallet Color:</Label>
+          <Input type="text" value={walletColor} onChange={(e) => setWalletColor(e.target.value)} />
+          
+          <Label>Select Bracelet Color:</Label>
+          <Input type="text" value={braceletColor} onChange={(e) => setBraceletColor(e.target.value)} />
+        </>
+      )}
+      
+      <Label>Add a Personalized Note (Optional):</Label>
+      <TextArea value={personalizedNote} onChange={(e) => setPersonalizedNote(e.target.value)} />
+          </CustomizationSection>
           <SubTitle>{product.subTitle}</SubTitle>
           <DescriptionList>
             {product.description.map((point, index) => (
@@ -261,8 +395,10 @@ const ValentineBoxDetail = () => {
           <PriceTag>
             <span className="original">{product.originalPrice}</span> {product.price}
           </PriceTag>
-          <BuyButton href={product.buyLink}>Buy Now</BuyButton>
+          <BuyButton  onClick={handleProceed} disabled={isSubmitting}>
+          {isSubmitting ? "Processing..." : "Confirm and Proceed"}</BuyButton>
         </DetailsContainer>
+        
       </ProductSection>
     </Container>
   );
