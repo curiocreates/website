@@ -11,7 +11,17 @@ import banner from "../assets/BasicImages/banner.jpg"
 import Gokufigure from "../assets/Actionfigures/Goku.JPEG";
 import Luffy from "../assets/Actionfigures/Luffy.JPEG";
 import LuffyHat from "../assets/Actionfigures/Luffy-Hat.JPEG";
-import Naruto from "../assets/Actionfigures/Naruto.JPEG"
+import Naruto from "../assets/Actionfigures/Naruto.JPEG";
+
+import Doraemon from "../assets/BobbleHeads/Doraemon.JPEG";
+import GokuBobbleHead from "../assets/BobbleHeads/Goku.JPEG";
+import Hermione from "../assets/BobbleHeads/Hermione.JPEG";
+import Jerry from "../assets/BobbleHeads/Jerry.JPEG";
+import Pikachu from "../assets/BobbleHeads/Pikachu.JPEG";
+import Shinchan from "../assets/BobbleHeads/Shinchan.JPEG";
+import ShinchanKiss from "../assets/BobbleHeads/Shinchan-Kiss.JPEG";
+import Spiderman from "../assets/BobbleHeads/Spiderman.JPEG";
+import Tom from "../assets/BobbleHeads/Tom.JPEG";
 
 
 import HarryPotterClock from "../assets/PocketWatches/HarryPotter-Clock.JPEG";
@@ -30,19 +40,21 @@ import UzumakiNaruto from "../assets/Keychains/Uzumaki-Naruto.JPEG";
 
 
 const products =[
-  { id: 1, name: "Naruto Uzumaki", price: 1000, category: "Action Figures", images: [Naruto], inStock: true },
-  { id: 2, name: "Goku", price: 800, category: "Action Figures", images: [Gokufigure], inStock: true },
-  { id: 3, name: "Luffy", price: 600, category: "Action Figures", images: [Luffy], inStock: true },
-  { id: 4, name: "Luffy with Hat", price: 600, category: "Action Figures", images: [LuffyHat], inStock: true },
+  { id: 1, name: "Naruto Uzumaki", price: 999, category: "Action Figures", images: [Naruto], inStock: true },
+  { id: 2, name: "Goku", price: 799, category: "Action Figures", images: [Gokufigure], inStock: true },
+  { id: 3, name: "Luffy", price: 599, category: "Action Figures", images: [Luffy], inStock: true },
+  { id: 4, name: "Luffy with Hat", price: 599, category: "Action Figures", images: [LuffyHat], inStock: true },
 
   
-  { id: 5, name: "Shinchan", price: 599, category: "Bobbleheads", images: [loading], inStock: true },
-  { id: 6, name: "Doraemon", price: 599, category: "Bobbleheads", images: [loading], inStock: true },
-  { id: 7, name: "Tom", price: 599, category: "Bobbleheads", images: [loading], inStock:true },
-  { id: 8, name: "Jerry", price: 599, category: "Bobbleheads", images: [loading], inStock:true },
-  { id: 9, name: "Hermonie", price: 599, category: "Bobbleheads", images: [loading], inStock:true },
-  { id: 10, name: "Naruto", price: 599, category: "Bobbleheads", images: [loading], inStock:true },
-  { id: 11, name: "Pikachu", price: 599, category: "Bobbleheads", images: [loading], inStock:true },
+  { id: 5, name: "Doraemon Bobblehead", price: 599, category: "Bobbleheads", images: [Doraemon], inStock: true },
+  { id: 6, name: "Goku Bobblehead", price: 599, category: "Bobbleheads", images: [GokuBobbleHead], inStock: true },
+  { id: 7, name: "Hermione Bobblehead", price: 599, category: "Bobbleheads", images: [Hermione], inStock: true },
+  { id: 8, name: "Jerry Bobblehead", price: 599, category: "Bobbleheads", images: [Jerry], inStock: true },
+  { id: 9, name: "Pikachu Bobblehead", price: 599, category: "Bobbleheads", images: [Pikachu], inStock: true },
+  { id: 10, name: "Shinchan Bobblehead", price: 599, category: "Bobbleheads", images: [Shinchan], inStock: true },
+  { id: 11, name: "Shinchan-Kiss Bobblehead", price: 599, category: "Bobbleheads", images: [ShinchanKiss], inStock: true },
+  { id: 29, name: "Spiderman Bobblehead", price: 599, category: "Bobbleheads", images: [Spiderman], inStock: true },
+  { id: 30, name: "Tom Bobblehead", price: 599, category: "Bobbleheads", images: [Tom], inStock: true },
 
 
 
@@ -54,19 +66,19 @@ const products =[
 
 
   { id: 16, name: "Itachi Kunai Weapon", price: 349, category: "Weapons", images: [ItachiKunaiWeapon], inStock: true },
-  { id: 17, name: "Double Face Kunai Weapon", price: 349, category: "Weapons", images: [DoubleFaceKunaiWeapon], inStock: true },
-  { id: 18, name: "Zoro's Wado Ichimonji", price: 1599, category: "Weapons", images: [loading], inStock: true },
-  { id: 19, name: "Zoro's Enma Sword", price: 1899, category: "Weapons", images: [loading], inStock: true },
-  { id: 20, name: "Eddard Stark's Ice Sword", price: 2499, category: "Weapons", images: [loading], inStock: true },
-  { id: 21, name: "Jon Snow's Longclaw", price: 2399, category: "Weapons", images: [loading], inStock: true },
-  { id: 22, name: "Arya Stark's Needle", price: 1599, category: "Weapons", images: [loading], inStock: true },
+  { id: 17, name: "Double Face Kunai Weapon", price: 249, category: "Weapons", images: [DoubleFaceKunaiWeapon], inStock: true },
+  { id: 18, name: "Zoro's Wado Ichimonji", price: 599, category: "Weapons", images: [loading], inStock: true },
+  { id: 19, name: "Zoro's Enma Sword", price: 299, category: "Weapons", images: [loading], inStock: true },
+  { id: 20, name: "Eddard Stark's Ice Sword", price: 499, category: "Weapons", images: [loading], inStock: true },
+  { id: 21, name: "Jon Snow's Longclaw", price: 399, category: "Weapons", images: [loading], inStock: true },
+  { id: 22, name: "Arya Stark's Needle", price: 599, category: "Weapons", images: [loading], inStock: true },
 
-  { id: 23, name: "Goku", price: 279, category: "Keychains", images: [Goku], inStock: true },
-  { id: 24, name: "Itachi Uchiha - Naruto", price: 279, category: "Keychains", images: [ItachiUchihaNaruto], inStock: true},
-  { id: 25, name: "Kakashi Hatake - Naruto", price: 279, category: "Keychains", images: [KakashiHatakeNaruto], inStock: true },
-  { id: 26, name: "Naruto Face Metal", price: 349, category: "Keychains", images: [NarutoFaceMetal], inStock: true },
-  { id: 27, name: "Harry Potter", price: 299, category: "Keychains", images: [HarryPotter], inStock: true },
-  { id: 28, name: "Uzumaki - Naruto", price: 299, category: "Keychains", images: [UzumakiNaruto], inStock: true }
+  { id: 23, name: "Goku Keychain", price: 279, category: "Keychains", images: [Goku], inStock: true },
+  { id: 24, name: "Itachi Uchiha - Naruto Keychain", price: 279, category: "Keychains", images: [ItachiUchihaNaruto], inStock: true},
+  { id: 25, name: "Kakashi Hatake - Naruto Keychain", price: 279, category: "Keychains", images: [KakashiHatakeNaruto], inStock: true },
+  { id: 26, name: "Naruto Face Metal Keychain", price: 349, category: "Keychains", images: [NarutoFaceMetal], inStock: true },
+  { id: 27, name: "Harry Potter Keychain", price: 299, category: "Keychains", images: [HarryPotter], inStock: true },
+  { id: 28, name: "Uzumaki - Naruto Keychain", price: 299, category: "Keychains", images: [UzumakiNaruto], inStock: true }
 ]
 
 
