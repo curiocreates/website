@@ -62,12 +62,34 @@ import HarryPotterClock from "../assets/PocketWatches/HarryPotter-Clock.JPEG";
 import TheGreatestDadClock from "../assets/PocketWatches/The-Greatest-Dad-Clock.JPEG";
 import TheGreatestMomClock from "../assets/PocketWatches/The-Greatest-Mom-Clock.JPEG";
 
-import loading from "../assets/BasicImages/loading image.jpg";
+// import loadingchr from "../assets/BasicImages/loading image.jpg";
 
 import basic from "../assets/Perfumes/Basic.JPEG";
 import Gold from "../assets/Perfumes/Gold.JPEG";
 import Premium from "../assets/Perfumes/Premium-1.JPEG";
 import Classic from "../assets/Perfumes/Premium-2.JPEG";
+
+import AstronautBlack from "../assets/Keychains/Astronaut-Black.JPEG";
+import BatmanBatmobile from "../assets/Keychains/Batman-Batmobile.JPEG";
+import BatmanCar from "../assets/Keychains/Batman-Car.JPEG";
+import Couple from "../assets/Keychains/Couple.JPEG";
+import CoupleWedding from "../assets/Keychains/Couple-Wedding.JPEG";
+import DoubleFaceKunaiWeapon from "../assets/Keychains/Double-Face-Kunai-Weapon.JPEG";
+import Goku from "../assets/Keychains/Goku.JPEG";
+import GreenCar from "../assets/Keychains/Green-car.JPEG";
+import HarryPotter from "../assets/Keychains/HarryPotter.JPEG";
+import ItachiKunaiWeapon from "../assets/Keychains/Itachi-Kunai-Weapon.JPEG";
+import ItachiUchihaNaruto from "../assets/Keychains/Itachi-Uchiha-Naruto.JPEG";
+import KakashiHatakeNaruto from "../assets/Keychains/Kakashi-Hatake-Naruto.JPEG";
+import NarutoFaceMetal from "../assets/Keychains/Naruto-Face-Metal.JPEG";
+import PrincessWhite from "../assets/Keychains/Princess-white.JPEG";
+import PrinceWhite from "../assets/Keychains/Prince-White.JPEG";
+import PubgAWMSniper from "../assets/Keychains/Pubg-AWM-Sniper.JPEG";
+import ShinchanBlue from "../assets/Keychains/Shinchan-Blue.JPEG";
+import ShinchanGreen from "../assets/Keychains/Shinchan-Green.JPEG";
+import ShinchanSpin from "../assets/Keychains/Shinchan-Spin.JPEG";
+import TankMetal from "../assets/Keychains/Tank-Metal.JPEG";
+import UzumakiNaruto from "../assets/Keychains/Uzumaki-Naruto.JPEG";
 
 
 
@@ -141,9 +163,27 @@ const products = [
   { id: 52, name: "Sweet Ember", price: 299, category: "Perfumes", description: "A warm, romantic blend of sugared notes and sandalwood.", images: [basic], inStock: true },
 
   // Keychains
-  { id: 53, name: "Crown Keychain", price: 199, category: "Keychains", images: [loading], inStock: true },
-  { id: 54, name: "Dragon Keychain", price: 249, category: "Keychains", images: [loading], inStock: false },
-  { id: 55, name: "Heart Keychain", price: 179, category: "Keychains", images: [loading], inStock: true },
+  { id: 53, name: "Astronaut Black", price: 299, category: "Keychains", images: [AstronautBlack], inStock: true },
+  { id: 54, name: "Batman Batmobile", price: 349, category: "Keychains", images: [BatmanBatmobile], inStock: true },
+  { id: 55, name: "Batman Car", price: 329, category: "Keychains", images: [BatmanCar], inStock: true },
+  { id: 56, name: "Couple", price: 399, category: "Keychains", images: [Couple], inStock: true },
+  { id: 57, name: "Couple Wedding", price: 429, category: "Keychains", images: [CoupleWedding], inStock: true },
+  { id: 58, name: "Double Face Kunai Weapon", price: 349, category: "Keychains", images: [DoubleFaceKunaiWeapon], inStock: true },
+  { id: 59, name: "Goku", price: 279, category: "Keychains", images: [Goku], inStock: true },
+  { id: 60, name: "Green Car", price: 319, category: "Keychains", images: [GreenCar], inStock: true},
+  { id: 61, name: "Harry Potter", price: 299, category: "Keychains", images: [HarryPotter], inStock: true },
+  { id: 62, name: "Itachi Kunai Weapon", price: 349, category: "Keychains", images: [ItachiKunaiWeapon], inStock: true },
+  { id: 63, name: "Itachi Uchiha - Naruto", price: 279, category: "Keychains", images: [ItachiUchihaNaruto], inStock: true},
+  { id: 64, name: "Kakashi Hatake - Naruto", price: 279, category: "Keychains", images: [KakashiHatakeNaruto], inStock: true },
+  { id: 65, name: "Naruto Face Metal", price: 349, category: "Keychains", images: [NarutoFaceMetal], inStock: true },
+  { id: 66, name: "Princess White", price: 349, category: "Keychains", images: [PrincessWhite], inStock: true },
+  { id: 67, name: "Prince White", price: 349, category: "Keychains", images: [PrinceWhite], inStock: true },
+  { id: 68, name: "Pubg AWM Sniper", price: 399, category: "Keychains", images: [PubgAWMSniper], inStock: true },
+  { id: 69, name: "Shinchan Blue", price: 249, category: "Keychains", images: [ShinchanBlue], inStock: true },
+  { id: 70, name: "Shinchan Green", price: 249, category: "Keychains", images: [ShinchanGreen], inStock: true},
+  { id: 71, name: "Shinchan Spin", price: 249, category: "Keychains", images: [ShinchanSpin], inStock: true },
+  { id: 72, name: "Tank Metal", price: 379, category: "Keychains", images: [TankMetal], inStock: true },
+  { id: 73, name: "Uzumaki - Naruto", price: 299, category: "Keychains", images: [UzumakiNaruto], inStock: true }
 
 ];
 

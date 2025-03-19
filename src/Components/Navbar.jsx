@@ -125,7 +125,8 @@ const Navbar = () => {
         <Link to="/" onClick={closeMenu}>Home</Link>
         <Link to="/Boxes" onClick={closeMenu}>Mystery-Boxes</Link>
         <Link to="/valentine-boxes" onClick={closeMenu}>Mystic Love-Boxes</Link>
-        <Link to="/MysticGiftingBox" onClick={closeMenu}>Build your own Boxes</Link>
+        <Link to="/MysticGiftingBox" onClick={closeMenu}>Build your own Gifting Box</Link>
+        <Link to="/AnimeLovers" onClick={closeMenu}>Build your own Anime Box</Link>
         <Link to="/Leather-Wallets" onClick={closeMenu}>Leather Wallet Crates</Link>
         <Link to="/about" onClick={closeMenu}>About Us</Link>
         <Link to="/Contact" onClick={closeMenu}>Contact Us</Link>

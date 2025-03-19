@@ -74,6 +74,7 @@ const Hero = () => {
         <Button href="/boxes">Our Mystery Boxes</Button>
         <Button href="valentine-boxes">Our Mystic Love Boxes🎁</Button>
         <Button href="/MysticGiftingBox">Build Your Own Gifting Box</Button>
+        <Button href="/AnimeLovers">Build Your Own Anime Box</Button>
         <Button href="/Leather-Wallets">Our Leather Wallet Crates</Button>
 
       </ButtonContainer>

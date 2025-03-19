@@ -271,6 +271,7 @@ const ValentineBoxDetail = () => {
       price: "₹999",
       originalPrice: "₹1500",
       buyLink: "/payment-Gateway-issue",
+      outOfStock: false,
     },
     "love-him": {
       title: "Mystic Love Box - For Him",
@@ -287,6 +288,7 @@ const ValentineBoxDetail = () => {
       price: "₹999",
       originalPrice: "₹1500",
       buyLink: "/payment-Gateway-issue",
+      outOfStock: true,
     },
   };
     const handleProceed = () => {
@@ -370,15 +372,30 @@ const ValentineBoxDetail = () => {
         </>
       ) : (
         <>
-          <Label>Select Belt Color:</Label>
-          <Input type="text" value={beltColor} onChange={(e) => setBeltColor(e.target.value)} />
-          
-          <Label>Select Wallet Color:</Label>
-          <Input type="text" value={walletColor} onChange={(e) => setWalletColor(e.target.value)} />
-          
-          <Label>Select Bracelet Color:</Label>
-          <Input type="text" value={braceletColor} onChange={(e) => setBraceletColor(e.target.value)} />
-        </>
+        <Label>Select Belt Color:</Label>
+        <Select value={beltColor} onChange={(e) => setBeltColor(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Black">Black</option>
+          <option value="Brown">Brown</option>
+          <option value="Tan">Tan</option>
+        </Select>
+      
+        <Label>Select Wallet Color:</Label>
+        <Select value={walletColor} onChange={(e) => setWalletColor(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Black">Black</option>
+          <option value="Brown">Brown</option>
+          <option value="Tan">Tan</option>
+        </Select>
+      
+        <Label>Select Bracelet Color:</Label>
+        <Select value={braceletColor} onChange={(e) => setBraceletColor(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Black">Black</option>
+          <option value="Brown">Brown</option>
+\        </Select>
+      </>
+      
       )}
       
       <Label>Add a Personalized Note (Optional):</Label>
@@ -390,13 +407,18 @@ const ValentineBoxDetail = () => {
               <li key={index}>{point}</li>
             ))}
           </DescriptionList>
-          <StockStatus>In Stock</StockStatus>
+          <StockStatus style={{ color: product.outOfStock ? "gold" : "lightgreen" }}>
+            {product.outOfStock ? "Out of Stock, Will be Available Soon...." : "In Stock"}
+          </StockStatus>
+
           <OfferTag>Limited Time Offer</OfferTag>
           <PriceTag>
             <span className="original">{product.originalPrice}</span> {product.price}
           </PriceTag>
-          <BuyButton  onClick={handleProceed} disabled={isSubmitting}>
-          {isSubmitting ? "Processing..." : "Confirm and Proceed"}</BuyButton>
+          <BuyButton onClick={handleProceed} disabled={product.outOfStock || isSubmitting} style={{ background: product.outOfStock ? "orange" : "gold" }}>
+          {product.outOfStock ? "Out of Stock " : isSubmitting ? "Processing..." : "Confirm and Proceed"}
+          </BuyButton>
+
         </DetailsContainer>
         
       </ProductSection>

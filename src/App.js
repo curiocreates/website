@@ -21,7 +21,7 @@ import PaymentIssueNotice from './Components/PaymentIssueNotice';
 import WalletCrateDetail from './Components/WalletCrateDetail';
 import WalletCrateSection from './Components/WalletCrateSection';
 
-
+import AnimeLovers from './Components/AnimeLovers';
 
 
 // Array of boxes with details
@@ -189,6 +189,8 @@ function App() {
           <Route path="/Leather-Wallets/:id" element={<WalletCrateDetail />} />
           <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
           <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice/>} />
+          <Route path="/AnimeLovers" element={<AnimeLovers/>}/>
+
 
 
 
