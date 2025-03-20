@@ -23,6 +23,14 @@ import ShinchanKiss from "../assets/BobbleHeads/Shinchan-Kiss.JPEG";
 import Spiderman from "../assets/BobbleHeads/Spiderman.JPEG";
 import Tom from "../assets/BobbleHeads/Tom.JPEG";
 
+import HarryPotterSet from "../assets/MiniActionFigures/HarryPotterSet.JPEG";
+import NarutoSet1 from "../assets/MiniActionFigures/NarutoSet1.JPEG";
+import NarutoSet2 from "../assets/MiniActionFigures/NarutoSet2.JPEG";
+import NarutoSet3 from "../assets/MiniActionFigures/NarutoSet3.JPEG";
+import NarutoSet4 from "../assets/MiniActionFigures/NarutoSet4.JPEG";
+import ShinchanSet1 from "../assets/MiniActionFigures/ShinchanSet1.JPEG";
+import ShinchanSet2 from "../assets/MiniActionFigures/ShinchanSet2.JPEG";
+
 
 import HarryPotterClock from "../assets/PocketWatches/HarryPotter-Clock.JPEG";
 
@@ -36,6 +44,16 @@ import KakashiHatakeNaruto from "../assets/Keychains/Kakashi-Hatake-Naruto.JPEG"
 import NarutoFaceMetal from "../assets/Keychains/Naruto-Face-Metal.JPEG";
 import Goku from "../assets/Keychains/Goku.JPEG";
 import UzumakiNaruto from "../assets/Keychains/Uzumaki-Naruto.JPEG";
+
+// import KaitanSword from "..assets/AnimeWeapons/KaitanSword.JPEG";
+import KusanagiSword from "../assets/AnimeWeapons/KusanagiSword.JPEG";
+import MedievalSword from "../assets/AnimeWeapons/MedievalSword.JPEG";
+import MerrimentKarambitBlue from "../assets/AnimeWeapons/MerrimentKarambitBlue.JPEG";
+import MerrimentKarambitRed from "../assets/AnimeWeapons/MerrimentKarambitRed.JPEG";
+import SpartanSentinelMetalSword from "../assets/AnimeWeapons/SpartanSentinelMetalSword.JPEG";
+// import SwordOfDestinyMetal from "../assets/AnimeWeapons/SwordOfDestiny.JPEG";
+import ZoroMiniKatana from "../assets/AnimeWeapons/ZoroMiniKatana.JPEG";
+
 
 
 
@@ -60,25 +78,34 @@ const products =[
 
 
   { id: 12, name: "Harry Potter Clock", price: 399, category: "Pocket Watches", images: [HarryPotterClock], inStock: true },
-  { id: 13, name: "Naruto Pocket Watch", price: 449, category: "Pocket Watches", images: [loading], inStock: true },
-  { id: 14, name: "One Piece Pocket Watch", price: 499, category: "Pocket Watches", images: [loading], inStock: true },
-  { id: 15, name: "Dragonball-Z Pocket Watch", price: 499, category: "Pocket Watches", images: [loading], inStock: true },
 
 
-  { id: 16, name: "Itachi Kunai Weapon", price: 349, category: "Weapons", images: [ItachiKunaiWeapon], inStock: true },
-  { id: 17, name: "Double Face Kunai Weapon", price: 249, category: "Weapons", images: [DoubleFaceKunaiWeapon], inStock: true },
-  { id: 18, name: "Zoro's Wado Ichimonji", price: 599, category: "Weapons", images: [loading], inStock: true },
-  { id: 19, name: "Zoro's Enma Sword", price: 299, category: "Weapons", images: [loading], inStock: true },
-  { id: 20, name: "Eddard Stark's Ice Sword", price: 499, category: "Weapons", images: [loading], inStock: true },
-  { id: 21, name: "Jon Snow's Longclaw", price: 399, category: "Weapons", images: [loading], inStock: true },
-  { id: 22, name: "Arya Stark's Needle", price: 599, category: "Weapons", images: [loading], inStock: true },
+
+  { id: 14, name: "Itachi Kunai Weapon", price: 349, category: "Anime Weapons", images: [ItachiKunaiWeapon], inStock: true },
+  { id: 15, name: "Double Face Kunai Weapon", price: 249, category: "Anime Weapons", images: [DoubleFaceKunaiWeapon], inStock: true },
+  // { id: 16, name: "Kaitan Sword - Metal", price: 899, category: "Anime Weapons", images: [KaitanSword], inStock: true },
+  { id: 17, name: "Kusanagi Sword", price: 799, category: "Anime Weapons", images: [KusanagiSword], inStock: true },
+  { id: 18, name: "Medieval Sword", price: 949, category: "Anime Weapons", images: [MedievalSword], inStock: true },
+  { id: 19, name: "Merriment Karambit - Blue", price: 699, category: "Anime Weapons", images: [MerrimentKarambitBlue], inStock: true },
+  { id: 20, name: "Merriment Karambit - Red", price: 699, category: "Anime Weapons", images: [MerrimentKarambitRed], inStock: true },
+  { id: 21, name: "Spartan Sentinel Metal Sword", price: 999, category: "Anime Weapons", images: [SpartanSentinelMetalSword], inStock: true },
+  // { id: 22, name: "Sword of Destiny - Metal", price: 979, category: "Anime Weapons", images: [SwordOfDestinyMetal], inStock: true },
+  { id: 13, name: "Zoro Mini Katana", price: 949, category: "Anime Weapons", images: [ZoroMiniKatana], inStock: true },
 
   { id: 23, name: "Goku Keychain", price: 279, category: "Keychains", images: [Goku], inStock: true },
   { id: 24, name: "Itachi Uchiha - Naruto Keychain", price: 279, category: "Keychains", images: [ItachiUchihaNaruto], inStock: true},
   { id: 25, name: "Kakashi Hatake - Naruto Keychain", price: 279, category: "Keychains", images: [KakashiHatakeNaruto], inStock: true },
   { id: 26, name: "Naruto Face Metal Keychain", price: 349, category: "Keychains", images: [NarutoFaceMetal], inStock: true },
   { id: 27, name: "Harry Potter Keychain", price: 299, category: "Keychains", images: [HarryPotter], inStock: true },
-  { id: 28, name: "Uzumaki - Naruto Keychain", price: 299, category: "Keychains", images: [UzumakiNaruto], inStock: true }
+  { id: 28, name: "Uzumaki - Naruto Keychain", price: 299, category: "Keychains", images: [UzumakiNaruto], inStock: true },
+
+  { id: 31, name: "Harry Potter Set", price: 899, category: "Merchandise Sets", images: [HarryPotterSet], inStock: true },
+  { id: 32, name: "Naruto Set 1", price: 699, category: "Merchandise Sets", images: [NarutoSet1], inStock: true },
+  { id: 33, name: "Naruto Set 2", price: 699, category: "Merchandise Sets", images: [NarutoSet2], inStock: true },
+  { id: 34, name: "Naruto Set 3", price: 699, category: "Merchandise Sets", images: [NarutoSet3], inStock: true },
+  { id: 35, name: "Naruto Set 4", price: 699, category: "Merchandise Sets", images: [NarutoSet4], inStock: true },
+  { id: 36, name: "Shinchan Set 1", price: 899, category: "Merchandise Sets", images: [ShinchanSet1], inStock: true },
+  { id: 37, name: "Shinchan Set 2", price: 899, category: "Merchandise Sets", images: [ShinchanSet2], inStock: true }
 ]
 
 
@@ -535,7 +562,7 @@ const AnimeLovers = () => {
     {/* Scrollable Filter Bar */}
     <FilterWrapper>
       <FilterBar>
-        {["All", "Action Figures","Bobbleheads","Keychains","Weapons","Pocket Watches"].map((category) => (
+        {["All", "Action Figures","Bobbleheads","Merchandise Sets","Anime Weapons","Keychains","Pocket Watches"].map((category) => (
           <FilterButton key={category} active={filter === category} onClick={() => setFilter(category)}>
             {category}
           </FilterButton>
