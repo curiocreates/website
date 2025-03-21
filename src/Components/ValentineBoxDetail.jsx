@@ -18,6 +18,8 @@ import CharcoalSoap from "../assets/Soaps/Charcoal-Soap.JPG";
 import GoatmilkSoap from "../assets/Soaps/Goatmilk-Soap.JPG";
 import RedSandalSoap from "../assets/Soaps/Red-Sandal-Soap.JPG";
 import RoseSoap from "../assets/Soaps/Rose-Soap.JPG";
+import FourSoaps from "../assets/Soaps/Four-Soaps.JPG";
+
 
 import Redbox from "../assets/Loveboxes/LoveBox-her-Red.JPEG";
 import Brownbox from "../assets/Loveboxes/LoveBox-her-Brown.JPEG";
@@ -258,7 +260,7 @@ const ValentineBoxDetail = () => {
     "love-her": {
       title: "Mystic Love Box - For Her",
       subTitle: "ITEMS IN THE BOX ARE:",
-      images: [LoveBoxHer, Redbox,Brownbox,Biegebox,Bluebox,Pinkbox,Mirrors1,Mirrors2, RoseSoap, GoatmilkSoap, RedSandalSoap,CharcoalSoap,],
+      images: [LoveBoxHer, Redbox,Brownbox,Biegebox,Bluebox,Pinkbox,Mirrors1,Mirrors2,FourSoaps, RoseSoap, GoatmilkSoap, RedSandalSoap,CharcoalSoap,],
       description: [
         "🌸 A Premium Perfume",
         "🍫 A Heart shape box with Hersheys Kisses chocolates",
@@ -268,7 +270,7 @@ const ValentineBoxDetail = () => {
         "📒 A Chocolate notebook",
         "🧸 A Small teddy",
       ],
-      price: "₹999",
+      price: "₹1099",
       originalPrice: "₹1500",
       buyLink: "/payment-Gateway-issue",
       outOfStock: false,

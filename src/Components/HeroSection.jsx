@@ -1,17 +1,19 @@
-// src/components/Hero.js
-import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import heroBg from '../assets/BasicImages/bg-2.jpg';
+import mystery from '../assets/icons/mystery.png';
+import love from '../assets/icons/love.png';
+import gift from '../assets/icons/gift.png';
+import anime from '../assets/icons/anime.png';
+import wallet from '../assets/icons/wallet.png';
 
 const HeroContainer = styled.section`
   background-image: url(${heroBg});
   background-size: cover;
   background-position: center;
-  
   height: 100vh;
   display: flex;
   flex-direction: column;
- 
   align-items: center;
   text-align: center;
   color: #FFD700;
@@ -23,62 +25,75 @@ const Heading = styled.h1`
   text-shadow: 3px 3px 8px rgba(75, 0, 130, 0.9);
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 0rem;
-
+  margin-bottom: 1rem;
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 `;
 
-const ButtonContainer = styled.div`
+const FilterBar = styled.div`
   display: flex;
-  gap: 1.5rem; /* Space between buttons */
-  margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  padding: 10px;
+  gap: 0.5rem;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.46);
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 
-const Button = styled.a`
-  background: linear-gradient(90deg, #40E0D0, #FFD700); /* Turquoise to Gold */
-  color: #4B0082; /* Royal Purple */
-  padding: 0.8rem 2rem;
-  text-decoration: none;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  font-weight: bold;
+const FilterItem = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
   border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  min-width: 200px; /* Ensures both buttons are the same width */
-  text-align: center;
-
+  transition: background 0.3s ease-in-out;
+  padding: 5px;
+  color: #FFD700; /* Gold text */
+  
   &:hover {
-    background: linear-gradient(90deg, #FFD700, #40E0D0); /* Reverse gradient */
-    box-shadow: 0px 6px 12px rgba(255, 215, 0, 0.6); /* Gold glow */
+    background: rgba(126, 63, 198, 0.71);
   }
 `;
 
+const FilterImage = styled.img`
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+`;
 
+const products = [
+  { name: 'Mystery Boxes', href: '/boxes', image: mystery },
+  { name: 'Love Boxes', href: '/valentine-boxes', image: love },
+  { name: 'Gifting Boxes', href: '/MysticGiftingBox', image: gift },
+  { name: 'Anime Boxes', href: '/AnimeLovers', image: anime },
+  { name: 'Wallet Crates', href: '/Leather-Wallets', image: wallet }
+];
 
 const Hero = () => {
-  return (
-    <HeroContainer id="home">
-      <Heading>Welcome to Curiocrates</Heading>
-      {/* <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading> */}
-      
-       {/* Properly using ButtonContainer here */}
-       <ButtonContainer>
-        <Button href="/boxes">Our Mystery Boxes</Button>
-        <Button href="valentine-boxes">Our Mystic Love Boxes🎁</Button>
-        <Button href="/MysticGiftingBox">Build Your Own Gifting Box</Button>
-        <Button href="/AnimeLovers">Build Your Own Anime Box</Button>
-        <Button href="/Leather-Wallets">Our Leather Wallet Crates</Button>
+  const navigate = useNavigate();
 
-      </ButtonContainer>
-    </HeroContainer>
+  return (
+    <>
+      <HeroContainer id="home">
+        <FilterBar>
+          {products.map((product, index) => (
+            <FilterItem key={index} onClick={() => navigate(product.href)}>
+              <FilterImage src={product.image} alt={product.name} />
+              <span>{product.name}</span>
+            </FilterItem>
+          ))}
+        </FilterBar>
+        <Heading>Welcome to Curiocrates</Heading>
+      </HeroContainer>
+
+    </>
   );
 };
 

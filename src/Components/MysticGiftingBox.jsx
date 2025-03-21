@@ -262,11 +262,9 @@ const Container = styled.div`
   }
 `;
 
-
-
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 0.25rem;
   left:0;
   right:0;
@@ -275,7 +273,7 @@ const Grid = styled.div`
   width: 100%; 
 
   @media (min-width: 601px) { 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for desktop */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for desktop */
   }
   
   @media (max-width: 600px) {
@@ -290,7 +288,7 @@ const Card = styled.div`
   text-align: center;
   transition: 0.3s;
   cursor: pointer;
-  width: 170px; /* Increased card size */
+  width: 200px; /* Increased card size */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -541,17 +539,43 @@ const FilterWrapper = styled.div`
   background: rgb(16, 16, 16); /* Prevents overlap */
 `;
 
+const OccasionGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+`;
+const GiftingBoxCard =styled.div`
+  background:rgb(58, 32, 72);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 250px; /* Increased card size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+`;
+
 
 
 
 
 const MysticGiftingBox = () => {
+  const [userName, setUserName] = useState("");
   const [selectedBox, setSelectedBox] = useState(false);
   const [selectedOccasion, setSelectedOccasion] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isViewBoxOpen, setIsViewBoxOpen] = useState(false);
   const [filter, setFilter] = useState("All");
   const [sortBy, setSortBy] = useState("");
+  const [isNamePopupOpen, setIsNamePopupOpen] = useState(false);
+  
 
   const handleSort = (option) => {
     setSortBy(option);
@@ -578,11 +602,19 @@ const MysticGiftingBox = () => {
   // const form = useRef();
 
   const sendEmail = (e) => {
-    e.preventDefault();
-    if (selectedItems.length === 0) return;
+    if (e && e.preventDefault) e.preventDefault(); // Prevent default if event exists
+    if (selectedItems.length === 0) {
+      alert("Please select at least 3 items.");
+      return;
+    }
+    if (!userName.trim()) {
+      setIsNamePopupOpen(true); // Open name popup if name is empty
+      return;
+    }
   
     const selectedProducts = selectedItems.map(item => `${item.name} - ₹${item.price}`).join(", ");
     const templateParams = {
+      user_name: userName, 
       occasion: selectedOccasion?.name || "None",
       selected_items: selectedProducts,
       total_price: 999,
@@ -619,6 +651,7 @@ const MysticGiftingBox = () => {
   const handleRemove = (id) => {
     setSelectedItems((prev) => prev.filter((item) => item.id !== id));
   };
+    const [isProcessing, setIsProcessing] = useState(false); // New state for button disable
   
   return (
     <Container>
@@ -632,12 +665,12 @@ const MysticGiftingBox = () => {
 
       {!selectedBox ? (
         <>
-          <h3>Select Your Gifting Box</h3>
-          <Card onClick={() => setSelectedBox(true)}>
+          <h2>Select Your Gifting Box</h2>
+          <GiftingBoxCard onClick={() => setSelectedBox(true)}>
           <Image src={boxImage} alt="Mystic Gifting Box" />
             <h3>Mystic Gifting Box @ ₹999</h3>
             <Button>Select</Button>
-          </Card>
+          </GiftingBoxCard>
         <StepsContainer>
         <p><strong>Step 1:</strong> Select Your Gifting Box.</p>
         <p><strong>Step 2:</strong> Select an Occasion Card.</p>
@@ -648,14 +681,14 @@ const MysticGiftingBox = () => {
       ) :!selectedOccasion ? (
         <>
           <h3>Select an Occasion Card to begin</h3>
-          <Grid>
+          <OccasionGrid>
             {occasionCards.map((occasion) => (
               <Card key={occasion.id} onClick={() => handleSelectOccasion(occasion)}>
                 <Image src={occasion.image} alt={occasion.name} />
                 <h3>{occasion.name}</h3>
               </Card>
             ))}
-          </Grid>
+          </OccasionGrid>
         </>
       ) : (
         <>
@@ -716,7 +749,11 @@ const MysticGiftingBox = () => {
       {/* <FinalPrice>Total ₹999</FinalPrice> */}
       <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
       <ViewBoxButton onClick={() => setIsViewBoxOpen(true)}>View Box</ViewBoxButton>
-      <BuyButton onClick={sendEmail}
+      <BuyButton  onClick={() => { 
+        if (!userName.trim()) {
+        setIsNamePopupOpen(true); // Open name popup
+        }   
+     }}
       style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Buy Now
       </BuyButton> 
       </div>
@@ -738,7 +775,7 @@ const MysticGiftingBox = () => {
             )}
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             <CloseButton onClick={() => setIsViewBoxOpen(false)}>Hide Box</CloseButton>
-             <BuyButton onClick={sendEmail}
+             <BuyButton onClick={() => setIsNamePopupOpen(true)}
               style={{ background: selectedItems.length === 5 ? "orange" : "white",}}disabled={selectedItems.length !== 5}> Buy Now
             </BuyButton> 
             </div>
@@ -746,6 +783,45 @@ const MysticGiftingBox = () => {
           </ModalContent>
         </ModalOverlay>
       )} 
+      {/* Name Input Popup */}
+      {isNamePopupOpen && (
+      <ModalOverlay>
+        <ModalContent>
+          <h2>Enter Your Name</h2>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            style={{
+              padding: "8px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+              width: "100%",
+              marginBottom: "10px",
+            }}
+          />
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+
+          <BuyButton 
+            onClick={() => { 
+          if (userName.trim()) {
+      setIsProcessing(true);
+      sendEmail();
+    } else {
+      alert("Please enter your name.");
+    }
+        }}
+        disabled={isProcessing} 
+        style={{ background: isProcessing ? "gray" : "orange" }}
+      >
+      {isProcessing ? "Processing..." : "Proceed to Buy"}
+    </BuyButton>
+
+          </div>
+        </ModalContent>
+      </ModalOverlay>
+      )}
       <Footer/>
       </>    
         

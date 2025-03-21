@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import loading from "../assets/BasicImages/loading image.jpg";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from 'react-router-dom';
 import Footer from "../Components/Footer"
@@ -45,13 +44,13 @@ import NarutoFaceMetal from "../assets/Keychains/Naruto-Face-Metal.JPEG";
 import Goku from "../assets/Keychains/Goku.JPEG";
 import UzumakiNaruto from "../assets/Keychains/Uzumaki-Naruto.JPEG";
 
-// import KaitanSword from "..assets/AnimeWeapons/KaitanSword.JPEG";
+import KaitanSword from "../assets/AnimeWeapons/KaitanSword.JPEG";
 import KusanagiSword from "../assets/AnimeWeapons/KusanagiSword.JPEG";
 import MedievalSword from "../assets/AnimeWeapons/MedievalSword.JPEG";
 import MerrimentKarambitBlue from "../assets/AnimeWeapons/MerrimentKarambitBlue.JPEG";
 import MerrimentKarambitRed from "../assets/AnimeWeapons/MerrimentKarambitRed.JPEG";
 import SpartanSentinelMetalSword from "../assets/AnimeWeapons/SpartanSentinelMetalSword.JPEG";
-// import SwordOfDestinyMetal from "../assets/AnimeWeapons/SwordOfDestiny.JPEG";
+import SwordOfDestiny from "../assets/AnimeWeapons/SwordOfDestiny.JPEG";
 import ZoroMiniKatana from "../assets/AnimeWeapons/ZoroMiniKatana.JPEG";
 
 
@@ -80,17 +79,17 @@ const products =[
   { id: 12, name: "Harry Potter Clock", price: 399, category: "Pocket Watches", images: [HarryPotterClock], inStock: true },
 
 
-
+  { id: 13, name: "Zoro Mini Katana", price: 949, category: "Anime Weapons", images: [ZoroMiniKatana], inStock: true },
   { id: 14, name: "Itachi Kunai Weapon", price: 349, category: "Anime Weapons", images: [ItachiKunaiWeapon], inStock: true },
   { id: 15, name: "Double Face Kunai Weapon", price: 249, category: "Anime Weapons", images: [DoubleFaceKunaiWeapon], inStock: true },
-  // { id: 16, name: "Kaitan Sword - Metal", price: 899, category: "Anime Weapons", images: [KaitanSword], inStock: true },
+  { id: 16, name: "Kaitan Sword - Metal", price: 899, category: "Anime Weapons", images: [KaitanSword], inStock: true },
   { id: 17, name: "Kusanagi Sword", price: 799, category: "Anime Weapons", images: [KusanagiSword], inStock: true },
   { id: 18, name: "Medieval Sword", price: 949, category: "Anime Weapons", images: [MedievalSword], inStock: true },
   { id: 19, name: "Merriment Karambit - Blue", price: 699, category: "Anime Weapons", images: [MerrimentKarambitBlue], inStock: true },
   { id: 20, name: "Merriment Karambit - Red", price: 699, category: "Anime Weapons", images: [MerrimentKarambitRed], inStock: true },
   { id: 21, name: "Spartan Sentinel Metal Sword", price: 999, category: "Anime Weapons", images: [SpartanSentinelMetalSword], inStock: true },
-  // { id: 22, name: "Sword of Destiny - Metal", price: 979, category: "Anime Weapons", images: [SwordOfDestinyMetal], inStock: true },
-  { id: 13, name: "Zoro Mini Katana", price: 949, category: "Anime Weapons", images: [ZoroMiniKatana], inStock: true },
+  { id: 22, name: "Sword of Destiny - Metal", price: 699, category: "Anime Weapons", images: [SwordOfDestiny], inStock: true },
+
 
   { id: 23, name: "Goku Keychain", price: 279, category: "Keychains", images: [Goku], inStock: true },
   { id: 24, name: "Itachi Uchiha - Naruto Keychain", price: 279, category: "Keychains", images: [ItachiUchihaNaruto], inStock: true},
@@ -522,7 +521,7 @@ const AnimeLovers = () => {
 
   const handleSelect = (product) => {
     if (selectedItems.some(item => item.category === product.category)) {
-      alert(`You can only select one product from the ${product.category} category. please select product from other category`);
+      alert(`You can only select one product from each category. please select product from other category`);
       return;
     }
 
@@ -627,7 +626,6 @@ const AnimeLovers = () => {
             )}
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             <CloseButton onClick={() => setIsViewBoxOpen(false)}>Hide Box</CloseButton>
-           
             <BuyButton 
             onClick={() => setIsNamePopupOpen(true)} // Only open the name popup
             style={{ background: selectedItems.length === 3 ? "orange" : "white" }}

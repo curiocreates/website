@@ -10,7 +10,6 @@ import loading from "../assets/BasicImages/loading image.jpg";
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 `;
 
@@ -95,7 +94,7 @@ const navigate = useNavigate();
       images: [LoveBoxHer, LoveBoxHer], // Multiple images for the slider
       title: "Mystic Love Box - For Her",
       desc: "A perfect surprise for her!",
-      discountedPrice: "₹999",
+      discountedPrice: "₹1099",
     },
     {
       id: "love-him",
