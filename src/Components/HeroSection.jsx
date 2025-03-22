@@ -25,14 +25,39 @@ const Heading = styled.h1`
   text-shadow: 3px 3px 8px rgba(75, 0, 130, 0.9);
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  animation: fadeInScale 1.2s ease-in-out;
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
 `;
 
+const FilterImage = styled.img`
+  width: 100px;
+  height: 80px;
+  object-fit: contain;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 60px;
+  }
+`;
+
 const FilterBar = styled.div`
   display: flex;
+  justify-content: space-between;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
@@ -42,6 +67,11 @@ const FilterBar = styled.div`
   background: rgba(0, 0, 0, 0.46);
   &::-webkit-scrollbar {
     display: none;
+     height: 5px; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background: orange; /* Customize scrollbar color */
+    border-radius: 10px;
   }
 `;
 
@@ -61,12 +91,50 @@ const FilterItem = styled.button`
     background: rgba(126, 63, 198, 0.71);
   }
 `;
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1.5rem; /* Space between buttons */
+  margin-top: 1rem;
 
-const FilterImage = styled.img`
-  width: 120px;
-  height: 80px;
-  object-fit: contain;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
+
+const Button = styled.a`
+  display: inline-block;
+  background: #FFD700; /* Gold */
+  color: #4B0082; /* Royal Purple */
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 30px;
+  border: 2px solid #40E0D0; /* Turquoise Border */
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Cinzel Decorative', serif;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
+  text-decoration: none;
+
+  &:hover {
+    background: linear-gradient(90deg, #FFD700, #40E0D0); /* Gold to Turquoise */
+    color: #FFFFFF; /* White Text on Hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(64, 224, 208, 0.8); /* Turquoise Glow */
+  }
+`;
+const Subheading =styled.h3`
+ padding-top: 10px;
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: 3px 3px 8px rgba(75, 0, 130, 0.9);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInScale 1.2s ease-in-out;
+  
+`;
+
+
 
 const products = [
   { name: 'Mystery Boxes', href: '/boxes', image: mystery },
@@ -91,6 +159,11 @@ const Hero = () => {
           ))}
         </FilterBar>
         <Heading>Welcome to Curiocrates</Heading>
+        <Subheading>Discover the most mysterious and luxurious boxes ever!</Subheading> 
+         {/* Properly using ButtonContainer here */}
+       <ButtonContainer>
+        <Button href="/Explorenow">Explore Now</Button>
+      </ButtonContainer>
       </HeroContainer>
 
     </>

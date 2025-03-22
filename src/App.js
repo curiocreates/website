@@ -22,6 +22,7 @@ import WalletCrateDetail from './Components/WalletCrateDetail';
 import WalletCrateSection from './Components/WalletCrateSection';
 
 import AnimeLovers from './Components/AnimeLovers';
+import Explorenow from './Components/Explorenow';
 
 
 // Array of boxes with details
@@ -156,6 +157,7 @@ function App() {
               {/* Show QuickQuiz if enabled */}
               {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />}
                 <Hero />
+                <Explorenow/>
                 {/* <BoxesSection boxes={boxes} /> Pass the boxes array to BoxesSection */}
                 <Footer />
               </>
@@ -190,6 +192,8 @@ function App() {
           <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
           <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice/>} />
           <Route path="/AnimeLovers" element={<AnimeLovers/>}/>
+          <Route path="/Explorenow" element={<Explorenow/>}/>
+
 
 
 

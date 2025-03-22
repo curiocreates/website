@@ -2,7 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
-import Footer from "../Components/Footer"
+import Footer from "../Components/Footer";
 
 import birthday from "../assets/occasions/birthday.jpg";
 import anniversary from "../assets/occasions/Anniversary.jpg";
