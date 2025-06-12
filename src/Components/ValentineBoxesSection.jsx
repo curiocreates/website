@@ -8,9 +8,24 @@ import loading from "../assets/BasicImages/loading image.jpg";
 
 
 
+
 const Grid = styled.div`
   display: grid;
   gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Center horizontally */
+  justify-items: center; /* Optional: ensure items are centered in each grid cell */
+
+  grid-template-columns: 1fr;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Box = styled.div`
@@ -30,11 +45,15 @@ const Box = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
   text-align: center;
   background-color: #4B0082;
-  position: relative; /* Ensures BackButton is positioned relative to this */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
 
 const BackButton = styled.button`
   background: #f0a500;
@@ -101,7 +120,7 @@ const navigate = useNavigate();
       images: [LoveBoxHim, LoveBoxHim,loading],
       title: "Mystic Love Box - For Him",
       desc: "A mystery-filled surprise for him!",
-      discountedPrice: "₹999",
+      discountedPrice: "₹1099",
     },
   ];
 

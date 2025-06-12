@@ -287,7 +287,7 @@ const ValentineBoxDetail = () => {
         "✨ Stylish keychain",
         "✨ Leather bracelet",
       ],
-      price: "₹999",
+      price: "₹1099",
       originalPrice: "₹1500",
       buyLink: "/payment-Gateway-issue",
       outOfStock: true,

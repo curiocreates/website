@@ -74,14 +74,14 @@ const AboutUs = () => {
 
       <Title>💖 Love Collection</Title>
       <List>
-        <ListItem><strong>Love Box for Him - ₹999:</strong> Romantic, thoughtful surprises curated just for him.</ListItem>
-        <ListItem><strong>Love Box for Her - ₹999:</strong> Delightful, charming gifts she'll adore.</ListItem>
+        <ListItem><strong>Love Box for Him - ₹1099:</strong> Romantic, thoughtful surprises curated just for him.</ListItem>
+        <ListItem><strong>Love Box for Her - ₹1099:</strong> Delightful, charming gifts she'll adore.</ListItem>
       </List>
 
       <Title>🎨 Personalized Gifting</Title>
       <List>
         <ListItem><strong>Build Your Own Gifting Box - ₹999:</strong> Personalize your box with handpicked items.</ListItem>
-        <ListItem><strong>Build Your Own Anime Box - ₹999:</strong> Customize with anime merch tailored to your taste.</ListItem>
+        <ListItem><strong>Build Your Own Anime Box - ₹1499:</strong> Customize with anime merch tailored to your taste.</ListItem>
       </List>
 
       <Title>👛 Wallet Crates</Title>

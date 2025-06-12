@@ -40,7 +40,7 @@ const NavLinks = styled.div`
   a {
     text-decoration: none;
     color: #FFD700;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 
     &:hover {
@@ -54,13 +54,13 @@ const NavLinks = styled.div`
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: #4B0082;
+    background-color:rgb(0, 0, 0);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 
     a {
-      font-size: 1rem;
+      font-size: 1.1rem;
       padding: 10px 0;
     }
   }
@@ -94,6 +94,7 @@ const Hamburger = styled.div`
   @media (max-width: 768px) {
     display: flex;
   }
+    
 `;
 
 // Navbar Component
@@ -120,7 +121,7 @@ const Navbar = () => {
         <span></span>
       </Hamburger>
       <NavLinks isOpen={menuOpen}>
-        <Link to="/" onClick={closeMenu}>Home</Link>
+        {/* <Link to="/" onClick={closeMenu}>Home</Link> */}
         <Link to="/Boxes" onClick={closeMenu}>Mystery-Boxes</Link>
         <Link to="/valentine-boxes" onClick={closeMenu}>Mystic Love-Boxes</Link>
         <Link to="/MysticGiftingBox" onClick={closeMenu}>Build your own Gifting Box</Link>

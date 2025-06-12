@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/HeroSection';
 import BoxesSection from './Components/BoxCard';
 import Footer from './Components/Footer';
+import QuickLinks from './Components/Quicklinks';
 import AboutUs from './Components/AboutUs'; // About Us page component
 import QuickQuiz from './Components/QuickQuiz'; // Quick Quiz component
 import TermsAndConditions from './Components/TermsAndConditions'; // Terms and Conditions page
@@ -124,19 +125,16 @@ const boxes = [
 ];
 
 function App() {
-  // State to control quiz visibility
   const [showQuiz, setShowQuiz] = useState(true);
 
-  // Set timer to automatically close quiz after 5 minutes
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowQuiz(false);
     }, 200000); // 5 minutes
 
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
-  // Function to close quiz manually
   const closeQuiz = () => {
     setShowQuiz(false);
   };
@@ -144,28 +142,22 @@ function App() {
   return (
     <Router>
       <AppContainer>
-        {/* Navbar always visible */}
         <Navbar />
 
-        {/* Define Routes */}
+
         <Routes>
-          {/* Home Page */}
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <>
-              {/* Show QuickQuiz if enabled */}
-              {/* {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />} */}
+                {/* {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />} */}
                 <Hero />
-                <Explorenow/>
-                {/* <BoxesSection boxes={boxes} /> Pass the boxes array to BoxesSection */}
+                <Explorenow />
+                {/* <BoxesSection boxes={boxes} /> */}
                 <Footer />
               </>
-            } 
+            }
           />
-          
-          
-          {/* Other routes */}
           <Route path="/Home" element={<Hero />} />
           <Route path="/Contact" element={<Footer />} />
           <Route path="/Curiocrates" element={<Hero />} />
@@ -174,35 +166,28 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/refunds" element={<RefundPolicy />} />
-          {/* Payment Success Page */}
           <Route path="/payment-success" element={<PaymentSuccess />} />
-          {/* Privacy Policy Page */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
-          {/* Shipping and Exchange Policy Page */}
           <Route path="/shipping-and-exchange" element={<ShippingAndExchange />} />
           <Route path="/customize/:index" element={<CustomizeBoxPage />} />
-
-          {/* Dynamic AboutBox page for each box */}
           <Route path="/about-box/:title" element={<AboutBox boxes={boxes} />} />
           <Route path="/valentine-boxes" element={<ValentineBoxesSection />} />
           <Route path="/valentine-box/:id" element={<ValentineBoxDetail />} />
           <Route path="/Leather-Wallets" element={<WalletCrateSection />} />
           <Route path="/Leather-Wallets/:id" element={<WalletCrateDetail />} />
-          <Route path="/MysticGiftingBox" element={<MysticGiftingBox/>}/>
-          <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice/>} />
-          <Route path="/AnimeLovers" element={<AnimeLovers/>}/>
-          <Route path="/Explorenow" element={<Explorenow/>}/>
-
-
-
-
-
-
+          <Route path="/MysticGiftingBox" element={<MysticGiftingBox />} />
+          <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice />} />
+          <Route path="/AnimeLovers" element={<AnimeLovers />} />
+          <Route path="/Explorenow" element={<Explorenow />} />
         </Routes>
       </AppContainer>
+      
+        {/* QuickLinks appears on every page */}
+        <QuickLinks />
     </Router>
+    
   );
 }
+
 
 export default App;
