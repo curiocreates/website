@@ -155,7 +155,7 @@ function App() {
             element={
               <>
               {/* Show QuickQuiz if enabled */}
-              {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />}
+              {/* {showQuiz && <QuickQuiz closeQuiz={closeQuiz} />} */}
                 <Hero />
                 <Explorenow/>
                 {/* <BoxesSection boxes={boxes} /> Pass the boxes array to BoxesSection */}

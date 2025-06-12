@@ -34,6 +34,7 @@ const Logo = styled.h1`
 
 const NavLinks = styled.div`
   display: flex;
+  align-items: center;
   gap: 20px;
 
   a {
@@ -107,10 +108,7 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  // if (location.pathname === "/MysticGiftingBox") {
-  //   return null;
-  // }
-
+ 
   return (
     <Nav>
       <Logo>
