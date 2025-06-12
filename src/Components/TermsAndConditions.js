@@ -64,7 +64,7 @@ const TermsAndConditions = () => {
       
       <SectionTitle>8. Contact Us</SectionTitle>
       <Paragraph><strong>Legal Entity Name:</strong> RAGHAVENDRA PALAPARTHI</Paragraph>
-      <Paragraph><strong>Registered Address:</strong> 6-72/A, Annojiguda, Hyderabad, Telangana, PIN: 500088</Paragraph>
+      <Paragraph><strong>Registered Address:</strong> 6-72/1, Annojiguda, K.V.Rangareddy district, Hyderabad, Telangana, PIN: 500088</Paragraph>
       <Paragraph><strong>Email:</strong> curiocratescustomization@gmail.com</Paragraph>
       <Paragraph><strong>Phone:</strong> 8328413800</Paragraph>
     </TermsContainer>

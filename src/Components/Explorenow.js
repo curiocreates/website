@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import mystery from "../assets/BasicImages/Mystery-Gifting-box.jpg";
-import love from "../assets/BasicImages/Mystery-Gifting-box.jpg";
-import gift from "../assets/BasicImages/Mystery-Gifting-box.jpg";
-import anime from "../assets/BasicImages/Mystery-Gifting-box.jpg";
-import wallet from "../assets/BasicImages/Mystery-Gifting-box.jpg";
+import love from "../assets/Loveboxes/LoveBox-her-Red.JPEG";
+import gift from "../assets/BasicImages/Mystery-Gifting-box-1.JPG";
+import anime from "../assets/OurBoxes/Anime-Box-2.jpg";
+import wallet from "../assets/Wallets/TommyHilfiger.JPG";
 
 const ProductContainer = styled.section`
   padding: 40px 20px;

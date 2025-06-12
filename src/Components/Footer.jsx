@@ -128,7 +128,7 @@ const Footer = () => {
       <ContactSection>
       <h4>Contact Us</h4>
        <FooterText>Merchant Name: Raghavendra Palaparthi</FooterText>
-       <FooterText>Registered Address: 6-72/A, Annojiguda, Hyderabad, Telangana, PIN: 500088</FooterText>
+       <FooterText>Registered Address: 6-72/1, Indhira nagar first lane, Annojiguda,K.V. Rangareddy district, Hyderabad, Telangana,PIN: 500088</FooterText>
        {/* <FooterText>Operational Address: 6-72/A, Annojiguda, Hyderabad, Telangana, PIN: 500088</FooterText> */}
        <FooterText>Telephone No: <a href="tel:8328413800">8328413800</a></FooterText>
        <FooterText>E-Mail: <a href="mailto:curiocratescustomization@gmail.com">curiocratescustomization@gmail.com</a></FooterText>

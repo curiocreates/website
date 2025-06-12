@@ -30,7 +30,7 @@ const ShippingAndExchange = () => {
       <Title>Shipping and Exchange Policy</Title>
 
       <SectionTitle>1. Shipping Policy</SectionTitle>
-      <Paragraph>We offer delivery across India. Shipping costs are calculated at checkout based on your delivery location. Orders are shipped within 2-5 business days. Delivery times may vary depending on your location and the courier service.</Paragraph>
+      <Paragraph>We offer delivery across India. Shipping costs are calculated at checkout based on your delivery location. Orders are shipped within 3-5 business days. Delivery times may vary depending on your location and the courier service.</Paragraph>
 
       <SectionTitle>2. Order Tracking</SectionTitle>
       <Paragraph>Once your order has been dispatched, you will receive an email with a tracking number and a link to track your package.</Paragraph>

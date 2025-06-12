@@ -49,7 +49,7 @@ const ImageContainer = styled.div`
   margin-top: 30px;
   max-width: 100%;
   height: 300px;
-  background-color:#40E0D0;
+  background-color: #40E0D0;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -63,20 +63,37 @@ const AboutUs = () => {
         Welcome to <Highlight>Curiocrates</Highlight>, where we bring fun, surprises, and creativity together! We specialize in <strong>premium mystery boxes</strong>, filled with exciting and unique products that are sure to put a smile on your face. Each box contains surprises worth much more than what you pay, making every unboxing a thrilling experience!
       </Description>
 
-      <Title>🎁 Our Mystery Boxes:</Title>
+      <Title>🎁 Signature Mystery Boxes</Title>
       <List>
-        <ListItem><strong>Classic Treasure Chest Box - ₹299:</strong>Explore hidden surprises and cool treasures.</ListItem>
+        <ListItem><strong>Classic Treasure Chest Box - ₹299:</strong> Explore hidden surprises and cool treasures.</ListItem>
         <ListItem><strong>Ultimate Surprise Box - ₹499:</strong> Enjoy the excitement of unexpected goodies.</ListItem>
         <ListItem><strong>Gold Premium Box - ₹999:</strong> Feel special with luxurious surprises inside.</ListItem>
         <ListItem><strong>Exclusive Custom Box - ₹1499:</strong> A box designed just for you, with your favorite items!</ListItem>
         <ListItem><strong>Premium Enigma Box - ₹2999:</strong> The ultimate box, packed with extraordinary items you won’t find anywhere else.</ListItem>
       </List>
 
+      <Title>💖 Love Collection</Title>
+      <List>
+        <ListItem><strong>Love Box for Him - ₹999:</strong> Romantic, thoughtful surprises curated just for him.</ListItem>
+        <ListItem><strong>Love Box for Her - ₹999:</strong> Delightful, charming gifts she'll adore.</ListItem>
+      </List>
+
+      <Title>🎨 Personalized Gifting</Title>
+      <List>
+        <ListItem><strong>Build Your Own Gifting Box - ₹999:</strong> Personalize your box with handpicked items.</ListItem>
+        <ListItem><strong>Build Your Own Anime Box - ₹999:</strong> Customize with anime merch tailored to your taste.</ListItem>
+      </List>
+
+      <Title>👛 Wallet Crates</Title>
+      <List>
+        <ListItem><strong>Wallet Crates - ₹599:</strong> Sleek and stylish wallets packed in a premium crate.</ListItem>
+      </List>
+
       <Description>
         At <Highlight>Curiocrates</Highlight>, we believe that the joy of opening a mystery box is a treasure on its own. Every box is carefully put together to spark your curiosity and make you smile. Whether you're treating yourself or gifting someone, our boxes bring endless fun and unforgettable moments.
       </Description>
 
-      <Title>🕵️‍♂️ Carefully Curated Surprises:</Title>
+      <Title>🕵️‍♂️ Carefully Curated Surprises</Title>
       <Description>
         Our team picks the best products to include in every box, from everyday items to rare treasures. Every product is chosen to make your experience exciting and leave you wanting more!
       </Description>
