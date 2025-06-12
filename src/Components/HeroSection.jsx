@@ -217,7 +217,7 @@ const Hero = () => {
     <WhatsAppButton
     onClick={() => {
     const message = "Hey! I'm interested in your mystery boxes on Curiocrates.";
-    const phone = "918328413800";
+    const phone = "918143567802";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     }}
