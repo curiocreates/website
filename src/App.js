@@ -25,6 +25,8 @@ import WalletCrateSection from './Components/WalletCrateSection';
 import AnimeLovers from './Components/AnimeLovers';
 import Explorenow from './Components/Explorenow';
 
+import WhatsAppButton from './Components/WhatAppButton';
+
 
 // Array of boxes with details
 const boxes = [
@@ -183,6 +185,7 @@ function App() {
       </AppContainer>
       
         {/* QuickLinks appears on every page */}
+        <WhatsAppButton />
         <QuickLinks />
     </Router>
     

@@ -137,54 +137,6 @@ const Subheading =styled.h3`
   
 `;
 
-const WhatsAppButton = styled.div`
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1000;
-
-  .icon-container {
-    background-color: #25D366;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    i {
-      color: white;
-      font-size: 28px;
-    }
-  }
-
-  .label {
-    margin-top: 5px;
-    font-size: 0.85rem;
-    color: #ffffff;
-    background-color: #4CAF50;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-family: 'Cinzel Decorative', cursive;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    white-space: nowrap;
-  }
-`;
-
-
-
-
-
 const products = [
   { name: 'Mystery Boxes', href: '/boxes', image: mystery },
   { name: 'Love Boxes', href: '/valentine-boxes', image: love },
@@ -213,20 +165,6 @@ const Hero = () => {
        <ButtonContainer>
         <Button href="/Explorenow">Explore Now</Button>
       </ButtonContainer>
-
-    <WhatsAppButton
-    onClick={() => {
-    const message = "Hey! I'm interested in your mystery boxes on Curiocrates.";
-    const phone = "918143567802";
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-    }}
-    >
-    <div className="icon-container">
-    <i className="fab fa-whatsapp"></i>
-    </div>
-    <div className="label">Chat with us</div>
-    </WhatsAppButton>
 
     </HeroContainer>
 
