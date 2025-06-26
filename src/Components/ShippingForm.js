@@ -1,14 +1,46 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import emailjs from "emailjs-com";
+
+import enigmaBox from '../assets/MysteryBoxes/premium-enigma-box.jpg';
+
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+  }
+`;
 
 const FormContainer = styled.div`
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   padding: 2rem;
-  background-color: #4B0082;
-  color: #FFD700;
-  text-align: center;
-  border-radius: 8px;
-  margin: 2rem auto;
-  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const ImageContainer = styled.div`
+  flex: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Image = styled.img`
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
 `;
 
 const Form = styled.form`
@@ -16,42 +48,56 @@ const Form = styled.form`
   flex-direction: column;
   gap: 1rem;
 
+  label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+        color: black;
+
+  }
+
   input,
   select {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 2px solid #FFD700;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #4B0082;
-    color: #FFD700;
     outline: none;
 
     &:focus {
-      border-color: #40E0D0;
+      border-color: #007185;
     }
   }
 
   button {
-    padding: 0.8rem 1.5rem;
-    background-color: #40E0D0;
-    color: #4B0082;
+    padding: 0.8rem;
     font-size: 1rem;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    color: #111;
     cursor: pointer;
-    transition: 0.3s;
+    border-radius: 5px;
 
     &:hover {
-      background-color: #FFD700;
-      color: #4B0082;
+      background-color: #e2b33c;
     }
   }
 `;
+const Row = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 
 const ErrorMessage = styled.p`
-  color: #ff5555;
-  font-size: 0.9rem;
+  color: #b00020;
+  font-size: 0.85rem;
+  margin: 0;
 `;
 
 const ShippingForm = () => {
@@ -69,141 +115,161 @@ const ShippingForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Validate the form
   const validate = () => {
     const newErrors = {};
-    const mobileRegex = /^[6-9]\d{9}$/; // Mobile number must start with 6-9 and be 10 digits
-    const pincodeRegex = /^\d{6}$/; // Pincode must be exactly 6 digits
+    const mobileRegex = /^[6-9]\d{9}$/;
+    const pincodeRegex = /^\d{6}$/;
 
     if (!formData.name) newErrors.name = "Name is required.";
     if (!mobileRegex.test(formData.mobile))
-      newErrors.mobile = "Enter a valid 10-digit mobile number.";
+      newErrors.mobile = "Valid 10-digit number required.";
     if (!formData.email) newErrors.email = "Email is required.";
     if (!formData.address) newErrors.address = "Address is required.";
     if (!pincodeRegex.test(formData.pincode))
-      newErrors.pincode = "Enter a valid 6-digit pincode.";
+      newErrors.pincode = "6-digit pincode required.";
     if (!formData.city) newErrors.city = "City is required.";
     if (!formData.state) newErrors.state = "State is required.";
 
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
-      console.log("Form Data Submitted:", formData);
-      alert("Shipping details submitted successfully!");
-      // Reset form
-      setFormData({
-        name: "",
-        mobile: "",
-        email: "",
-        address: "",
-        locality: "",
-        landmark: "",
-        pincode: "",
-        city: "",
-        state: "",
-      });
-      setErrors({});
+      return;
     }
+
+    emailjs
+      .send("service_quff5rq", "template_k0t9cge", formData, "FAukxrpq7mLi1q4MK")
+      .then(() => {
+        alert("Shipping details submitted successfully!");
+        setFormData({
+          name: "",
+          mobile: "",
+          email: "",
+          address: "",
+          locality: "",
+          landmark: "",
+          pincode: "",
+          city: "",
+          state: "",
+        });
+        setErrors({});
+      })
+      .catch((error) => {
+        alert("Failed to send details. Please try again.");
+        console.error("EmailJS Error:", error);
+      });
   };
 
   return (
-    <FormContainer>
-      <h2>Shipping Address</h2>
-      <Form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+    <Wrapper>
+      <FormContainer>
+        <h2>Shipping Address</h2>
+        <Form onSubmit={handleSubmit}>
+  <Row>
+    <div style={{ flex: 1 }}>
+      <label>Full Name</label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+      />
+      {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+    </div>
 
-        <input
-          type="tel"
-          name="mobile"
-          placeholder="+91 Enter mobile number"
-          value={formData.mobile}
-          onChange={handleChange}
-        />
-        {errors.mobile && <ErrorMessage>{errors.mobile}</ErrorMessage>}
+    <div style={{ flex: 1 }}>
+      <label>Mobile Number</label>
+      <input
+        type="tel"
+        name="mobile"
+        value={formData.mobile}
+        onChange={handleChange}
+      />
+      {errors.mobile && <ErrorMessage>{errors.mobile}</ErrorMessage>}
+    </div>
+  </Row>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email address"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+  <label>Email</label>
+  <input
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+  />
+  {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
 
-        <input
-          type="text"
-          name="address"
-          placeholder="Flat / House No, Building, Colony"
-          value={formData.address}
-          onChange={handleChange}
-        />
-        {errors.address && <ErrorMessage>{errors.address}</ErrorMessage>}
+  <label>Flat / House / Building</label>
+  <input
+    type="text"
+    name="address"
+    value={formData.address}
+    onChange={handleChange}
+  />
+  {errors.address && <ErrorMessage>{errors.address}</ErrorMessage>}
 
-        <input
-          type="text"
-          name="locality"
-          placeholder="Locality / Area (optional)"
-          value={formData.locality}
-          onChange={handleChange}
-        />
+  <label>Locality (optional)</label>
+  <input
+    type="text"
+    name="locality"
+    value={formData.locality}
+    onChange={handleChange}
+  />
+  <Row>
+  <label>Landmark (optional)</label>
+  <input
+    type="text"
+    name="landmark"
+    value={formData.landmark}
+    onChange={handleChange}
+  />
+      <div style={{ flex: 1 }}>
+      <label>state</label>
+      <input
+        type="text"
+        name="State"
+        value={formData.city}
+        onChange={handleChange}
+      />
+      {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
+    </div>
+    </Row>
+  <Row>
+    <div style={{ flex: 1 }}>
+      <label>Pincode</label>
+      <input
+        type="text"
+        name="pincode"
+        value={formData.pincode}
+        onChange={handleChange}
+      />
+      {errors.pincode && <ErrorMessage>{errors.pincode}</ErrorMessage>}
+    </div>
 
-        <input
-          type="text"
-          name="landmark"
-          placeholder="Landmark (optional)"
-          value={formData.landmark}
-          onChange={handleChange}
-        />
+    <div style={{ flex: 1 }}>
+      <label>City</label>
+      <input
+        type="text"
+        name="city"
+        value={formData.city}
+        onChange={handleChange}
+      />
+      {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
+    </div>
+  </Row>
+  {errors.state && <ErrorMessage>{errors.state}</ErrorMessage>}
 
-        <input
-          type="text"
-          name="pincode"
-          placeholder="Enter pincode"
-          value={formData.pincode}
-          onChange={handleChange}
-        />
-        {errors.pincode && <ErrorMessage>{errors.pincode}</ErrorMessage>}
-
-        <input
-          type="text"
-          name="city"
-          placeholder="Enter city"
-          value={formData.city}
-          onChange={handleChange}
-        />
-        {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
-
-        <select name="state" value={formData.state} onChange={handleChange}>
-          <option value="">Select state</option>
-          <option value="Andhra Pradesh">Andhra Pradesh</option>
-          <option value="Karnataka">Karnataka</option>
-          <option value="Maharashtra">Maharashtra</option>
-          {/* Add other states */}
-        </select>
-        {errors.state && <ErrorMessage>{errors.state}</ErrorMessage>}
-
-        <button type="submit">Submit</button>
-      </Form>
-    </FormContainer>
+  <button type="submit">Submit</button>
+</Form>
+      </FormContainer>
+    </Wrapper>
   );
 };
 

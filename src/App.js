@@ -26,6 +26,7 @@ import AnimeLovers from './Components/AnimeLovers';
 import Explorenow from './Components/Explorenow';
 
 import WhatsAppButton from './Components/WhatAppButton';
+import ShippingForm from './Components/ShippingForm';
 
 
 // Array of boxes with details
@@ -181,6 +182,7 @@ function App() {
           <Route path="/payment-Gateway-issue" element={<PaymentIssueNotice />} />
           <Route path="/AnimeLovers" element={<AnimeLovers />} />
           <Route path="/Explorenow" element={<Explorenow />} />
+          <Route path="/Deliverydetails" element={<ShippingForm/>} />
         </Routes>
       </AppContainer>
       
